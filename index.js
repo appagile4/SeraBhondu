@@ -29,7 +29,7 @@ const httpServer = http.createServer(app);
 // Initialize Real-time Socket.IO Server
 initSocket(httpServer);
 
-// Allowed origins for CORS (KhojoBangla Frontend)
+// Allowed origins for CORS (Serabondhu Frontend)
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
@@ -59,7 +59,7 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
     status: "online",
-    message: "KhojoBangla API Backend & Real-time Socket.IO Server running smoothly 🚀",
+    message: "Serabondhu API Backend & Real-time Socket.IO Server running smoothly 🚀",
     timestamp: new Date().toISOString(),
   });
 });
@@ -94,7 +94,7 @@ const PORT = process.env.PORT || 5000;
 
 httpServer.listen(PORT, () => {
   console.log(`=======================================================`);
-  console.log(` 🚀 KhojoBangla Backend & Socket.IO running on port ${PORT}`);
+  console.log(` 🚀 Serabondhu Backend & Socket.IO running on port ${PORT}`);
   console.log(` Health Check: http://localhost:${PORT}/api/health`);
   console.log(` Advertisements: http://localhost:${PORT}/api/advertisements`);
   console.log(` Admin Portal: http://localhost:${PORT}/api/admin`);

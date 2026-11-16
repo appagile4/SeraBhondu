@@ -58,7 +58,7 @@ otpSchema.methods.isExpired = function () {
 
 // Static method to produce a secure SHA-256 hash of an OTP code
 otpSchema.statics.hashOtp = function (rawOtp) {
-  const salt = process.env.JWT_SECRET || "khojobangla_classifieds_bangladesh_jwt_secret_token_2026_key";
+  const salt = process.env.JWT_SECRET || "serabondhu_classifieds_bangladesh_jwt_secret_token_2026_key";
   return crypto.createHash("sha256").update(rawOtp.toString().trim() + salt).digest("hex");
 };
 

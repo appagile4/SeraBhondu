@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 const API_URL = "http://localhost:5000/api";
 const SOCKET_URL = "http://localhost:5000";
-const JWT_SECRET = process.env.JWT_SECRET || "KhojoBangla_classifieds_nepal_jwt_secret_token_2026_key";
+const JWT_SECRET = process.env.JWT_SECRET || "Serabondhu_classifieds_nepal_jwt_secret_token_2026_key";
 
 async function loginUser(email, password) {
   const res = await fetch(`${API_URL}/auth/login`, {
@@ -24,8 +24,8 @@ async function runTestSuite() {
   console.log("==================================================================");
 
   // Auth setup
-  const buyer = await loginUser("aarav.shrestha@khojobangla.com", "UserPassword123!");
-  const seller = await loginUser("pooja.adhikari@khojobangla.com", "UserPassword123!");
+  const buyer = await loginUser("aarav.shrestha@serabondhu.net", "UserPassword123!");
+  const seller = await loginUser("pooja.adhikari@serabondhu.net", "UserPassword123!");
   console.log(`✓ Buyer authenticated: ${buyer.user.name} (${buyer.user._id})`);
   console.log(`✓ Seller authenticated: ${seller.user.name} (${seller.user._id})`);
 
@@ -139,7 +139,7 @@ async function runTestSuite() {
   // TEST 5 & 8: Online Presence & Multi-Device Support
   console.log("\n--- TEST 5 & 8: Presence Tracking & Multi-Device Sessions ---");
   // Authenticate Admin (a real MongoDB user with zero active chat browser tabs)
-  const admin = await loginUser("admin@khojobangla.com", "Admin@KhojoBangla2026!");
+  const admin = await loginUser("admin@serabondhu.net", "Admin@Serabondhu2026!");
   const adminUserId = admin.user._id;
 
   // Session 1 connects

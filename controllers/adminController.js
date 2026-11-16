@@ -10,7 +10,7 @@ import { getIO } from "../config/socket.js";
 const generateToken = (userId) => {
   return jwt.sign(
     { id: userId },
-    process.env.JWT_SECRET || "khojobangla_classifieds_bangladesh_jwt_secret_token_2026_key",
+    process.env.JWT_SECRET || "serabondhu_classifieds_bangladesh_jwt_secret_token_2026_key",
     { expiresIn: process.env.JWT_EXPIRES_IN || "7d" }
   );
 };
@@ -175,7 +175,7 @@ export const getAdminAdvertisements = async (req, res) => {
 };
 
 /**
- * @desc    Approve an advertisement (Makes it publicly visible across KhojoBangla)
+ * @desc    Approve an advertisement (Makes it publicly visible across Serabondhu)
  * @route   PUT /api/admin/advertisements/:id/approve
  * @access  Private (Superadmin)
  */
@@ -219,7 +219,7 @@ export const approveAdvertisement = async (req, res) => {
         recipient: ad.seller._id,
         type: "ad_approved",
         title: "Advertisement Approved! 🎉",
-        message: `Congratulations! Your advertisement "${ad.title}" has been approved and is now live on KhojoBangla.`,
+        message: `Congratulations! Your advertisement "${ad.title}" has been approved and is now live on Serabondhu.`,
         relatedAdvertisement: ad._id,
       });
 

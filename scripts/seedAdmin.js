@@ -6,14 +6,14 @@ dotenv.config();
 
 export const ensureAdminExists = async () => {
   try {
-    const adminEmail = process.env.SUPERADMIN_EMAIL || "admin@khojobangla.com";
-    const adminPassword = process.env.SUPERADMIN_PASSWORD || "Admin@KhojoBangla2026!";
+    const adminEmail = process.env.SUPERADMIN_EMAIL || "admin@serabondhu.net";
+    const adminPassword = process.env.SUPERADMIN_PASSWORD || "Admin@Serabondhu2026!";
 
     let admin = await User.findOne({ email: adminEmail });
 
     if (!admin) {
       admin = await User.create({
-        name: "KhojoBangla Superadmin",
+        name: "Serabondhu Superadmin",
         email: adminEmail,
         password: adminPassword,
         phone: "+880 1700 000000",
@@ -21,7 +21,7 @@ export const ensureAdminExists = async () => {
         isVerified: true,
         city: "Dhaka",
         avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-        about: "Official Superadmin account of KhojoBangla Marketplace.",
+        about: "Official Superadmin account of Serabondhu Marketplace.",
       });
       console.log(`✅ Default Superadmin created: ${adminEmail} (password: ${adminPassword})`);
     } else {

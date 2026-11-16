@@ -12,7 +12,7 @@ cloudinary.config({
 /**
  * Upload buffer directly to Cloudinary
  */
-export const uploadToCloudinary = (fileBuffer, folder = "khojobangla_users") => {
+export const uploadToCloudinary = (fileBuffer, folder = "serabondhu_users") => {
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {

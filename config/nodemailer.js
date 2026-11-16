@@ -16,18 +16,18 @@ const transporter = nodemailer.createTransport({
  */
 export const sendOtpEmail = async (email, otp, name = "User") => {
   const mailOptions = {
-    from: `"KhojoBangla" <${process.env.EMAIL_USER}>`,
+    from: `"Serabondhu" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: `Your KhojoBangla Verification Code: ${otp}`,
+    subject: `Your Serabondhu Verification Code: ${otp}`,
     html: `
       <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 580px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #013819 0%, #014923 100%); padding: 32px 24px; text-align: center; color: #ffffff;">
           <h1 style="margin: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.5px;">
-            Khojo<span style="color: #E30613;">Bangla</span><span style="font-size: 14px; font-weight: 400; opacity: 0.85;">.com</span>
+            Sera<span style="color: #E30613;">bondhu</span><span style="font-size: 14px; font-weight: 400; opacity: 0.85;">.net</span>
           </h1>
           <p style="margin: 6px 0 0; font-size: 12px; color: #e8f5e9; font-weight: 500;">
-            Bangladesh's Trusted Online Marketplace • কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়
+            Bangladesh's Trusted Online Marketplace • সেরাবন্ধু — কিনুন • বিক্রি করুন • খুঁজুন
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export const sendOtpEmail = async (email, otp, name = "User") => {
             Verify Your Email Address
           </h2>
           <p style="margin: 0 0 24px; color: #475569; font-size: 14px; line-height: 1.6;">
-            Welcome <strong>${name}</strong>! Use the One-Time Password (OTP) below to complete your authentication on KhojoBangla.
+            Welcome <strong>${name}</strong>! Use the One-Time Password (OTP) below to complete your authentication on Serabondhu.
           </p>
 
           <!-- OTP Code Display Box -->
@@ -60,8 +60,8 @@ export const sendOtpEmail = async (email, otp, name = "User") => {
 
         <!-- Footer -->
         <div style="background-color: #f1f5f9; padding: 18px 24px; text-align: center; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b;">
-          © ${new Date().getFullYear()} KhojoBangla. Dhaka, Bangladesh.<br />
-          Need assistance? Contact our team at <a href="mailto:support@khojobangla.com" style="color: #014923; text-decoration: none; font-weight: 600;">support@khojobangla.com</a>
+          © ${new Date().getFullYear()} Serabondhu. Dhaka, Bangladesh.<br />
+          Need assistance? Contact our team at <a href="mailto:support@serabondhu.net" style="color: #014923; text-decoration: none; font-weight: 600;">support@serabondhu.net</a>
         </div>
       </div>
     `,

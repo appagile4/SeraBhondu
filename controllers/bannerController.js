@@ -7,9 +7,9 @@ import cloudinary from "../config/cloudinary.js";
  */
 const DEFAULT_BANNERS = [
   {
-    title: "KhojoBangla — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
+    title: "Serabondhu — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
     subtitle: "Discover great deals, buy & sell anything, and find what you need across Dhaka & all of Bangladesh!",
-    imageUrl: "/khojobangla-hero-banner.jpg",
+    imageUrl: "/serabondhu-hero-banner.jpg",
     linkUrl: "/search",
     order: 1,
     isActive: true,
@@ -113,7 +113,7 @@ export const createBanner = async (req, res) => {
 
     // If an image file was uploaded via multer, upload buffer to Cloudinary
     if (req.file) {
-      const uploadResult = await uploadToCloudinary(req.file.buffer, "khojobangla_banners");
+      const uploadResult = await uploadToCloudinary(req.file.buffer, "serabondhu_banners");
       finalImageUrl = uploadResult.secure_url;
       finalImagePublicId = uploadResult.public_id;
     }
@@ -175,7 +175,7 @@ export const updateBanner = async (req, res) => {
         } catch {}
       }
 
-      const uploadResult = await uploadToCloudinary(req.file.buffer, "khojobangla_banners");
+      const uploadResult = await uploadToCloudinary(req.file.buffer, "serabondhu_banners");
       banner.imageUrl = uploadResult.secure_url;
       banner.imagePublicId = uploadResult.public_id;
     } else if (imageUrl) {

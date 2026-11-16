@@ -17,12 +17,12 @@ async function loginUser(email, password) {
 }
 
 async function runRealtimeChatTest() {
-  console.log("=== Testing KhojoBangla Real-time Socket.IO Chat System ===");
+  console.log("=== Testing Serabondhu Real-time Socket.IO Chat System ===");
 
   // 1. Log in Buyer (Aarav) and Seller (Pooja)
   console.log("\n1. Logging in buyer (Aarav) and seller (Pooja)...");
-  const buyer = await loginUser("aarav.shrestha@khojobangla.com", "UserPassword123!");
-  const seller = await loginUser("pooja.adhikari@khojobangla.com", "UserPassword123!");
+  const buyer = await loginUser("aarav.shrestha@serabondhu.net", "UserPassword123!");
+  const seller = await loginUser("pooja.adhikari@serabondhu.net", "UserPassword123!");
   console.log(`Buyer logged in: ${buyer.user.name} (${buyer.user._id})`);
   console.log(`Seller logged in: ${seller.user.name} (${seller.user._id})`);
 

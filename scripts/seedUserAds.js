@@ -10,8 +10,8 @@ async function seedUserAds() {
   await connectDB();
   console.log("Connected to MongoDB.");
 
-  const aarav = await User.findOne({ email: "aarav.shrestha@khojobangla.com" });
-  const pooja = await User.findOne({ email: "pooja.adhikari@khojobangla.com" });
+  const aarav = await User.findOne({ email: "aarav.shrestha@serabondhu.net" });
+  const pooja = await User.findOne({ email: "pooja.adhikari@serabondhu.net" });
 
   if (!aarav || !pooja) {
     console.error("Users not found, please run seedTwoUsers.js first.");

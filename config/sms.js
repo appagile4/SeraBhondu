@@ -7,10 +7,10 @@ dotenv.config();
  */
 export const sendOtpSms = async (phone, otp) => {
   const cleanPhone = phone.trim();
-  const message = `Your KhojoBangla verification code is: ${otp}. Valid for 5 minutes. Do not share this OTP with anyone.`;
+  const message = `Your Serabondhu verification code is: ${otp}. Valid for 5 minutes. Do not share this OTP with anyone.`;
 
   console.log(`\n======================================================`);
-  console.log(`📱 [KhojoBangla SMS Gateway] OUTBOUND SMS DISPATCH`);
+  console.log(`📱 [Serabondhu SMS Gateway] OUTBOUND SMS DISPATCH`);
   console.log(`Recipient Phone : ${cleanPhone}`);
   console.log(`Verification OTP: ${otp}`);
   console.log(`Message Body    : ${message}`);
@@ -24,7 +24,7 @@ export const sendOtpSms = async (phone, otp) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           token: process.env.SPARROW_SMS_TOKEN,
-          from: process.env.SPARROW_SMS_FROM || "KhojoBangla",
+          from: process.env.SPARROW_SMS_FROM || "Serabondhu",
           to: cleanPhone.replace(/^\+880|^\+977/, ""),
           text: message,
         }),

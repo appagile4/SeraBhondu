@@ -13,7 +13,7 @@ export const uploadImage = async (req, res) => {
       });
     }
 
-    const folder = req.body.folder || "khojobangla_users";
+    const folder = req.body.folder || "serabondhu_users";
     const result = await uploadToCloudinary(req.file.buffer, folder);
 
     res.status(200).json({
@@ -47,7 +47,7 @@ export const uploadMultiple = async (req, res) => {
       });
     }
 
-    const folder = req.body.folder || "khojobangla_advertisements";
+    const folder = req.body.folder || "serabondhu_advertisements";
     const uploadPromises = req.files.map((file) =>
       uploadToCloudinary(file.buffer, folder)
     );

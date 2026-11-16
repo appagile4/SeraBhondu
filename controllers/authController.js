@@ -7,7 +7,7 @@ import { sendOtpSms } from "../config/sms.js";
 import { uploadToCloudinary } from "../config/cloudinary.js";
 
 // JWT Secret & Expiry
-const JWT_SECRET = process.env.JWT_SECRET || "khojobangla_classifieds_bangladesh_jwt_secret_token_2026_key";
+const JWT_SECRET = process.env.JWT_SECRET || "serabondhu_classifieds_bangladesh_jwt_secret_token_2026_key";
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "7d";
 
 // Generate JWT Token
@@ -203,7 +203,7 @@ export const googleAuth = async (req, res) => {
       user,
       201,
       res,
-      "Account created and authenticated with Google! Welcome to KhojoBangla."
+      "Account created and authenticated with Google! Welcome to Serabondhu."
     );
   } catch (error) {
     console.error("Google Auth Controller Error:", error);
@@ -384,7 +384,7 @@ export const verifyEmailOtp = async (req, res) => {
         existingUser,
         200,
         res,
-        "Email verified successfully! Welcome back to KhojoBangla."
+        "Email verified successfully! Welcome back to Serabondhu."
       );
     }
 
@@ -478,7 +478,7 @@ export const setEmailPassword = async (req, res) => {
       newUser,
       201,
       res,
-      "Account registered successfully! Welcome to KhojoBangla."
+      "Account registered successfully! Welcome to Serabondhu."
     );
   } catch (error) {
     console.error("Set Email Password Error:", error);
@@ -649,7 +649,7 @@ export const verifyPhoneOtp = async (req, res) => {
         user,
         200,
         res,
-        "Phone verified! Welcome back to KhojoBangla."
+        "Phone verified! Welcome back to Serabondhu."
       );
     }
 
@@ -668,7 +668,7 @@ export const verifyPhoneOtp = async (req, res) => {
       user,
       201,
       res,
-      "Account created and verified with phone number! Welcome to KhojoBangla."
+      "Account created and verified with phone number! Welcome to Serabondhu."
     );
   } catch (error) {
     console.error("Verify Phone OTP Error:", error);
@@ -831,7 +831,7 @@ export const verifyOtp = async (req, res) => {
     await Otp.deleteMany({ identifier: cleanEmail });
     await Otp.deleteMany({ email: cleanEmail });
 
-    sendTokenResponse(user, 200, res, "Email verified successfully! Welcome to KhojoBangla.");
+    sendTokenResponse(user, 200, res, "Email verified successfully! Welcome to Serabondhu.");
   } catch (error) {
     console.error("Verify OTP Error:", error);
     res.status(500).json({
@@ -957,7 +957,7 @@ export const login = async (req, res) => {
       });
     }
 
-    sendTokenResponse(user, 200, res, "Welcome back to KhojoBangla!");
+    sendTokenResponse(user, 200, res, "Welcome back to Serabondhu!");
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({
@@ -1068,7 +1068,7 @@ export const uploadAvatar = async (req, res) => {
       });
     }
 
-    const result = await uploadToCloudinary(req.file.buffer, "KhojoBangla_avatars");
+    const result = await uploadToCloudinary(req.file.buffer, "Serabondhu_avatars");
 
     const user = await User.findById(req.user.id);
     if (!user) {

@@ -1,7 +1,7 @@
 {
-  "name": "khojobangla-backend",
+  "name": "serabondhu-backend",
   "version": "1.0.0",
-  "description": "KhojoBangla Classifieds Marketplace API Backend with Real-time Socket.IO, OTP and Google OAuth Authentication",
+  "description": "Serabondhu Classifieds Marketplace API Backend with Real-time Socket.IO, OTP and Google OAuth Authentication",
   "main": "index.js",
   "type": "module",
   "scripts": {

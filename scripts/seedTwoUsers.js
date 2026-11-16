@@ -9,7 +9,7 @@ dotenv.config();
 const usersToSeed = [
   {
     name: "Rafiqul Islam",
-    email: "rafiqul.islam@khojobangla.com",
+    email: "rafiqul.islam@serabondhu.net",
     password: "UserPassword123!",
     phone: "+880 1819 876543",
     city: "Dhaka",
@@ -22,7 +22,7 @@ const usersToSeed = [
   },
   {
     name: "Nusrat Jahan",
-    email: "nusrat.jahan@khojobangla.com",
+    email: "nusrat.jahan@serabondhu.net",
     password: "UserPassword123!",
     phone: "+880 1918 765432",
     city: "Chattogram",
@@ -80,13 +80,13 @@ async function seed() {
     console.log("\n================================================");
     console.log("SEEDED 2 USERS SUCCESSFULLY IN MONGODB ATLAS:");
     console.log("1. Rafiqul Islam");
-    console.log("   Email:    rafiqul.islam@khojobangla.com");
+    console.log("   Email:    rafiqul.islam@serabondhu.net");
     console.log("   Password: UserPassword123!");
     console.log("   City:     Dhaka");
     console.log("   Phone:    +880 1819 876543");
     console.log("");
     console.log("2. Nusrat Jahan");
-    console.log("   Email:    nusrat.jahan@khojobangla.com");
+    console.log("   Email:    nusrat.jahan@serabondhu.net");
     console.log("   Password: UserPassword123!");
     console.log("   City:     Chattogram");
     console.log("   Phone:    +880 1918 765432");

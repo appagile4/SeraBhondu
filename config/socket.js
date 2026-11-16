@@ -54,7 +54,7 @@ export const initSocket = (httpServer) => {
       const cleanToken = token.replace("Bearer ", "").trim();
       const decoded = jwt.verify(
         cleanToken,
-        process.env.JWT_SECRET || "khojobangla_classifieds_bangladesh_jwt_secret_token_2026_key"
+        process.env.JWT_SECRET || "serabondhu_classifieds_bangladesh_jwt_secret_token_2026_key"
       );
       const user = await User.findById(decoded.id).select("-password");
       return user;

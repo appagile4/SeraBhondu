@@ -38,22 +38,22 @@ function request(options, body = null) {
 }
 
 async function runTest() {
-  console.log("=== KhojoBangla FULL WORKFLOW & REJECTION/RESUBMIT VERIFICATION ===");
+  console.log("=== Serabondhu FULL WORKFLOW & REJECTION/RESUBMIT VERIFICATION ===");
 
   // 1. Superadmin Login
   console.log("\n1. Testing Superadmin Login (/api/admin/login)...");
   const adminRes = await request(
     { path: "/api/admin/login", method: "POST" },
-    { email: "admin@khojobangla.com", password: "Admin@KhojoBangla2026!" }
+    { email: "admin@serabondhu.net", password: "Admin@Serabondhu2026!" }
   );
   const adminToken = adminRes.data.token;
   console.log("✓ Superadmin token acquired.");
 
   // 2. User Login
-  console.log("\n2. Logging in as Seller (seller.vikram@khojobangla.com)...");
+  console.log("\n2. Logging in as Seller (seller.vikram@serabondhu.net)...");
   const userRes = await request(
     { path: "/api/auth/login", method: "POST" },
-    { email: "seller.vikram@khojobangla.com", password: "SellerPassword123!" }
+    { email: "seller.vikram@serabondhu.net", password: "SellerPassword123!" }
   );
   const userToken = userRes.data.token;
   console.log("✓ Seller token acquired.");

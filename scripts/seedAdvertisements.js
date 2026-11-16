@@ -10,11 +10,11 @@ const seed = async () => {
   await connectDB();
 
   // 1. Create or find sample seller
-  let seller = await User.findOne({ email: "seller.tanvir@khojobangla.com" });
+  let seller = await User.findOne({ email: "seller.tanvir@serabondhu.net" });
   if (!seller) {
     seller = await User.create({
       name: "Tanvir Ahmed",
-      email: "seller.tanvir@khojobangla.com",
+      email: "seller.tanvir@serabondhu.net",
       password: "SellerPassword123!",
       phone: "+880 1712 345678",
       city: "Dhaka",

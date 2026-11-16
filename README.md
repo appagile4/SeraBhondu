@@ -5,7 +5,7 @@ RESTful API and Real-Time WebSocket backend for the **SeraBhondu** classifieds m
 ## Tech Stack
 - **Runtime**: Node.js (ES Modules)
 - **Framework**: Express.js
-- **Database**: MongoDB Atlas via Mongoose (`khojo_Bangla`)
+- **Database**: MongoDB Atlas via Mongoose (`serabondhu`)
 - **Authentication**: JWT (JSON Web Tokens) with HTTP-only cookies, Google OAuth 2.0, Phone SMS OTP, and Email OTP
 - **Email Service**: Nodemailer (Gmail SMTP) for 60-second expiring OTP verification
 - **Media Storage**: Cloudinary CDN for user profile avatars and listing images

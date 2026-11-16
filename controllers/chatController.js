@@ -639,7 +639,7 @@ export const uploadChatAttachment = async (req, res) => {
       });
     }
 
-    const result = await uploadToCloudinary(req.file.buffer, "khojobangla_chat_attachments");
+    const result = await uploadToCloudinary(req.file.buffer, "serabondhu_chat_attachments");
 
     res.status(200).json({
       success: true,
