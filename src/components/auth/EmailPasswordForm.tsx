@@ -117,7 +117,7 @@ export const EmailPasswordForm: React.FC<EmailPasswordFormProps> = ({
           Create your password
         </h2>
         <p className="text-sm text-slate-500 mt-1">
-          Welcome to KhojoBangla! Choose a secure password to complete your account for{" "}
+          Welcome to Serabondhu! Choose a secure password to complete your account for{" "}
           <strong className="text-slate-800 font-medium">{email}</strong>.
         </p>
       </div>

@@ -17,9 +17,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us — KhojoBangla | Buy • Sell • Find in Bangladesh",
+  title: "About Us — Serabondhu | Buy • Sell • Find in Bangladesh",
   description:
-    "Learn about KhojoBangla, Bangladesh's modern online classified marketplace. Discover our mission, community values, and how we are empowering millions across Dhaka, Chattogram, and all 8 divisions.",
+    "Learn about Serabondhu, Bangladesh's modern online classified marketplace. Discover our mission, community values, and how we are empowering millions across Dhaka, Chattogram, and all 8 divisions.",
 };
 
 const STATS = [
@@ -86,7 +86,7 @@ export default function AboutPage() {
           Home
         </Link>
         <span>/</span>
-        <span className="text-slate-900 font-semibold">About KhojoBangla</span>
+        <span className="text-slate-900 font-semibold">About Serabondhu</span>
       </nav>
 
       {/* Hero Banner */}
@@ -104,7 +104,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-            KhojoBangla (<strong>khojobangla.com</strong>) was born out of a simple observation: buying and selling pre-owned goods in Bangladesh should be safe, effortless, and 100% free. Whether you are upgrading your smartphone in Chattogram, selling a family car in Dhaka, or searching for an apartment in Lalitpur, KhojoBangla brings trustworthy local buyers and sellers together.
+            Serabondhu (<strong>serabondhu.net</strong>) was born out of a simple observation: buying and selling pre-owned goods in Bangladesh should be safe, effortless, and 100% free. Whether you are upgrading your smartphone in Chattogram, selling a family car in Dhaka, or searching for an apartment in Lalitpur, Serabondhu brings trustworthy local buyers and sellers together.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -158,7 +158,7 @@ export default function AboutPage() {
             In every Bangladeshi home, there are bicycles, electronics, textbooks, and furnishings waiting for a new purpose. At the same time, students, young professionals, and families are searching for quality goods at prices they can afford.
           </p>
           <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-            KhojoBangla bridges this gap with high-speed local search, direct buyer-to-seller messaging, fraud-prevention tools, and verified profiles. We believe that sustainable trade starts right in your neighborhood.
+            Serabondhu bridges this gap with high-speed local search, direct buyer-to-seller messaging, fraud-prevention tools, and verified profiles. We believe that sustainable trade starts right in your neighborhood.
           </p>
           <ul className="space-y-3 pt-2 text-sm text-slate-700">
             <li className="flex items-center gap-2.5">
@@ -203,7 +203,7 @@ export default function AboutPage() {
       <div className="space-y-8">
         <div className="text-center max-w-xl mx-auto space-y-2">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            What Drives KhojoBangla
+            What Drives Serabondhu
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
             Our values guide every design decision, code commit, and community interaction.
@@ -240,7 +240,7 @@ export default function AboutPage() {
             Our Journey So Far
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
-            How KhojoBangla grew into Bangladesh&apos;s preferred online trading community.
+            How Serabondhu grew into Bangladesh&apos;s preferred online trading community.
           </p>
         </div>
 

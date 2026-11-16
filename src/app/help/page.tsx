@@ -28,7 +28,7 @@ const FAQS: FAQItem[] = [
   {
     id: "post-1",
     category: "Posting Ads",
-    question: "Is posting an advertisement really 100% free on KhojoBangla?",
+    question: "Is posting an advertisement really 100% free on Serabondhu?",
     answer:
       "Yes! Individual buyers and sellers can post advertisements for cars, motorbikes, smartphones, real estate, furniture, and jobs completely free of charge with zero commissions or hidden listing fees.",
   },
@@ -49,7 +49,7 @@ const FAQS: FAQItem[] = [
   {
     id: "post-4",
     category: "Posting Ads",
-    question: "How long does my advertisement remain active on KhojoBangla?",
+    question: "How long does my advertisement remain active on Serabondhu?",
     answer:
       "Standard listings remain active for 60 days. You can easily bump, refresh, mark as sold, or renew your advertisement anytime from your User Profile Dashboard.",
   },
@@ -58,7 +58,7 @@ const FAQS: FAQItem[] = [
   {
     id: "buy-1",
     category: "Buying & Safety",
-    question: "How do I contact a seller on KhojoBangla?",
+    question: "How do I contact a seller on Serabondhu?",
     answer:
       "You can contact sellers directly through two methods: (1) Instant in-app messaging by clicking 'Chat with Seller', or (2) Calling the verified phone number displayed on the ad page (if the seller has chosen to share their number publicly).",
   },
@@ -97,7 +97,7 @@ const FAQS: FAQItem[] = [
     category: "Account & Verification",
     question: "Can I hide my phone number and only communicate via in-app chat?",
     answer:
-      "Yes! When posting an advertisement or in your profile privacy settings, you can toggle 'Hide Phone Number'. Prospective buyers will only be able to reach you via KhojoBangla's secure in-app chat.",
+      "Yes! When posting an advertisement or in your profile privacy settings, you can toggle 'Hide Phone Number'. Prospective buyers will only be able to reach you via Serabondhu's secure in-app chat.",
   },
   {
     id: "acc-3",
@@ -111,16 +111,16 @@ const FAQS: FAQItem[] = [
   {
     id: "biz-1",
     category: "Business & Dealers",
-    question: "What is KhojoBangla Business for auto showrooms and real estate agents?",
+    question: "What is Serabondhu Business for auto showrooms and real estate agents?",
     answer:
-      "KhojoBangla Business provides dedicated dealer storefront URLs, priority homepage featured placements, bulk CSV inventory upload, and direct WhatsApp lead generation for motor showrooms, real estate developers, and high-volume electronics retailers.",
+      "Serabondhu Business provides dedicated dealer storefront URLs, priority homepage featured placements, bulk CSV inventory upload, and direct WhatsApp lead generation for motor showrooms, real estate developers, and high-volume electronics retailers.",
   },
   {
     id: "biz-2",
     category: "Business & Dealers",
     question: "How do I sign up for a verified dealer subscription?",
     answer:
-      "Visit our KhojoBangla for Businesses page (khojobangla.com/business) or contact our enterprise team directly at +977-1-4567890 to activate your showroom package.",
+      "Visit our Serabondhu for Businesses page (serabondhu.net/business) or contact our enterprise team directly at +977-1-4567890 to activate your showroom package.",
   },
 ];
 
@@ -167,7 +167,7 @@ export default function HelpCenterPage() {
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-orange-300">
             <HelpCircle className="w-3.5 h-3.5" />
-            <span>KhojoBangla Knowledge Base &amp; FAQ</span>
+            <span>Serabondhu Knowledge Base &amp; FAQ</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">

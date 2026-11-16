@@ -12,14 +12,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — KhojoBangla | Marketplace Legal Agreement",
+  title: "Terms of Use — Serabondhu | Marketplace Legal Agreement",
   description:
-    "KhojoBangla Terms of Service and User Agreement. Review our marketplace policies, seller obligations, prohibited goods list, and legal governing laws in Bangladesh.",
+    "Serabondhu Terms of Service and User Agreement. Review our marketplace policies, seller obligations, prohibited goods list, and legal governing laws in Bangladesh.",
 };
 
 const SECTIONS = [
   { id: "acceptance", title: "1. Acceptance of Terms & Eligibility" },
-  { id: "platform-nature", title: "2. Nature of KhojoBangla Platform" },
+  { id: "platform-nature", title: "2. Nature of Serabondhu Platform" },
   { id: "accounts", title: "3. User Accounts & Security" },
   { id: "listing-rules", title: "4. Listing Policies & Guidelines" },
   { id: "prohibited-items", title: "5. Strictly Prohibited Goods & Services" },
@@ -53,7 +53,7 @@ export default function TermsOfUsePage() {
           </h1>
 
           <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-            Please read these terms carefully before accessing or using KhojoBangla (khojobangla.com). By registering, posting, or browsing, you agree to be bound by this agreement under the laws of Bangladesh.
+            Please read these terms carefully before accessing or using Serabondhu (serabondhu.net). By registering, posting, or browsing, you agree to be bound by this agreement under the laws of Bangladesh.
           </p>
 
           <div className="flex items-center gap-2 text-xs text-blue-200 pt-1">
@@ -93,23 +93,23 @@ export default function TermsOfUsePage() {
               1. Acceptance of Terms &amp; Eligibility
             </h2>
             <p>
-              By accessing, browsing, registering on, or utilizing <strong>KhojoBangla</strong> (referred to herein as &quot;KhojoBangla&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;the Platform&quot;, operating via <code>khojobangla.com</code> and related mobile applications), you acknowledge that you have read, understood, and agree to be bound by these Terms of Use and our Privacy Policy.
+              By accessing, browsing, registering on, or utilizing <strong>Serabondhu</strong> (referred to herein as &quot;Serabondhu&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;the Platform&quot;, operating via <code>serabondhu.net</code> and related mobile applications), you acknowledge that you have read, understood, and agree to be bound by these Terms of Use and our Privacy Policy.
             </p>
             <p>
-              To use KhojoBangla, you must be at least 18 years of age or possess the legal capacity to form a binding contract under the laws of Bangladesh. If you are registering an account on behalf of a registered business, company, or auto showroom in Bangladesh, you warrant that you are authorized to bind that entity.
+              To use Serabondhu, you must be at least 18 years of age or possess the legal capacity to form a binding contract under the laws of Bangladesh. If you are registering an account on behalf of a registered business, company, or auto showroom in Bangladesh, you warrant that you are authorized to bind that entity.
             </p>
           </section>
 
           {/* Section 2 */}
           <section id="platform-nature" className="space-y-3 scroll-mt-28">
             <h2 className="text-xl font-bold text-slate-900 border-b border-slate-100 pb-2">
-              2. Nature of KhojoBangla Platform
+              2. Nature of Serabondhu Platform
             </h2>
             <p>
-              KhojoBangla serves as an online neutral classified marketplace connecting third-party buyers, sellers, and service providers. KhojoBangla is not an auction house, retail merchant, or escrow service.
+              Serabondhu serves as an online neutral classified marketplace connecting third-party buyers, sellers, and service providers. Serabondhu is not an auction house, retail merchant, or escrow service.
             </p>
             <div className="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl text-xs text-emerald-900 space-y-1">
-              <strong>Notice Regarding Transactions:</strong> KhojoBangla is not a party to the actual transaction between buyers and sellers. We do not hold physical inventory, guarantee the quality or legality of listed items, or manage physical shipping. Buyers and sellers transact directly and are solely responsible for inspecting goods and verifying payments.
+              <strong>Notice Regarding Transactions:</strong> Serabondhu is not a party to the actual transaction between buyers and sellers. We do not hold physical inventory, guarantee the quality or legality of listed items, or manage physical shipping. Buyers and sellers transact directly and are solely responsible for inspecting goods and verifying payments.
             </div>
           </section>
 
@@ -122,7 +122,7 @@ export default function TermsOfUsePage() {
               Users must provide accurate, current, and verifiable contact information, including a valid Bangladeshi mobile phone number. You are responsible for safeguarding your login credentials and one-time passwords (OTP).
             </p>
             <p>
-              KhojoBangla reserves the right to suspend, terminate, or restrict any account suspected of fraud, harassment, impersonation, or creating multiple duplicate accounts to bypass marketplace listing limits.
+              Serabondhu reserves the right to suspend, terminate, or restrict any account suspected of fraud, harassment, impersonation, or creating multiple duplicate accounts to bypass marketplace listing limits.
             </p>
           </section>
 
@@ -132,7 +132,7 @@ export default function TermsOfUsePage() {
               4. Listing Policies &amp; Guidelines
             </h2>
             <p>
-              When publishing an advertisement on KhojoBangla, you agree to:
+              When publishing an advertisement on Serabondhu, you agree to:
             </p>
             <ul className="space-y-2 list-disc pl-5 text-xs sm:text-sm">
               <li>Provide accurate product specifications, truthful condition grading, and transparent pricing in Bangladeshese Rupees (NPR).</li>
@@ -149,7 +149,7 @@ export default function TermsOfUsePage() {
               5. Strictly Prohibited Goods &amp; Services
             </h2>
             <p>
-              The listing or advertisement of any of the following items is strictly forbidden on KhojoBangla and will result in immediate permanent account termination and referral to the Bangladesh Police Cyber Bureau:
+              The listing or advertisement of any of the following items is strictly forbidden on Serabondhu and will result in immediate permanent account termination and referral to the Bangladesh Police Cyber Bureau:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
               <div className="bg-red-50 p-3 rounded-xl border border-red-200">
@@ -185,10 +185,10 @@ export default function TermsOfUsePage() {
               6. Intellectual Property &amp; Content License
             </h2>
             <p>
-              By submitting images, titles, and descriptions, you grant KhojoBangla a non-exclusive, worldwide, royalty-free license to display, index, format, and share such listings to promote your items on the platform and associated search channels.
+              By submitting images, titles, and descriptions, you grant Serabondhu a non-exclusive, worldwide, royalty-free license to display, index, format, and share such listings to promote your items on the platform and associated search channels.
             </p>
             <p>
-              All KhojoBangla brand assets, trademarks, logo treatments, page designs, algorithms, and custom software code are the proprietary intellectual property of KhojoBangla.
+              All Serabondhu brand assets, trademarks, logo treatments, page designs, algorithms, and custom software code are the proprietary intellectual property of Serabondhu.
             </p>
           </section>
 
@@ -198,7 +198,7 @@ export default function TermsOfUsePage() {
               7. Disclaimers &amp; Limitation of Liability
             </h2>
             <p>
-              KhojoBangla provides the service on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind. Under no circumstances shall KhojoBangla, its directors, or its affiliates be liable for any direct, indirect, incidental, or consequential damages resulting from transactions conducted between users, fraudulent conduct by third parties, or system interruptions.
+              Serabondhu provides the service on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis without warranties of any kind. Under no circumstances shall Serabondhu, its directors, or its affiliates be liable for any direct, indirect, incidental, or consequential damages resulting from transactions conducted between users, fraudulent conduct by third parties, or system interruptions.
             </p>
           </section>
 

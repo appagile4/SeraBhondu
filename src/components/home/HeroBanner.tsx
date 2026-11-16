@@ -19,8 +19,8 @@ export interface BannerItem {
 
 const DEFAULT_BANNER: BannerItem = {
   _id: "default-1",
-  title: "KhojoBangla.com — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
-  imageUrl: "/khojobangla-hero-banner.jpg",
+  title: "serabondhu.net — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
+  imageUrl: "/serabondhu-hero-banner.jpg",
   linkUrl: "/search",
 };
 
@@ -92,11 +92,11 @@ export function HeroBanner() {
               <Link
                 href={banner.linkUrl || "/search"}
                 className="block w-full h-full relative"
-                aria-label={banner.title || `KhojoBangla Banner ${index + 1}`}
+                aria-label={banner.title || `Serabondhu Banner ${index + 1}`}
               >
                 <Image
                   src={banner.imageUrl}
-                  alt={banner.title || `KhojoBangla Promotional Banner ${index + 1}`}
+                  alt={banner.title || `Serabondhu Promotional Banner ${index + 1}`}
                   fill
                   priority={index === 0}
                   loading={index === 0 ? "eager" : "lazy"}

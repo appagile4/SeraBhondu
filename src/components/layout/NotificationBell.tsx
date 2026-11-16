@@ -75,7 +75,7 @@ export function NotificationBell() {
         _id: `approved-${Date.now()}`,
         type: "ad_approved",
         title: "Advertisement Approved! 🎉",
-        message: data.message || `Your advertisement "${data.title}" is now live on KhojoBangla.`,
+        message: data.message || `Your advertisement "${data.title}" is now live on Serabondhu.`,
         isRead: false,
         createdAt: new Date().toISOString(),
       };

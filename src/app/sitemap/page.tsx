@@ -16,17 +16,17 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "HTML Sitemap — KhojoBangla | All Categories, Cities & Pages",
+  title: "HTML Sitemap — Serabondhu | All Categories, Cities & Pages",
   description:
-    "Explore the comprehensive KhojoBangla site directory. Navigate all marketplace categories, cities across Bangladesh, user portals, help centers, and legal pages.",
+    "Explore the comprehensive Serabondhu site directory. Navigate all marketplace categories, cities across Bangladesh, user portals, help centers, and legal pages.",
 };
 
 const COMPANY_LINKS = [
-  { name: "About KhojoBangla", href: "/about", desc: "Our story, mission, and leadership team" },
+  { name: "About Serabondhu", href: "/about", desc: "Our story, mission, and leadership team" },
   { name: "Careers & Culture", href: "/careers", desc: "Open job vacancies at our Lalitpur hub" },
   { name: "Contact Support", href: "/contact", desc: "Toll-free hotline, office address & ticket desk" },
-  { name: "KhojoBangla for Businesses", href: "/business", desc: "Showroom dealer packages & inventory tools" },
-  { name: "Sitemap Directory", href: "/sitemap", desc: "Full structural index of khojobangla.com" },
+  { name: "Serabondhu for Businesses", href: "/business", desc: "Showroom dealer packages & inventory tools" },
+  { name: "Sitemap Directory", href: "/sitemap", desc: "Full structural index of serabondhu.net" },
 ];
 
 const SAFETY_LINKS = [
@@ -67,11 +67,11 @@ export default function SitemapPage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            KhojoBangla <span className="text-[#E30613]">HTML Sitemap</span>
+            Serabondhu <span className="text-[#E30613]">HTML Sitemap</span>
           </h1>
 
           <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-            Quickly navigate to any category, top provincial cities, account tools, or help and legal resources across KhojoBangla (khojobangla.com).
+            Quickly navigate to any category, top provincial cities, account tools, or help and legal resources across Serabondhu (serabondhu.net).
           </p>
         </div>
       </div>
@@ -158,7 +158,7 @@ export default function SitemapPage() {
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-900">
-                About KhojoBangla &amp; Business
+                About Serabondhu &amp; Business
               </h2>
               <p className="text-xs text-slate-500">
                 Company profile, careers &amp; merchant services

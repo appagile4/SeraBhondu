@@ -22,16 +22,16 @@ export interface Translations {
 export const TRANSLATIONS: Translations = {
   // Brand & Slogan
   brandName: {
-    bn: "খোঁজবাংলা",
-    en: "KhojoBangla",
+    bn: "সেরাবন্ধু",
+    en: "Serabondhu",
   },
   tagline: {
     bn: "কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
     en: "Buy • Sell • Find in Bangla",
   },
   welcomeMessage: {
-    bn: "খোঁজবাংলায় স্বাগতম",
-    en: "Welcome to KhojoBangla",
+    bn: "সেরাবন্ধুতে স্বাগতম",
+    en: "Welcome to Serabondhu",
   },
 
   // Header & Navigation
@@ -217,7 +217,7 @@ export const TRANSLATIONS: Translations = {
   },
   sellCtaSub: {
     bn: "অব্যবহৃত পণ্যগুলো সেরা দামে বিক্রি করুন। মাত্র ২ মিনিটে আপনার বিজ্ঞাপন দিন এবং সরাসরি ক্রেতার সাথে যোগাযোগ করুন।",
-    en: "Turn your unused products into great deals. List your advertisement on KhojoBangla in less than 2 minutes and connect with genuine buyers across Bangladesh.",
+    en: "Turn your unused products into great deals. List your advertisement on Serabondhu in less than 2 minutes and connect with genuine buyers across Bangladesh.",
   },
   sellCtaBtn: {
     bn: "এখনই বিজ্ঞাপন দিন",
@@ -296,8 +296,8 @@ export const TRANSLATIONS: Translations = {
 
   // Footer
   footerAboutText: {
-    bn: "খোঁজবাংলা (KhojoBangla.com) হলো বাংলাদেশের আধুনিক অনলাইন ক্লাসিফাইড মার্কেটপ্লেস—গাড়ি, মোটরসাইকেল, জমি-ফ্ল্যাট, স্মার্টফোন, ইলেকট্রনিক্স, আসবাবপত্র এবং স্থানীয় সেবা কেনাবেচার সেরা প্ল্যাটফর্ম।",
-    en: "KhojoBangla (KhojoBangla.com) is Bangladesh's modern online marketplace for buying and selling pre-owned vehicles, properties, smartphones, electronics, furniture, and local services.",
+    bn: "সেরাবন্ধু (serabondhu.net) হলো বাংলাদেশের আধুনিক অনলাইন ক্লাসিফাইড মার্কেটপ্লেস—গাড়ি, মোটরসাইকেল, জমি-ফ্ল্যাট, স্মার্টফোন, ইলেকট্রনিক্স, আসবাবপত্র এবং স্থানীয় সেবা কেনাবেচার সেরা প্ল্যাটফর্ম।",
+    en: "Serabondhu (serabondhu.net) is Bangladesh's modern online marketplace for buying and selling pre-owned vehicles, properties, smartphones, electronics, furniture, and local services.",
   },
   footerPopularCategories: {
     bn: "জনপ্রিয় ক্যাটাগরি",
@@ -308,8 +308,8 @@ export const TRANSLATIONS: Translations = {
     en: "Trending Locations",
   },
   footerAboutUs: {
-    bn: "খোঁজবাংলা",
-    en: "About KhojoBangla",
+    bn: "সেরাবন্ধু",
+    en: "About Serabondhu",
   },
   footerHelpSupport: {
     bn: "সাহায্য ও নিরাপত্তা",
@@ -398,8 +398,8 @@ export const TRANSLATIONS: Translations = {
 
   // Footer Links - Company & About
   footerAboutCompany: {
-    bn: "খোঁজবাংলা সম্পর্কে",
-    en: "About KhojoBangla",
+    bn: "সেরাবন্ধু সম্পর্কে",
+    en: "About Serabondhu",
   },
   footerCareersCulture: {
     bn: "ক্যারিয়ার ও সংস্কৃতি",
@@ -410,8 +410,8 @@ export const TRANSLATIONS: Translations = {
     en: "Contact Support",
   },
   footerBusiness: {
-    bn: "ব্যবসার জন্য খোঁজবাংলা",
-    en: "KhojoBangla for Businesses",
+    bn: "ব্যবসার জন্য সেরাবন্ধু",
+    en: "Serabondhu for Businesses",
   },
   footerSitemapLink: {
     bn: "সাইটম্যাপ",
@@ -492,16 +492,16 @@ export const TRANSLATIONS: Translations = {
     en: "No chats found",
   },
   chatNoFoundDesc: {
-    bn: "খোঁজবাংলায় আপনার পছন্দের বিজ্ঞাপনটি খুঁজুন এবং দরদাম শুরু করতে 'বিক্রেতার সাথে চ্যাট করুন'-এ ক্লিক করুন।",
-    en: "Find an ad you like on KhojoBangla and click 'Chat with Seller' to start negotiating.",
+    bn: "সেরাবন্ধুতে আপনার পছন্দের বিজ্ঞাপনটি খুঁজুন এবং দরদাম শুরু করতে 'বিক্রেতার সাথে চ্যাট করুন'-এ ক্লিক করুন।",
+    en: "Find an ad you like on Serabondhu and click 'Chat with Seller' to start negotiating.",
   },
   chatBrowseClassifieds: {
     bn: "বিজ্ঞাপন ব্রাউজ করুন",
     en: "Browse Classifieds",
   },
   chatMessengerTitle: {
-    bn: "খোঁজবাংলা ওয়েব মেসেঞ্জার",
-    en: "KhojoBangla Web Messenger",
+    bn: "সেরাবন্ধু ওয়েব মেসেঞ্জার",
+    en: "Serabondhu Web Messenger",
   },
   chatMessengerDesc: {
     bn: "সমগ্র বাংলাদেশের ভেরিফাইড ক্রেতা ও বিক্রেতাদের সাথে তাৎক্ষণিক বার্তা আদান-প্রদান করুন। পণ্যের দরদাম, পণ্য পরিদর্শন নির্ধারণ এবং নিরাপদে লেনদেন করুন।",
@@ -532,12 +532,12 @@ export const TRANSLATIONS: Translations = {
     en: "Connect in real-time with verified buyers and sellers across Bangladesh to negotiate prices and inspect items safely.",
   },
   chatSignInBtn: {
-    bn: "খোঁজবাংলায় সাইন ইন করুন",
-    en: "Sign In to KhojoBangla",
+    bn: "সেরাবন্ধুতে সাইন ইন করুন",
+    en: "Sign In to Serabondhu",
   },
   chatPageLoading: {
-    bn: "খোঁজবাংলা চ্যাট লোড হচ্ছে...",
-    en: "Loading KhojoBangla Chat...",
+    bn: "সেরাবন্ধু চ্যাট লোড হচ্ছে...",
+    en: "Loading Serabondhu Chat...",
   },
   chatTypeMessage: {
     bn: "একটি বার্তা লিখুন...",
@@ -567,9 +567,9 @@ export const TRANSLATIONS: Translations = {
     bn: "সর্বশেষ সক্রিয়",
     en: "Last seen",
   },
-  chatAvailableOnKhojoBangla: {
-    bn: "খোঁজবাংলায় সক্রিয়",
-    en: "Available on KhojoBangla",
+  chatAvailableOnSerabondhu: {
+    bn: "সেরাবন্ধুতে সক্রিয়",
+    en: "Available on Serabondhu",
   },
   chatVerifiedSeller: {
     bn: "ভেরিফাইড বিক্রেতা",
@@ -585,7 +585,7 @@ export const TRANSLATIONS: Translations = {
   },
   chatSafetyWarning: {
     bn: "🔒 বার্তাগুলো ব্যক্তিগত ও নিরাপদে আদান-প্রদান করা হচ্ছে। সকল লেনদেন নিরাপদ রাখুন!",
-    en: "🔒 Messages are private & securely exchanged. Keep payments inside KhojoBangla!",
+    en: "🔒 Messages are private & securely exchanged. Keep payments inside Serabondhu!",
   },
   chatReplyingTo: {
     bn: "উত্তর দিচ্ছেন:",
@@ -660,8 +660,8 @@ export const TRANSLATIONS: Translations = {
 
   // Auth Modal
   authModalTitle: {
-    bn: "খোঁজবাংলায় স্বাগতম",
-    en: "Welcome to KhojoBangla",
+    bn: "সেরাবন্ধুতে স্বাগতম",
+    en: "Welcome to Serabondhu",
   },
   authModalSubtitle: {
     bn: "বিজ্ঞাপন দেওয়া, পছন্দের তালিকা সংরক্ষণ এবং বিক্রেতার সাথে চ্যাট করতে প্রবেশ করুন",
@@ -999,7 +999,7 @@ export const TRANSLATIONS: Translations = {
   },
   previewSub: {
     bn: "অ্যাডমিন অনুমোদনের পর ক্রেতারা আপনার বিজ্ঞাপনটি যেভাবে দেখবে",
-    en: "This is how buyers will see your listing on KhojoBangla after Superadmin approval",
+    en: "This is how buyers will see your listing on Serabondhu after Superadmin approval",
   },
   previewBadge: {
     bn: "প্রিভিউ",
@@ -1015,7 +1015,7 @@ export const TRANSLATIONS: Translations = {
   },
   submissionDefaultNotice: {
     bn: "আপনার বিজ্ঞাপনটি সফলভাবে খোঁজোবাংলায় জমা দেওয়া হয়েছে এবং পর্যালোচনার অপেক্ষায় আছে।",
-    en: "Your advertisement has been submitted to KhojoBangla and is awaiting review.",
+    en: "Your advertisement has been submitted to Serabondhu and is awaiting review.",
   },
   whatHappensNext: {
     bn: "এরপর কী ঘটবে?",
@@ -1027,7 +1027,7 @@ export const TRANSLATIONS: Translations = {
   },
   stepReview2: {
     bn: "অনুমোদিত হলে এটি সাথে সাথে খোঁজোবাংলা হোমপেজ ও সার্চ রেজাল্টে দেখা যাবে।",
-    en: "Once approved, it becomes publicly visible on the KhojoBangla homepage and search results.",
+    en: "Once approved, it becomes publicly visible on the Serabondhu homepage and search results.",
   },
   stepReview3: {
     bn: "পর্যালোচনা সম্পন্ন হলে আপনি অ্যাকাউন্টে নোটিফিকেশন পাবেন।",
@@ -1286,8 +1286,8 @@ export const TRANSLATIONS: Translations = {
     en: "Why is it important?",
   },
   whyImportantText: {
-    bn: "খোঁজবাংলা বিশ্বাসের ওপর প্রতিষ্ঠিত। অন্যান্য ক্রেতা-বিক্রেতাদের সাথে পরিচিত হন। আপনার পছন্দের ব্র্যান্ড ও আগ্রহের কথা শেয়ার করুন।",
-    en: "KhojoBangla is built on trust. Help other people get to know you. Tell them about the things you like. Share your favorite brands, interests, and preferences.",
+    bn: "সেরাবন্ধু বিশ্বাসের ওপর প্রতিষ্ঠিত। অন্যান্য ক্রেতা-বিক্রেতাদের সাথে পরিচিত হন। আপনার পছন্দের ব্র্যান্ড ও আগ্রহের কথা শেয়ার করুন।",
+    en: "Serabondhu is built on trust. Help other people get to know you. Tell them about the things you like. Share your favorite brands, interests, and preferences.",
   },
   contactInfoTitle: {
     bn: "যোগাযোগের তথ্য",

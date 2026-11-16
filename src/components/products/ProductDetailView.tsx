@@ -30,7 +30,7 @@ export function ProductDetailView({ product, relatedProducts }: ProductDetailVie
       try {
         await navigator.share({
           title: product.title,
-          text: `Check out this deal on KhojoBangla: ${product.title}`,
+          text: `Check out this deal on Serabondhu: ${product.title}`,
           url: window.location.href,
         });
         return;
@@ -171,7 +171,7 @@ export function ProductDetailView({ product, relatedProducts }: ProductDetailVie
               <div className="flex items-center gap-2 font-bold text-[#00225E]">
                 <ShieldCheck className="w-4 h-4 text-[#014923]" />
                 <span>
-                  {language === "bn" ? "খোঁজবাংলা নিরাপত্তা নির্দেশিকা" : "KhojoBangla Safety & Security"}
+                  {language === "bn" ? "সেরাবন্ধু নিরাপত্তা নির্দেশিকা" : "Serabondhu Safety & Security"}
                 </span>
               </div>
               <Link href="/safety-tips" className="text-[11px] font-bold text-[#014923] hover:underline">

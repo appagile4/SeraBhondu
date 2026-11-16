@@ -99,13 +99,13 @@ export default function ContactPage() {
           </p>
           <div className="pt-1">
             <a
-              href="mailto:support@khojobangla.com"
+              href="mailto:support@serabondhu.net"
               className="font-bold text-sm text-[#014923] hover:underline"
             >
-              support@khojobangla.com
+              support@serabondhu.net
             </a>
             <p className="text-[11px] text-slate-400 mt-0.5">
-              safety@khojobangla.com
+              safety@serabondhu.net
             </p>
           </div>
         </div>

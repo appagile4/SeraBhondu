@@ -3,7 +3,7 @@
 Modern, responsive web frontend for **SeraBhondu** (Bangladesh's premier classifieds marketplace).
 
 ## Features
-- **Official Branding**: Custom branding based on the official KhojoBangla logo (National Martyrs' Memorial, Bangladesh Flag Green `#014923`, and Crimson Red `#E30613`).
+- **Official Branding**: Custom branding based on the official Serabondhu logo (National Martyrs' Memorial, Bangladesh Flag Green `#014923`, and Crimson Red `#E30613`).
 - **Bangladesh Localization**: Currency in Bangladeshi Taka (`৳` / BDT), country code `+880`, 8 Divisions (Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur, Mymensingh) and major cities/districts.
 - **Unified Authentication**: Bottom-sheet auth modal supporting Google OAuth 2.0, Email OTP, and Phone SMS OTP with zero passwords needed for phone users.
 - **Interactive Geolocation**: Leaflet map picker centered on Bangladesh with reverse geocoding fallback for major divisions and districts.

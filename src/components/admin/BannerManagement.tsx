@@ -537,7 +537,7 @@ export function BannerManagement() {
                 <div className="pt-1">
                   <input
                     type="url"
-                    placeholder="Or paste direct image URL (e.g. /khojobangla-hero-banner.jpg or https://...)"
+                    placeholder="Or paste direct image URL (e.g. /serabondhu-hero-banner.jpg or https://...)"
                     value={imageUrlInput}
                     onChange={(e) => {
                       setImageUrlInput(e.target.value);

@@ -4,7 +4,7 @@
   --background: #f7f9fc;
   --foreground: #0f172a;
   
-  /* KhojoBangla Brand Colors (Exact match with official logo) */
+  /* Serabondhu Brand Colors (Exact match with official logo) */
   --brand-primary: #014923;
   --brand-primary-dark: #003819;
   --brand-primary-light: #026E37;
@@ -80,7 +80,7 @@ body {
 .leaflet-bottom {
   z-index: 20 !important;
 }
-.khojobangla-map-marker,
+.serabondhu-map-marker,
 .dealdoko-map-marker {
   background: transparent !important;
   border: none !important;

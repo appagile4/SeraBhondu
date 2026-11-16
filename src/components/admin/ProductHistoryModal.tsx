@@ -500,7 +500,7 @@ export function ProductHistoryModal({
                           )}
                         </div>
                         <span className="text-[11px] text-slate-500 block">
-                          Seller on KhojoBangla
+                          Seller on Serabondhu
                         </span>
                       </div>
                     </div>

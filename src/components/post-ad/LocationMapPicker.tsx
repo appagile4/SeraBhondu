@@ -94,9 +94,9 @@ export function LocationMapPicker({
         if (!isMounted || !mapContainerRef.current) return;
         leafletRef.current = L;
 
-        // Custom KhojoBangla Pin SVG Icon
+        // Custom Serabondhu Pin SVG Icon
         const customPinIcon = L.divIcon({
-          className: "khojobangla-map-marker",
+          className: "serabondhu-map-marker",
           html: `
             <div style="position: relative; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: grab;">
               <div style="position: absolute; bottom: 2px; width: 14px; height: 5px; background: rgba(0,0,0,0.35); border-radius: 50%; filter: blur(1.5px);"></div>

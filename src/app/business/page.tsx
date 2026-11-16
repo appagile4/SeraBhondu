@@ -96,7 +96,7 @@ export default function BusinessPage() {
           Home
         </Link>
         <span>/</span>
-        <span className="text-slate-900 font-semibold">KhojoBangla for Businesses</span>
+        <span className="text-slate-900 font-semibold">Serabondhu for Businesses</span>
       </nav>
 
       {/* Hero */}
@@ -114,7 +114,7 @@ export default function BusinessPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-            Whether you run a motor showroom in Teku, a real estate consultancy in Chattogram, or a digital appliance warehouse in Sylhet, KhojoBangla Business gives you the verified brand credibility, analytics, and direct buyer leads you need to close deals faster.
+            Whether you run a motor showroom in Teku, a real estate consultancy in Chattogram, or a digital appliance warehouse in Sylhet, Serabondhu Business gives you the verified brand credibility, analytics, and direct buyer leads you need to close deals faster.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -139,7 +139,7 @@ export default function BusinessPage() {
             Dealer Advantages
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
-            Why Top Bangladeshi Showrooms Choose KhojoBangla
+            Why Top Bangladeshi Showrooms Choose Serabondhu
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
             Built specifically to solve high listing costs and low conversion rates on legacy classifieds.
@@ -163,7 +163,7 @@ export default function BusinessPage() {
             </div>
             <h3 className="font-bold text-base text-slate-900">Dedicated Brand Storefront</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Get your own custom URL (e.g., <code className="text-[#014923]">khojobangla.com/store/your-showroom</code>) featuring all your active vehicles or properties, contact buttons, and location maps.
+              Get your own custom URL (e.g., <code className="text-[#014923]">serabondhu.net/store/your-showroom</code>) featuring all your active vehicles or properties, contact buttons, and location maps.
             </p>
           </div>
 

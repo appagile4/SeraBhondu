@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { GoogleAuthButton } from "./GoogleAuthButton";
 import { useLanguage } from "@/context/LanguageContext";
+import { Logo } from "@/components/common/Logo";
 
 interface AuthMethodSelectorProps {
   onSelectEmail: () => void;
@@ -26,10 +27,7 @@ export const AuthMethodSelector: React.FC<AuthMethodSelectorProps> = ({
       {/* Brand & Heading */}
       <div className="text-center mb-6">
         <div className="inline-flex items-center justify-center mb-3">
-          <span className="text-2xl font-black tracking-tight text-[#014923]">
-            Khojo<span className="text-[#E30613]">Bangla</span>
-            <span className="text-xs font-semibold text-slate-400">.com</span>
-          </span>
+          <Logo size="md" />
         </div>
         <h2 className="text-2xl sm:text-[26px] font-bold text-slate-900 tracking-tight">
           {t("welcomeMessage")}
@@ -78,7 +76,7 @@ export const AuthMethodSelector: React.FC<AuthMethodSelectorProps> = ({
 
       {/* Footer Legal Terms */}
       <div className="mt-8 text-center text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-5">
-        By continuing, you agree to KhojoBangla&apos;s{" "}
+        By continuing, you agree to Serabondhu&apos;s{" "}
         <Link
           href="/terms"
           target="_blank"

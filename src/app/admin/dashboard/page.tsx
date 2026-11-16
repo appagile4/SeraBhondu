@@ -241,7 +241,7 @@ export default function SuperadminDashboardPage() {
 
   // Initial authentication check & data load
   useEffect(() => {
-    const token = localStorage.getItem("khojobangla_token");
+    const token = localStorage.getItem("serabondhu_token");
     if (!token) {
       router.push("/admin");
       return;
@@ -272,7 +272,7 @@ export default function SuperadminDashboardPage() {
       const res = await api.put(`/admin/advertisements/${adId}/approve`);
       if (res.data.success) {
         showToast(
-          "Advertisement approved! It is now live on KhojoBangla marketplace.",
+          "Advertisement approved! It is now live on Serabondhu marketplace.",
         );
         setReviewAd(null);
         fetchStats();
@@ -356,8 +356,8 @@ export default function SuperadminDashboardPage() {
 
   // Logout handler
   const handleLogout = () => {
-    localStorage.removeItem("khojobangla_token");
-    localStorage.removeItem("khojobangla_admin_user");
+    localStorage.removeItem("serabondhu_token");
+    localStorage.removeItem("serabondhu_admin_user");
     router.push("/admin");
   };
 
@@ -491,7 +491,7 @@ export default function SuperadminDashboardPage() {
           {isSidebarOpen && (
             <div className="px-4 py-3 border-t border-slate-100 text-[11px] text-slate-400">
               <p className="font-bold text-slate-700 flex items-center gap-1">
-                <span>KhojoBangla</span>
+                <span>Serabondhu</span>
                 <span className="text-[#E30613]">Marketplace</span>
               </p>
               <p>2026 Admin Portal v1.0</p>

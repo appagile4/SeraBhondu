@@ -16,7 +16,7 @@ export const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("khojobangla_token");
+      const token = localStorage.getItem("serabondhu_token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -32,8 +32,8 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       if (typeof window !== "undefined") {
-        localStorage.removeItem("khojobangla_token");
-        localStorage.removeItem("khojobangla_user");
+        localStorage.removeItem("serabondhu_token");
+        localStorage.removeItem("serabondhu_user");
       }
     }
     return Promise.reject(error);

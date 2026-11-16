@@ -90,33 +90,33 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
   // Hydrate from localStorage on client mount
   useEffect(() => {
     try {
-      const savedWishlist = localStorage.getItem("khojobangla_wishlist");
+      const savedWishlist = localStorage.getItem("serabondhu_wishlist");
       if (savedWishlist) {
         setWishlist(JSON.parse(savedWishlist));
       }
 
-      const savedLocation = localStorage.getItem("khojobangla_location");
+      const savedLocation = localStorage.getItem("serabondhu_location");
       if (savedLocation) {
         setSelectedLocationState(savedLocation);
       }
 
-      const savedSearches = localStorage.getItem("khojobangla_recent_searches");
+      const savedSearches = localStorage.getItem("serabondhu_recent_searches");
       if (savedSearches) {
         setRecentSearches(JSON.parse(savedSearches));
       }
 
-      // Strictly verify khojobangla_token before restoring any user session
-      const token = localStorage.getItem("khojobangla_token");
-      const savedUser = localStorage.getItem("khojobangla_user");
+      // Strictly verify serabondhu_token before restoring any user session
+      const token = localStorage.getItem("serabondhu_token");
+      const savedUser = localStorage.getItem("serabondhu_user");
       if (token && savedUser) {
         setUser(JSON.parse(savedUser));
       } else {
         // If unauthenticated, ensure user is null and clear old mock data
         setUser(null);
-        localStorage.removeItem("khojobangla_user");
+        localStorage.removeItem("serabondhu_user");
       }
 
-      const savedAds = localStorage.getItem("khojobangla_user_ads");
+      const savedAds = localStorage.getItem("serabondhu_user_ads");
       if (savedAds) {
         setUserAds(JSON.parse(savedAds));
       }
@@ -128,7 +128,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
   const setSelectedLocation = (city: string) => {
     setSelectedLocationState(city);
     try {
-      localStorage.setItem("khojobangla_location", city);
+      localStorage.setItem("serabondhu_location", city);
     } catch {
       // ignore
     }
@@ -139,7 +139,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
       const exists = prev.includes(productId);
       const updated = exists ? prev.filter((id) => id !== productId) : [...prev, productId];
       try {
-        localStorage.setItem("khojobangla_wishlist", JSON.stringify(updated));
+        localStorage.setItem("serabondhu_wishlist", JSON.stringify(updated));
       } catch {
         // ignore
       }
@@ -156,7 +156,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
       const filtered = prev.filter((q) => q.toLowerCase() !== trimmed.toLowerCase());
       const updated = [trimmed, ...filtered].slice(0, 8);
       try {
-        localStorage.setItem("khojobangla_recent_searches", JSON.stringify(updated));
+        localStorage.setItem("serabondhu_recent_searches", JSON.stringify(updated));
       } catch {
         // ignore
       }
@@ -167,7 +167,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
   const clearRecentSearches = () => {
     setRecentSearches([]);
     try {
-      localStorage.removeItem("khojobangla_recent_searches");
+      localStorage.removeItem("serabondhu_recent_searches");
     } catch {
       // ignore
     }
@@ -189,7 +189,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
     };
     setUser(newUser);
     try {
-      localStorage.setItem("khojobangla_user", JSON.stringify(newUser));
+      localStorage.setItem("serabondhu_user", JSON.stringify(newUser));
     } catch {
       // ignore
     }
@@ -200,8 +200,8 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
     dispatch(logoutUser());
     setUser(null);
     try {
-      localStorage.removeItem("khojobangla_user");
-      localStorage.removeItem("khojobangla_token");
+      localStorage.removeItem("serabondhu_user");
+      localStorage.removeItem("serabondhu_token");
     } catch {
       // ignore
     }
@@ -225,7 +225,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
       if (!prev) return null;
       const updated = { ...prev, ...safeUpdatedData, email: prev.email };
       try {
-        localStorage.setItem("khojobangla_user", JSON.stringify(updated));
+        localStorage.setItem("serabondhu_user", JSON.stringify(updated));
       } catch {
         // ignore
       }
@@ -288,7 +288,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
     setUserAds((prev) => {
       const updated = [ad, ...prev];
       try {
-        localStorage.setItem("khojobangla_user_ads", JSON.stringify(updated));
+        localStorage.setItem("serabondhu_user_ads", JSON.stringify(updated));
       } catch {
         // ignore
       }

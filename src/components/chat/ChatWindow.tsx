@@ -323,7 +323,7 @@ export function ChatWindow({
     if (!activeConvId) return;
 
     const socket = getSocket();
-    const token = typeof window !== "undefined" ? localStorage.getItem("khojobangla_token") || "" : "";
+    const token = typeof window !== "undefined" ? localStorage.getItem("serabondhu_token") || "" : "";
 
     socket.emit("chat:join", { conversationId: activeConvId, token });
     socket.emit("chat:read", { conversationId: activeConvId, token });
@@ -657,7 +657,7 @@ export function ChatWindow({
     // Clear reply preview after queueing
     dispatch(clearReplyingTo());
 
-    const token = typeof window !== "undefined" ? localStorage.getItem("khojobangla_token") || "" : "";
+    const token = typeof window !== "undefined" ? localStorage.getItem("serabondhu_token") || "" : "";
 
     try {
       if (activeConvId) {
@@ -739,7 +739,7 @@ export function ChatWindow({
         </span>
       );
     }
-    return <span className="text-slate-500">{t("chatAvailableOnKhojoBangla")}</span>;
+    return <span className="text-slate-500">{t("chatAvailableOnSerabondhu")}</span>;
   };
 
   const QUICK_REPLIES = language === "bn" ? [

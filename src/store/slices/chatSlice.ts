@@ -275,8 +275,8 @@ const chatSlice = createSlice({
           ? (() => {
               try {
                 const u = JSON.parse(
-                  localStorage.getItem("khojobangla_user") ||
-                  localStorage.getItem("khojobangla_admin_user") ||
+                  localStorage.getItem("serabondhu_user") ||
+                  localStorage.getItem("serabondhu_admin_user") ||
                   "{}"
                 );
                 return (u.id || u._id || "").toString();

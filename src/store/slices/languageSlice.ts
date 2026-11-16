@@ -11,7 +11,7 @@ interface LanguageState {
 const getInitialLanguage = (): Language => {
   if (typeof window !== "undefined") {
     try {
-      const saved = localStorage.getItem("khojobangla_lang") as Language;
+      const saved = localStorage.getItem("serabondhu_lang") as Language;
       if (saved === "en" || saved === "bn") {
         return saved;
       }
@@ -38,7 +38,7 @@ export const languageSlice = createSlice({
       state.language = action.payload;
       if (typeof window !== "undefined") {
         try {
-          localStorage.setItem("khojobangla_lang", action.payload);
+          localStorage.setItem("serabondhu_lang", action.payload);
           document.documentElement.lang = action.payload;
         } catch {}
       }
@@ -48,7 +48,7 @@ export const languageSlice = createSlice({
       state.language = next;
       if (typeof window !== "undefined") {
         try {
-          localStorage.setItem("khojobangla_lang", next);
+          localStorage.setItem("serabondhu_lang", next);
           document.documentElement.lang = next;
         } catch {}
       }

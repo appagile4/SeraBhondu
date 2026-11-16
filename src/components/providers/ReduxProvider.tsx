@@ -15,7 +15,7 @@ function AuthInitializer({ children }: { children: React.ReactNode }) {
 
     // If a saved token exists, validate and refresh user data from backend
     const token =
-      localStorage.getItem("khojobangla_token") || localStorage.getItem("dealdoko_token");
+      localStorage.getItem("serabondhu_token") || localStorage.getItem("dealdoko_token");
     if (token) {
       dispatch(fetchCurrentUser());
     }

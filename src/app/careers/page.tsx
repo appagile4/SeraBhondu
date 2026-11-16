@@ -39,7 +39,7 @@ const JOBS: JobOpening[] = [
     type: "Full-time",
     experience: "3+ years",
     description:
-      "Architect and scale KhojoBangla's marketplace web application, real-time messaging, and high-throughput search infrastructure.",
+      "Architect and scale Serabondhu's marketplace web application, real-time messaging, and high-throughput search infrastructure.",
     requirements: [
       "Deep expertise with React, Next.js (App Router), TypeScript, and Tailwind CSS",
       "Hands-on experience with PostgreSQL, Redis, and high-performance search caching",
@@ -54,7 +54,7 @@ const JOBS: JobOpening[] = [
     type: "Full-time",
     experience: "2+ years",
     description:
-      "Lead development of KhojoBangla's cross-platform native iOS & Android applications with offline support and instant push notifications.",
+      "Lead development of Serabondhu's cross-platform native iOS & Android applications with offline support and instant push notifications.",
     requirements: [
       "Proficient in React Native, TypeScript, and state management (Zustand / Redux)",
       "Experience with native camera modules, push notifications, and geolocation services in Bangladesh",
@@ -69,7 +69,7 @@ const JOBS: JobOpening[] = [
     type: "Full-time",
     experience: "2+ years",
     description:
-      "Defend KhojoBangla users from scams, advance-payment fraud, and counterfeit listings by spearheading proactive fraud monitoring.",
+      "Defend Serabondhu users from scams, advance-payment fraud, and counterfeit listings by spearheading proactive fraud monitoring.",
     requirements: [
       "Prior experience in marketplace trust & safety, banking compliance, or customer fraud investigation",
       "Familiarity with digital payment platforms in Bangladesh (eSewa, Khalti, Fonepay) and scam patterns",
@@ -195,7 +195,7 @@ export default function CareersPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-blue-100 leading-relaxed">
-            At KhojoBangla, we are building software that changes how millions of people discover value, start micro-businesses, and connect across Bangladesh. We value high ownership, intellectual honesty, speed of execution, and deep care for our users.
+            At Serabondhu, we are building software that changes how millions of people discover value, start micro-businesses, and connect across Bangladesh. We value high ownership, intellectual honesty, speed of execution, and deep care for our users.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -258,7 +258,7 @@ export default function CareersPage() {
               Open Positions
             </h2>
             <p className="text-xs sm:text-sm text-slate-600">
-              Find your next career chapter at KhojoBangla headquarters or remotely across Bangladesh.
+              Find your next career chapter at Serabondhu headquarters or remotely across Bangladesh.
             </p>
           </div>
 
@@ -435,7 +435,7 @@ export default function CareersPage() {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Brief Note / Why KhojoBangla?
+                      Brief Note / Why Serabondhu?
                     </label>
                     <textarea
                       rows={3}

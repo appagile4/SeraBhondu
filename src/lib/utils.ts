@@ -13,7 +13,7 @@ export function formatPrice(price: number, language?: "bn" | "en"): string {
   let lang = language;
   if (!lang && typeof window !== "undefined") {
     try {
-      const saved = localStorage.getItem("khojobangla_lang");
+      const saved = localStorage.getItem("serabondhu_lang");
       if (saved === "en" || saved === "bn") {
         lang = saved as "bn" | "en";
       }
@@ -36,7 +36,7 @@ export function formatListingDate(dateString: string, language?: "bn" | "en"): s
   let lang = language;
   if (!lang && typeof window !== "undefined") {
     try {
-      const saved = localStorage.getItem("khojobangla_lang");
+      const saved = localStorage.getItem("serabondhu_lang");
       if (saved === "en" || saved === "bn") {
         lang = saved as "bn" | "en";
       }

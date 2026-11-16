@@ -44,9 +44,9 @@ export default function AdminLoginPage() {
       if (response.data.success && response.data.token) {
         // Persist admin session
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", response.data.token);
-          localStorage.setItem("khojobangla_admin_user", JSON.stringify(response.data.user));
-          localStorage.setItem("khojobangla_user", JSON.stringify(response.data.user));
+          localStorage.setItem("serabondhu_token", response.data.token);
+          localStorage.setItem("serabondhu_admin_user", JSON.stringify(response.data.user));
+          localStorage.setItem("serabondhu_user", JSON.stringify(response.data.user));
         }
 
         setSuccess(true);
@@ -213,7 +213,7 @@ export default function AdminLoginPage() {
               href="/"
               className="text-xs font-semibold text-slate-500 hover:text-[#0047BA] transition-colors"
             >
-              ← Return to KhojoBangla Public Marketplace
+              ← Return to Serabondhu Public Marketplace
             </Link>
           </div>
         </div>
@@ -221,7 +221,7 @@ export default function AdminLoginPage() {
 
       {/* Bottom Footer */}
       <footer className="w-full px-6 py-3 bg-white/60 border-t border-slate-200/80 text-center text-xs text-slate-500">
-        <span>KhojoBangla Marketplace Administration • Secured with Role-Based Access Control (RBAC)</span>
+        <span>Serabondhu Marketplace Administration • Secured with Role-Based Access Control (RBAC)</span>
       </footer>
     </div>
   );

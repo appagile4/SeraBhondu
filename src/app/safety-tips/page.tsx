@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Safety Tips for Buyers & Sellers — KhojoBangla | Safe Classifieds in Bangladesh",
+  title: "Safety Tips for Buyers & Sellers — Serabondhu | Safe Classifieds in Bangladesh",
   description:
     "Essential safety tips for buying and selling second-hand goods in Bangladesh. Learn how to inspect used cars, bikes, and mobiles safely and avoid common marketplace scams.",
 };
@@ -59,10 +59,10 @@ const GOLDEN_RULES = [
 const DOS_AND_DONTS = {
   dos: [
     "Test smartphones thoroughly: make a test phone call, test WiFi, camera, speaker, and touchscreen.",
-    "Verify seller's identity on KhojoBangla: look for the 'Verified Seller' badge and member join date.",
+    "Verify seller's identity on Serabondhu: look for the 'Verified Seller' badge and member join date.",
     "Pay via digital transfer (bKash / Nagad / Bank) ONLY after you have physical possession of the product.",
     "Ask for original purchase receipts, warranty cards, and packaging when available.",
-    "Report suspicious ads immediately using the 'Report Ad' flag on KhojoBangla.",
+    "Report suspicious ads immediately using the 'Report Ad' flag on Serabondhu.",
   ],
   donts: [
     "Never send advance deposits, earnest money, or transport courier fees before inspection.",
@@ -89,8 +89,8 @@ export default function SafetyTipsPage() {
       <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl border border-slate-200/80 bg-[#014923]">
         <div className="relative w-full aspect-[1024/341]">
           <Image
-            src="/KhojoBangla-safety-banner.jpg"
-            alt="Safety Tips for Smart Buyers & Sellers in Bangladesh — KhojoBangla. Safe, Secure, Trusted Marketplace."
+            src="/Serabondhu-safety-banner.jpg"
+            alt="Safety Tips for Smart Buyers & Sellers in Bangladesh — Serabondhu. Safe, Secure, Trusted Marketplace."
             fill
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"

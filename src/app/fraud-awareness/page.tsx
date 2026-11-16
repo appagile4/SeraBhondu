@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Fraud Awareness Guide — KhojoBangla | Recognizing & Preventing Scams in Bangladesh",
+  title: "Fraud Awareness Guide — Serabondhu | Recognizing & Preventing Scams in Bangladesh",
   description:
     "Comprehensive guide on common classified scams in Bangladesh. Learn how to identify advance payment fraud, fake bKash/Nagad screenshots, QR code phishing, and how to report scammers.",
 };
@@ -96,8 +96,8 @@ export default function FraudAwarenessPage() {
       <div className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl border border-slate-200/80 bg-[#014923]">
         <div className="relative w-full aspect-[1024/350]">
           <Image
-            src="/KhojoBangla-fraud-banner.jpg"
-            alt="Spot Scams, Protect Your Money in Bangladesh — KhojoBangla Fraud Prevention & Awareness Portal"
+            src="/Serabondhu-fraud-banner.jpg"
+            alt="Spot Scams, Protect Your Money in Bangladesh — Serabondhu Fraud Prevention & Awareness Portal"
             fill
             priority
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1280px"
@@ -224,10 +224,10 @@ export default function FraudAwarenessPage() {
               3
             </span>
             <h4 className="font-bold text-slate-900 text-sm">
-              Notify KhojoBangla Fraud Desk
+              Notify Serabondhu Fraud Desk
             </h4>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Submit a ticket or call KhojoBangla at <strong>+977-1-4567890</strong> with the ad URL and scammer phone number so we can blacklist their IP, phone, and active listings.
+              Submit a ticket or call Serabondhu at <strong>+977-1-4567890</strong> with the ad URL and scammer phone number so we can blacklist their IP, phone, and active listings.
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function FraudAwarenessPage() {
         <div className="pt-4 flex flex-wrap gap-4 items-center justify-center sm:justify-start">
           <Link href="/contact">
             <Button className="bg-[#014923] hover:bg-[#003893] text-white font-bold">
-              Report Fraud to KhojoBangla Team
+              Report Fraud to Serabondhu Team
             </Button>
           </Link>
           <Link href="/safety-tips">

@@ -16,7 +16,7 @@ let socketInstance: Socket | null = null;
 export const getSocket = (): Socket => {
   let token = "";
   if (typeof window !== "undefined") {
-    token = localStorage.getItem("khojobangla_token") || "";
+    token = localStorage.getItem("serabondhu_token") || "";
   }
 
   if (!socketInstance) {
@@ -37,7 +37,7 @@ export const getSocket = (): Socket => {
 
     socketInstance.on("connect", () => {
       // Upon connection, verify auth if token available
-      const currentToken = typeof window !== "undefined" ? localStorage.getItem("khojobangla_token") || "" : "";
+      const currentToken = typeof window !== "undefined" ? localStorage.getItem("serabondhu_token") || "" : "";
       if (currentToken) {
         socketInstance?.emit("authenticate", { token: currentToken });
       }
@@ -63,7 +63,7 @@ export const getSocket = (): Socket => {
 
 export const updateSocketAuth = (token: string) => {
   if (typeof window !== "undefined") {
-    localStorage.setItem("khojobangla_token", token);
+    localStorage.setItem("serabondhu_token", token);
   }
 
   if (socketInstance) {

@@ -11,12 +11,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "KhojoBangla — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায় | khojobangla.com",
+  title: "Serabondhu — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায় | serabondhu.net",
   description:
-    "KhojoBangla (khojobangla.com) is Bangladesh's premier online classifieds marketplace. Buy and sell used cars, bikes, mobile phones, apartments, electronics, and furniture with verified buyers and sellers across Dhaka, Chattogram, Sylhet, and all 64 districts of Bangladesh.",
+    "Serabondhu (serabondhu.net) is Bangladesh's premier online classifieds marketplace. Buy and sell used cars, bikes, mobile phones, apartments, electronics, and furniture with verified buyers and sellers across Dhaka, Chattogram, Sylhet, and all 64 districts of Bangladesh.",
   keywords: [
-    "khojobangla",
-    "khojobangla.com",
+    "serabondhu",
+    "serabondhu.net",
     "bangladesh classifieds",
     "buy sell bangladesh",
     "bikroy alternative",

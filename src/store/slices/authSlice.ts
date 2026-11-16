@@ -41,7 +41,7 @@ export interface AuthState {
 const getInitialToken = (): string | null => {
   if (typeof window !== "undefined") {
     try {
-      return localStorage.getItem("khojobangla_token");
+      return localStorage.getItem("serabondhu_token");
     } catch {
       return null;
     }
@@ -52,12 +52,12 @@ const getInitialToken = (): string | null => {
 const getInitialUser = (): UserProfile | null => {
   if (typeof window !== "undefined") {
     try {
-      const token = localStorage.getItem("khojobangla_token");
+      const token = localStorage.getItem("serabondhu_token");
       if (!token) {
-        localStorage.removeItem("khojobangla_user");
+        localStorage.removeItem("serabondhu_user");
         return null;
       }
-      const saved = localStorage.getItem("khojobangla_user");
+      const saved = localStorage.getItem("serabondhu_user");
       return saved ? JSON.parse(saved) : null;
     } catch {
       return null;
@@ -272,8 +272,8 @@ export const logoutUser = createAsyncThunk("auth/logout", async () => {
     // Ignore error
   }
   if (typeof window !== "undefined") {
-    localStorage.removeItem("khojobangla_token");
-    localStorage.removeItem("khojobangla_user");
+    localStorage.removeItem("serabondhu_token");
+    localStorage.removeItem("serabondhu_user");
   }
   return true;
 });
@@ -405,8 +405,8 @@ export const authSlice = createSlice({
         state.isAuthenticated = true;
         state.successMessage = action.payload.message;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", action.payload.token);
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_token", action.payload.token);
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
           updateSocketAuth(action.payload.token);
         }
       })
@@ -460,8 +460,8 @@ export const authSlice = createSlice({
           state.otpPendingEmail = null;
           state.successMessage = action.payload.message;
           if (typeof window !== "undefined") {
-            localStorage.setItem("khojobangla_token", action.payload.token);
-            localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+            localStorage.setItem("serabondhu_token", action.payload.token);
+            localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
             updateSocketAuth(action.payload.token);
           }
         }
@@ -490,8 +490,8 @@ export const authSlice = createSlice({
         state.isNewEmailUser = false;
         state.successMessage = action.payload.message;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", action.payload.token);
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_token", action.payload.token);
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
           updateSocketAuth(action.payload.token);
         }
       })
@@ -540,8 +540,8 @@ export const authSlice = createSlice({
         state.otpPendingPhone = null;
         state.successMessage = action.payload.message;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", action.payload.token);
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_token", action.payload.token);
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
           updateSocketAuth(action.payload.token);
         }
       })
@@ -585,8 +585,8 @@ export const authSlice = createSlice({
         state.otpPendingEmail = null;
         state.successMessage = action.payload.message;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", action.payload.token);
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_token", action.payload.token);
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
           updateSocketAuth(action.payload.token);
         }
       })
@@ -625,8 +625,8 @@ export const authSlice = createSlice({
         state.otpPendingEmail = null;
         state.successMessage = action.payload.message;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_token", action.payload.token);
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_token", action.payload.token);
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
           updateSocketAuth(action.payload.token);
         }
       })
@@ -663,7 +663,7 @@ export const authSlice = createSlice({
         state.user = action.payload;
         state.isAuthenticated = true;
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload));
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload));
         }
       })
       .addCase(fetchCurrentUser.rejected, (state) => {
@@ -682,7 +682,7 @@ export const authSlice = createSlice({
         state.user = action.payload;
         state.successMessage = "Profile updated successfully!";
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload));
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload));
         }
       })
       .addCase(updateUserProfile.rejected, (state, action) => {
@@ -700,7 +700,7 @@ export const authSlice = createSlice({
         state.user = action.payload.user;
         state.successMessage = "Profile picture updated!";
         if (typeof window !== "undefined") {
-          localStorage.setItem("khojobangla_user", JSON.stringify(action.payload.user));
+          localStorage.setItem("serabondhu_user", JSON.stringify(action.payload.user));
         }
       })
       .addCase(uploadUserAvatar.rejected, (state, action) => {

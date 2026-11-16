@@ -176,8 +176,8 @@ export default function EditProfilePage() {
           </h2>
           <p className="text-sm text-slate-500 mb-6">
             {language === "bn"
-              ? "প্রোফাইল তথ্য ও সেটিংস আপডেট করতে আপনার খোঁজবাংলা অ্যাকাউন্টে লগইন থাকা প্রয়োজন।"
-              : "You must be logged into your KhojoBangla account to update your profile details and settings."}
+              ? "প্রোফাইল তথ্য ও সেটিংস আপডেট করতে আপনার সেরাবন্ধু অ্যাকাউন্টে লগইন থাকা প্রয়োজন।"
+              : "You must be logged into your Serabondhu account to update your profile details and settings."}
           </p>
           <Link
             href="/login"
@@ -319,7 +319,7 @@ export default function EditProfilePage() {
                       <span>{t("whyIsItImportant", "এটি কেন গুরুত্বপূর্ণ?")}</span>
                     </div>
                     <p className="text-slate-600 leading-relaxed text-[11px]">
-                      {t("whyImportantText", "খোঁজবাংলা বিশ্বাসের ওপর প্রতিষ্ঠিত। অন্যান্য ক্রেতা-বিক্রেতাদের সাথে পরিচিত হন। আপনার পছন্দের ব্র্যান্ড ও আগ্রহের কথা শেয়ার করুন।")}
+                      {t("whyImportantText", "সেরাবন্ধু বিশ্বাসের ওপর প্রতিষ্ঠিত। অন্যান্য ক্রেতা-বিক্রেতাদের সাথে পরিচিত হন। আপনার পছন্দের ব্র্যান্ড ও আগ্রহের কথা শেয়ার করুন।")}
                     </p>
                   </div>
                 </div>

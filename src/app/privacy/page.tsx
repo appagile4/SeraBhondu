@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — KhojoBangla | Data Protection & Phone Privacy in Bangladesh",
+  title: "Privacy Policy — Serabondhu | Data Protection & Phone Privacy in Bangladesh",
   description:
-    "KhojoBangla Privacy Policy. Learn how we collect, protect, and respect your personal information, phone number privacy, and browsing data in Bangladesh.",
+    "Serabondhu Privacy Policy. Learn how we collect, protect, and respect your personal information, phone number privacy, and browsing data in Bangladesh.",
 };
 
 const SECTIONS = [
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
           </h1>
 
           <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
-            Your trust and privacy are fundamental to KhojoBangla. This policy explains what information we collect, how it is secured, and the granular controls you have over your personal data.
+            Your trust and privacy are fundamental to Serabondhu. This policy explains what information we collect, how it is secured, and the granular controls you have over your personal data.
           </p>
 
           <div className="flex items-center gap-2 text-xs text-blue-200 pt-1">
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
               1. Information We Collect
             </h2>
             <p>
-              When you interact with KhojoBangla (khojobangla.com), we collect certain categories of personal and usage information:
+              When you interact with Serabondhu (serabondhu.net), we collect certain categories of personal and usage information:
             </p>
             <ul className="space-y-2 list-disc pl-5 text-xs sm:text-sm">
               <li>
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
               We respect your right to avoid unsolicited calls or spam. When creating or editing any advertisement, you have full control over how buyers contact you:
             </p>
             <div className="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl text-xs text-emerald-900 space-y-1">
-              <strong>Phone Number Privacy Feature:</strong> You can select the &quot;Hide Phone Number&quot; option when posting. When enabled, your phone number will never be exposed on the public webpage, and all prospective buyers will communicate with you exclusively through KhojoBangla&apos;s encrypted in-app messaging system.
+              <strong>Phone Number Privacy Feature:</strong> You can select the &quot;Hide Phone Number&quot; option when posting. When enabled, your phone number will never be exposed on the public webpage, and all prospective buyers will communicate with you exclusively through Serabondhu&apos;s encrypted in-app messaging system.
             </div>
           </section>
 
@@ -162,7 +162,7 @@ export default function PrivacyPolicyPage() {
               4. Cookies &amp; Local Browser Storage
             </h2>
             <p>
-              KhojoBangla uses cookies and browser local storage (<code>localStorage</code>) to store essential session preferences, including:
+              Serabondhu uses cookies and browser local storage (<code>localStorage</code>) to store essential session preferences, including:
             </p>
             <ul className="space-y-1.5 list-disc pl-5 text-xs sm:text-sm">
               <li>Your chosen browsing location (e.g. Dhaka, Chattogram).</li>
@@ -181,7 +181,7 @@ export default function PrivacyPolicyPage() {
               5. Information Sharing &amp; Legal Disclosures
             </h2>
             <p>
-              KhojoBangla does not sell, rent, or trade your personal information. We may share data under the following limited conditions:
+              Serabondhu does not sell, rent, or trade your personal information. We may share data under the following limited conditions:
             </p>
             <ul className="space-y-2 list-disc pl-5 text-xs sm:text-sm">
               <li>
@@ -199,7 +199,7 @@ export default function PrivacyPolicyPage() {
               6. Data Security &amp; Retention
             </h2>
             <p>
-              All traffic between your browser and KhojoBangla is encrypted using 256-bit TLS/SSL encryption. Passwords and credentials are stored using salted cryptographic hash functions.
+              All traffic between your browser and Serabondhu is encrypted using 256-bit TLS/SSL encryption. Passwords and credentials are stored using salted cryptographic hash functions.
             </p>
             <p>
               We retain account information for as long as your account remains active. If an ad expires or is marked as sold, it is archived from public search indexing.
@@ -215,7 +215,7 @@ export default function PrivacyPolicyPage() {
               Under the privacy principles of Bangladesh, you have the right to access, update, correct, or request the complete deletion of your account and associated listing records at any time.
             </p>
             <p>
-              To request account deletion or obtain a copy of your personal data, send an email from your registered email address to <code>privacy@khojobangla.com</code> with the subject &quot;Account Deletion Request&quot;.
+              To request account deletion or obtain a copy of your personal data, send an email from your registered email address to <code>privacy@serabondhu.net</code> with the subject &quot;Account Deletion Request&quot;.
             </p>
           </section>
 
@@ -228,9 +228,9 @@ export default function PrivacyPolicyPage() {
               If you have any questions, concerns, or grievances regarding this Privacy Policy or our data handling practices, please contact our team:
             </p>
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1">
-              <p className="font-bold text-slate-900">Data Protection Officer — KhojoBangla</p>
+              <p className="font-bold text-slate-900">Data Protection Officer — Serabondhu</p>
               <p>Jhamsikhel Road, Ward No. 3, Lalitpur, Bangladesh</p>
-              <p>Email: <a href="mailto:privacy@khojobangla.com" className="text-[#014923] hover:underline">privacy@khojobangla.com</a></p>
+              <p>Email: <a href="mailto:privacy@serabondhu.net" className="text-[#014923] hover:underline">privacy@serabondhu.net</a></p>
               <p>Helpline: +977-1-4567890 (Ext. 4)</p>
             </div>
           </section>

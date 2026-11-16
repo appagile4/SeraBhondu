@@ -87,7 +87,7 @@ export function MainFooter() {
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
           src="/footer.png"
-          alt="KhojoBangla Scenic Footer Banner"
+          alt="Serabondhu Scenic Footer Banner"
           fill
           priority={false}
           sizes="100vw"
@@ -113,7 +113,7 @@ export function MainFooter() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="KhojoBangla on Facebook"
+                aria-label="Serabondhu on Facebook"
                 className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#014923] hover:bg-[#014923] hover:text-white hover:border-[#014923] hover:scale-105 transition-all duration-150"
               >
                 <FacebookIcon className="w-3.5 h-3.5" />
@@ -123,7 +123,7 @@ export function MainFooter() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="KhojoBangla on YouTube"
+                aria-label="Serabondhu on YouTube"
                 className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#014923] hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000] hover:scale-105 transition-all duration-150"
               >
                 <YoutubeIcon className="w-3.5 h-3.5" />
@@ -133,7 +133,7 @@ export function MainFooter() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="KhojoBangla on Instagram"
+                aria-label="Serabondhu on Instagram"
                 className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#014923] hover:bg-[#E1306C] hover:text-white hover:border-[#E1306C] hover:scale-105 transition-all duration-150"
               >
                 <InstagramIcon className="w-3.5 h-3.5" />
@@ -143,7 +143,7 @@ export function MainFooter() {
                 href="https://tiktok.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="KhojoBangla on TikTok"
+                aria-label="Serabondhu on TikTok"
                 className="w-8 h-8 rounded-full bg-white border border-slate-200 shadow-xs flex items-center justify-center text-[#014923] hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:scale-105 transition-all duration-150"
               >
                 <TiktokIcon className="w-3.5 h-3.5" />
@@ -219,7 +219,7 @@ export function MainFooter() {
             </ul>
           </div>
 
-          {/* Column 4: About KhojoBangla */}
+          {/* Column 4: About Serabondhu */}
           <div>
             <div className="flex items-center gap-2">
               <Info className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -284,8 +284,8 @@ export function MainFooter() {
         <div className="pt-4 pb-20 md:pb-5 text-xs text-white flex flex-col md:flex-row items-center justify-between gap-3 font-medium">
           {/* Copyright and Tagline */}
           <p className="text-white drop-shadow-xs text-center md:text-left">
-            © {currentYear} KhojoBangla (
-            <span className="text-[#E30613] font-bold">KhojoBangla.com</span>).{" "}
+            © {currentYear} Serabondhu (
+            <span className="text-[#E30613] font-bold">serabondhu.net</span>).{" "}
             {t("footerCopyright")} {t("tagline")}.
           </p>
 
