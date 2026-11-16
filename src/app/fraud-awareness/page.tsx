@@ -20,16 +20,16 @@ import {
 export const metadata: Metadata = {
   title: "Fraud Awareness Guide — KhojoBangla | Recognizing & Preventing Scams in Bangladesh",
   description:
-    "Comprehensive guide on common classified scams in Bangladesh. Learn how to identify advance payment fraud, fake eSewa screenshots, QR code phishing, and how to report scammers.",
+    "Comprehensive guide on common classified scams in Bangladesh. Learn how to identify advance payment fraud, fake bKash/Nagad screenshots, QR code phishing, and how to report scammers.",
 };
 
 const TOP_SCAMS = [
   {
     icon: Flame,
     title: "1. The 'Advance Booking Token' Scam",
-    scenario: "A seller posts an iPhone 15 Pro for Rs. 45,000 (market price Rs. 140,000+) or a Royal Enfield bike for Rs. 80,000.",
+    scenario: "A seller posts an iPhone 15 Pro for ৳ 45,000 (market price ৳ 140,000+) or a Yamaha R15 bike for ৳ 180,000.",
     mechanism:
-      "When you contact them, they claim multiple buyers are offering cash and demand a 'token advance' of Rs. 2,000 to Rs. 10,000 via eSewa / Khalti / Fonepay to hold the item. Once money is sent, their phone is immediately switched off or your number is blocked.",
+      "When you contact them, they claim multiple buyers are offering cash and demand a 'token advance' of ৳ 2,000 to ৳ 10,000 via bKash / Nagad / Rocket to hold the item. Once money is sent, their phone is immediately switched off or your number is blocked.",
     prevention:
       "NEVER pay advance booking tokens. Legitimate sellers will gladly let you inspect the item in person before discussing payment.",
   },
@@ -38,7 +38,7 @@ const TOP_SCAMS = [
     title: "2. The Fake Payment Screenshot Scam",
     scenario: "A buyer contacts you for an expensive laptop, camera, or phone that you have listed for sale.",
     mechanism:
-      "They meet you or request delivery, then show you a realistic-looking eSewa / Fonepay / Bank Mobile App 'Payment Successful' screenshot on their phone. They claim 'the SMS is delayed due to network lag' and pressure you to release the item.",
+      "They meet you or request delivery, then show you a realistic-looking bKash / Nagad / Bank Mobile App 'Payment Successful' screenshot on their phone. They claim 'the SMS is delayed due to network lag' and pressure you to release the item.",
     prevention:
       "Never rely on the buyer's phone screen. Check your own mobile banking or digital wallet balance directly on your own device and confirm the credited balance before letting the buyer leave.",
   },
@@ -47,7 +47,7 @@ const TOP_SCAMS = [
     title: "3. The 'Scan QR Code to Receive Money' Phishing Scam",
     scenario: "A scammer claims they are ready to purchase your item and wants to send payment digitally.",
     mechanism:
-      "They send you a QR code on WhatsApp or Viber and instruct: 'Please open your eSewa / banking app and scan this QR code to receive the Rs. 25,000 into your account.' In reality, scanning a QR code and entering your MPIN/PIN authorizes a payment OUT of your account, draining your balance.",
+      "They send you a QR code on WhatsApp or Telegram and instruct: 'Please open your bKash / banking app and scan this QR code to receive the ৳ 25,000 into your account.' In reality, scanning a QR code and entering your PIN authorizes a payment OUT of your account, draining your balance.",
     prevention:
       "Scanning a QR code NEVER receives money into your account. To receive money, the buyer must scan YOUR personal QR code, or transfer funds to your phone number or account number directly without you entering any PIN.",
   },
@@ -56,16 +56,16 @@ const TOP_SCAMS = [
     title: "4. Army / Police Official Impersonation",
     scenario: "The seller posts photos of a vehicle with a profile photo in military or police uniform.",
     mechanism:
-      "They claim they have been urgently transferred to a remote border checkpoint (e.g. Darchula or Mustang) and need to liquidate their bike or car immediately. They send fake ID cards to build false trust and ask for transport courier fees in advance.",
+      "They claim they have been urgently transferred to a remote border cantonment and need to liquidate their bike or car immediately. They send fake ID cards to build false trust and ask for transport courier fees in advance.",
     prevention:
       "Authentic security personnel conduct transactions in person just like any other citizen. Do not let military uniforms or badge pictures lull you into transferring money in advance.",
   },
   {
     icon: CreditCard,
     title: "5. The Overpayment / Accidental Transfer Scam",
-    scenario: "A buyer 'accidentally' sends an edited receipt showing they transferred Rs. 50,000 instead of Rs. 5,000.",
+    scenario: "A buyer 'accidentally' sends an edited receipt showing they transferred ৳ 50,000 instead of ৳ 5,000.",
     mechanism:
-      "They panic and demand that you immediately refund the 'excess' Rs. 45,000 to their alternate eSewa number. If you comply, you end up sending your own genuine funds while their initial payment was fictitious.",
+      "They panic and demand that you immediately refund the 'excess' ৳ 45,000 to their alternate bKash number. If you comply, you end up sending your own genuine funds while their initial payment was fictitious.",
     prevention:
       "Always check your actual statement with your bank or wallet provider. If an unverified credit appears, report it to customer support rather than refunding to a third-party account.",
   },
@@ -74,9 +74,9 @@ const TOP_SCAMS = [
 const RED_FLAGS = [
   "Price is radically lower than market benchmark (more than 50% discount on mint electronics).",
   "Seller refuses to meet in a public location in person or allow physical inspection.",
-  "Insistence on instant digital token transfer (eSewa / Khalti / Fonepay) before meeting.",
+  "Insistence on instant digital token transfer (bKash / Nagad / Rocket) before meeting.",
   "Pressure tactics: claiming 'another buyer is offering more cash right now if you don't send token'.",
-  "Seller claims to be in a remote district and offers to send the product via overnight bus or courier upon advance payment.",
+  "Seller claims to be in a remote district and offers to send the product via courier upon advance payment.",
   "Account was created today and has zero verification badges or past transaction tenure.",
 ];
 

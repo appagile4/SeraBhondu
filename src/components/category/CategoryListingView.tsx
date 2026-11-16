@@ -179,7 +179,11 @@ export function CategoryListingView({
               <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
               <input
                 type="text"
-                placeholder={`Search within ${category.name}...`}
+                placeholder={
+                  language === "bn"
+                    ? `${translatedCatName}-এ খুঁজুন...`
+                    : `Search within ${category.name}...`
+                }
                 value={searchKeyword}
                 onChange={(e) => setSearchKeyword(e.target.value)}
                 className="w-full pl-9 pr-8 py-1.5 text-xs rounded-xl border border-slate-300 focus:border-[#014923]"
@@ -201,7 +205,7 @@ export function CategoryListingView({
                 className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#E30613]" />
-                <span>Filters</span>
+                <span>{t("filtersHeading", "Filters")}</span>
               </button>
 
               {/* Sort Dropdown */}
@@ -217,9 +221,17 @@ export function CategoryListingView({
             <ProductGrid products={filteredProducts} columns={3} />
           ) : (
             <EmptyState
-              title={`No advertisements found in ${category.name}`}
-              description="Try adjusting your price range, clearing some filters, or checking back soon for new listings."
-              actionText="Reset All Filters"
+              title={
+                language === "bn"
+                  ? `${translatedCatName}-এ কোনো বিজ্ঞাপন পাওয়া যায়নি`
+                  : `No advertisements found in ${category.name}`
+              }
+              description={
+                language === "bn"
+                  ? "আপনার ফিল্টার পরিবর্তন করে দেখুন অথবা অন্য কোনো ক্যাটাগরিতে অনুসন্ধান করুন।"
+                  : "Try adjusting your price range, clearing some filters, or checking back soon for new listings."
+              }
+              actionText={language === "bn" ? "ফিল্টার রিসেট করুন" : "Reset All Filters"}
               onAction={handleResetFilters}
             />
           )}
@@ -235,7 +247,7 @@ export function CategoryListingView({
           />
           <div className="relative bg-white w-full sm:max-w-md max-h-[85vh] rounded-t-3xl sm:rounded-3xl p-5 overflow-y-auto z-10 space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h3 className="font-bold text-base text-slate-900">Filters</h3>
+              <h3 className="font-bold text-base text-slate-900">{t("filtersHeading", "Filters")}</h3>
               <button
                 onClick={() => setIsMobileFiltersOpen(false)}
                 className="p-1 text-slate-400 hover:text-slate-700"
@@ -251,9 +263,11 @@ export function CategoryListingView({
             />
             <button
               onClick={() => setIsMobileFiltersOpen(false)}
-              className="w-full py-3 rounded-xl bg-[#014923] text-white font-bold text-sm"
+              className="w-full py-3 rounded-xl bg-[#014923] text-white font-bold text-sm cursor-pointer hover:bg-[#003819]"
             >
-              Apply Filters ({filteredProducts.length} Ads)
+              {language === "bn"
+                ? `ফিল্টার প্রয়োগ করুন (${filteredProducts.length}টি বিজ্ঞাপন)`
+                : `Apply Filters (${filteredProducts.length} Ads)`}
             </button>
           </div>
         </div>

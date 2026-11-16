@@ -1337,6 +1337,127 @@ export const TRANSLATIONS: Translations = {
     bn: "লাইভ প্রোফাইল দেখুন →",
     en: "View live profile →",
   },
+  // Filters, Search, and Category Listing Localization
+  filtersHeading: {
+    bn: "ফিল্টারসমূহ",
+    en: "Filters",
+  },
+  resetFilters: {
+    bn: "রিসেট",
+    en: "Reset",
+  },
+  categoryLabel: {
+    bn: "ক্যাটাগরি",
+    en: "Category",
+  },
+  allCategoriesOption: {
+    bn: "সকল ক্যাটাগরি",
+    en: "All Categories",
+  },
+  locationFilterLabel: {
+    bn: "অবস্থান",
+    en: "Location",
+  },
+  priceRangeBDT: {
+    bn: "মূল্য সীমা (৳)",
+    en: "Price Range (৳)",
+  },
+  minLabel: {
+    bn: "সর্বনিম্ন",
+    en: "Min",
+  },
+  maxLabel: {
+    bn: "সর্বোচ্চ",
+    en: "Max",
+  },
+  minPricePlaceholder: {
+    bn: "সর্বনিম্ন ৳",
+    en: "Min ৳",
+  },
+  maxPricePlaceholder: {
+    bn: "সর্বোচ্চ ৳",
+    en: "Max ৳",
+  },
+  budgetUnder5k: {
+    bn: "< ৳ ৫ হাজার",
+    en: "< ৳ 5k",
+  },
+  budgetUnder25k: {
+    bn: "< ৳ ২৫ হাজার",
+    en: "< ৳ 25k",
+  },
+  budgetUnder1L: {
+    bn: "< ৳ ১ লাখ",
+    en: "< ৳ 1L",
+  },
+  budgetUnder5L: {
+    bn: "< ৳ ৫ লাখ",
+    en: "< ৳ 5L",
+  },
+  conditionAll: {
+    bn: "সকল",
+    en: "All",
+  },
+  brandMakeLabel: {
+    bn: "ব্র্যান্ড / মেক",
+    en: "Brand / Make",
+  },
+  propertyTypeLabel: {
+    bn: "সম্পত্তির ধরন",
+    en: "Property Type",
+  },
+  allTypesOption: {
+    bn: "সকল ধরন",
+    en: "All Types",
+  },
+  apartmentFlatOption: {
+    bn: "অ্যাপার্টমেন্ট / ফ্ল্যাট",
+    en: "Apartment / Flat",
+  },
+  commercialOfficeOption: {
+    bn: "বাণিজ্যিক স্পেস / অফিস",
+    en: "Commercial Hall / Office",
+  },
+  plotLandOption: {
+    bn: "প্লট / জমি",
+    en: "Plot / Land",
+  },
+  sortByLabel: {
+    bn: "সাজান:",
+    en: "Sort By:",
+  },
+  sortRelevance: {
+    bn: "প্রাসঙ্গিকতা",
+    en: "Relevance",
+  },
+  sortNewest: {
+    bn: "নতুন বিজ্ঞাপন প্রথমে",
+    en: "Newest First",
+  },
+  sortOldest: {
+    bn: "পুরোনো বিজ্ঞাপন প্রথমে",
+    en: "Oldest First",
+  },
+  sortPriceAsc: {
+    bn: "মূল্য: কম থেকে বেশি",
+    en: "Price: Low to High",
+  },
+  sortPriceDesc: {
+    bn: "মূল্য: বেশি থেকে কম",
+    en: "Price: High to Low",
+  },
+  searchKeywordsPlaceholder: {
+    bn: "কীওয়ার্ড, মডেল, শহর লিখে খুঁজুন...",
+    en: "Search by keywords, model, city...",
+  },
+  advertisementsCount: {
+    bn: "বিজ্ঞাপন",
+    en: "Advertisements",
+  },
+  advertisementCountSingle: {
+    bn: "বিজ্ঞাপন",
+    en: "Advertisement",
+  },
 };
 
 interface LanguageContextType {

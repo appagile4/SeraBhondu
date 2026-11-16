@@ -65,9 +65,9 @@ const MILESTONES = [
   },
   {
     year: "2025",
-    title: "Province-Wide Expansion",
+    title: "Nationwide Expansion",
     description:
-      "Expanded beyond Dhaka Valley to Dhaka, Gandaki, Koshi, Lumbini, and all 8 divisions with localized search filters.",
+      "Expanded across all 8 divisions of Bangladesh — Dhaka, Chattogram, Sylhet, Rajshahi, Khulna, Barishal, Rangpur, and Mymensingh with localized search filters.",
   },
   {
     year: "2026",

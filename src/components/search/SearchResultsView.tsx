@@ -141,7 +141,7 @@ export function SearchResultsView({
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
           <input
             type="text"
-            placeholder="Search by keywords, model, city..."
+            placeholder={t("searchKeywordsPlaceholder", "Search by keywords, model, city...")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full pl-10 pr-20 py-2.5 text-sm rounded-xl border border-slate-300 focus:border-[#014923] focus:ring-1 focus:ring-[#014923]"
@@ -157,9 +157,9 @@ export function SearchResultsView({
           )}
           <button
             type="submit"
-            className="absolute right-1.5 top-1.5 bottom-1.5 px-3 bg-[#014923] text-white rounded-lg text-xs font-bold hover:bg-[#003819]"
+            className="absolute right-1.5 top-1.5 bottom-1.5 px-3 bg-[#014923] text-white rounded-lg text-xs font-bold hover:bg-[#003819] cursor-pointer"
           >
-            Search
+            {language === "bn" ? "অনুসন্ধান" : "Search"}
           </button>
         </form>
       </div>
@@ -180,16 +180,16 @@ export function SearchResultsView({
           {/* Controls Bar */}
           <div className="bg-white rounded-2xl border border-slate-200 p-3.5 flex items-center justify-between gap-3 shadow-xs">
             <span className="text-xs font-bold text-slate-700">
-              {searchResults.length} {searchResults.length === 1 ? "Advertisement" : "Advertisements"}
+              {searchResults.length} {t("advertisementsCount", "Advertisements")}
             </span>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsMobileFiltersOpen(true)}
-                className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800"
+                className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800 cursor-pointer"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#E30613]" />
-                <span>Filters</span>
+                <span>{t("filtersHeading", "Filters")}</span>
               </button>
 
               <SortDropdown
@@ -204,9 +204,19 @@ export function SearchResultsView({
             <ProductGrid products={searchResults} columns={3} />
           ) : (
             <EmptyState
-              title="No matching advertisements found"
-              description={`We couldn't find any results for "${query}". Try searching with different keywords, widening your price range, or browsing popular categories.`}
-              actionText="Clear Search &amp; Filters"
+              title={
+                language === "bn"
+                  ? "কোনো মিলযুক্ত বিজ্ঞাপন পাওয়া যায়নি"
+                  : "No matching advertisements found"
+              }
+              description={
+                language === "bn"
+                  ? `"${query}" এর জন্য কোনো বিজ্ঞাপন পাওয়া যায়নি। অন্যান্য কীওয়ার্ড দিয়ে অনুসন্ধান করুন অথবা ফিল্টার পরিবর্তন করুন।`
+                  : `We couldn't find any results for "${query}". Try searching with different keywords, widening your price range, or browsing popular categories.`
+              }
+              actionText={
+                language === "bn" ? "অনুসন্ধান ও ফিল্টার রিসেট করুন" : "Clear Search & Filters"
+              }
               onAction={handleReset}
             />
           )}
@@ -222,7 +232,7 @@ export function SearchResultsView({
           />
           <div className="relative bg-white w-full sm:max-w-md max-h-[85vh] rounded-t-3xl sm:rounded-3xl p-5 overflow-y-auto z-10 space-y-4">
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h3 className="font-bold text-base text-slate-900">Filters</h3>
+              <h3 className="font-bold text-base text-slate-900">{t("filtersHeading", "Filters")}</h3>
               <button
                 onClick={() => setIsMobileFiltersOpen(false)}
                 className="p-1 text-slate-400 hover:text-slate-700"
@@ -237,9 +247,11 @@ export function SearchResultsView({
             />
             <button
               onClick={() => setIsMobileFiltersOpen(false)}
-              className="w-full py-3 rounded-xl bg-[#014923] text-white font-bold text-sm"
+              className="w-full py-3 rounded-xl bg-[#014923] text-white font-bold text-sm cursor-pointer hover:bg-[#003819]"
             >
-              Apply Filters ({searchResults.length} Ads)
+              {language === "bn"
+                ? `ফিল্টার প্রয়োগ করুন (${searchResults.length}টি বিজ্ঞাপন)`
+                : `Apply Filters (${searchResults.length} Ads)`}
             </button>
           </div>
         </div>

@@ -20,7 +20,7 @@ import {
 const PACKAGES = [
   {
     name: "Dealer Starter",
-    price: "Rs. 4,999",
+    price: "৳ 4,999",
     period: "per month",
     description: "Ideal for independent bike reconditioned shops and boutique electronics stores.",
     features: [
@@ -36,7 +36,7 @@ const PACKAGES = [
   },
   {
     name: "Showroom Pro",
-    price: "Rs. 11,999",
+    price: "৳ 11,999",
     period: "per month",
     description: "The most popular plan for auto showrooms, real estate agencies, and retailers.",
     features: [
@@ -53,7 +53,7 @@ const PACKAGES = [
   },
   {
     name: "Enterprise Dealer",
-    price: "Rs. 24,999",
+    price: "৳ 24,999",
     period: "per month",
     description: "Tailored for major multi-branch auto franchises and large real estate developers.",
     features: [

@@ -28,7 +28,7 @@ const GOLDEN_RULES = [
     icon: MapPin,
     title: "1. Meet in Busy, Well-Lit Public Places",
     description:
-      "Always arrange physical meetings in bustling public places during daylight hours. Ideal locations in Dhaka & Chattogram include shopping complexes (e.g. Bhatbhateni, Labim Mall, Civil Mall), major bank lobbies, or cafes near main intersections. Never meet in secluded alleys or private residences alone.",
+      "Always arrange physical meetings in bustling public places during daylight hours. Ideal locations in Dhaka & Chattogram include shopping complexes (e.g. Bashundhara City, Jamuna Future Park, Shimanto Square, Sanmar Ocean City), major bank lobbies, or cafes near main intersections. Never meet in secluded alleys or private residences alone.",
   },
   {
     icon: Eye,
@@ -40,13 +40,13 @@ const GOLDEN_RULES = [
     icon: CreditCard,
     title: "3. Never Pay Advance 'Booking' or 'Delivery' Fees",
     description:
-      "Legitimate sellers do not demand advance token deposits before you have personally examined the item. Never transfer money via eSewa, Khalti, IME Pay, or bank transfer in advance to 'hold' an item or cover imaginary courier charges.",
+      "Legitimate sellers do not demand advance token deposits before you have personally examined the item. Never transfer money via bKash, Nagad, Rocket, or bank transfer in advance to 'hold' an item or cover imaginary courier charges.",
   },
   {
     icon: FileCheck,
-    title: "4. Verify Official Bluebook Papers & Chassis Numbers",
+    title: "4. Verify Official BRTA Papers & Chassis Numbers",
     description:
-      "When purchasing used motorbikes, scooters, or cars, inspect the official government Bluebook (Sawari Darta Kitab). Ensure the chassis and engine numbers stamped on the vehicle physically match the book, and check that annual vehicle taxes (Sawari Kar) are up to date at the Department of Transport Management (Yatayat Karyalaya).",
+      "When purchasing used motorbikes, scooters, or cars, inspect the official BRTA registration certificate, tax token, and fitness certificate. Ensure the chassis and engine numbers stamped on the vehicle physically match the papers, and verify with the Bangladesh Road Transport Authority (BRTA).",
   },
   {
     icon: Users,
@@ -60,16 +60,16 @@ const DOS_AND_DONTS = {
   dos: [
     "Test smartphones thoroughly: make a test phone call, test WiFi, camera, speaker, and touchscreen.",
     "Verify seller's identity on KhojoBangla: look for the 'Verified Seller' badge and member join date.",
-    "Pay via digital transfer (Fonepay / eSewa) ONLY after you have physical possession of the product.",
+    "Pay via digital transfer (bKash / Nagad / Bank) ONLY after you have physical possession of the product.",
     "Ask for original purchase receipts, warranty cards, and packaging when available.",
     "Report suspicious ads immediately using the 'Report Ad' flag on KhojoBangla.",
   ],
   donts: [
     "Never send advance deposits, earnest money, or transport courier fees before inspection.",
-    "Don't accept fake payment confirmation screenshots — verify your own bank/eSewa balance directly.",
+    "Don't accept fake payment confirmation screenshots — verify your own bank/bKash balance directly.",
     "Never scan unfamiliar QR codes that claim to 'send you money' — QR codes authorize debits, not credits.",
-    "Avoid deals that appear 'too good to be true' (e.g. iPhone 15 Pro for Rs. 35,000 is always a scam).",
-    "Do not share OTP codes, banking passwords, or national citizenship card copies with strangers.",
+    "Avoid deals that appear 'too good to be true' (e.g. iPhone 15 Pro for ৳ 35,000 is always a scam).",
+    "Do not share OTP codes, banking passwords, or national NID card copies with strangers.",
   ],
 };
 

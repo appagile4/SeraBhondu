@@ -127,17 +127,17 @@ const PERKS = [
   {
     icon: GraduationCap,
     title: "Learning & Conference Budget",
-    description: "Annual stipend of Rs. 60,000 for technical books, online courses, and regional developer conferences.",
+    description: "Annual stipend of ৳ 60,000 for technical books, online courses, and regional developer conferences.",
   },
   {
     icon: Coffee,
     title: "Free Chef-Cooked Lunch & Snacks",
-    description: "Freshly prepared wholesome meals, barista-grade Himalayan coffee, and healthy snacks daily at our Jhamsikhel hub.",
+    description: "Freshly prepared wholesome meals, premium tea & coffee, and healthy snacks daily at our Gulshan, Dhaka hub.",
   },
   {
     icon: Sparkles,
-    title: "Himalayan Treks & Team Retreats",
-    description: "Quarterly outdoor hackathons, hiking trips across Langtang and Annapurna foothills, and team celebrations.",
+    title: "Team Retreats & Celebrations",
+    description: "Quarterly hackathons, outdoor retreats to Cox's Bazar and Sylhet tea gardens, and team milestone celebrations.",
   },
 ];
 
