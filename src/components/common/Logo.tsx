@@ -27,10 +27,10 @@ export function Logo({
   }, []);
 
   const heightClasses = {
-    sm: "h-8 sm:h-9 w-auto",
-    md: "h-10 sm:h-12 w-auto",
-    lg: "h-12 sm:h-14 lg:h-16 xl:h-18 w-auto",
-    xl: "h-16 sm:h-20 xl:h-22 w-auto",
+    sm: "h-9 sm:h-10 w-auto",
+    md: "h-12 sm:h-14 md:h-[58px] lg:h-[62px] w-auto",
+    lg: "h-14 sm:h-16 lg:h-20 w-auto",
+    xl: "h-18 sm:h-22 xl:h-26 w-auto",
   };
 
   // When language is English use e-logo.png; when Bangla / Bangladesh use b-logo.png
