@@ -20,7 +20,7 @@ export interface BannerItem {
 const DEFAULT_BANNER: BannerItem = {
   _id: "default-1",
   title: "serabondhu.net — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
-  imageUrl: "/serabondhu-hero-banner.jpg?v=2",
+  imageUrl: "/serabondhu-hero-banner.jpg?v=3",
   linkUrl: "/search",
 };
 
