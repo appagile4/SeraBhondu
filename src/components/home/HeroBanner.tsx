@@ -35,8 +35,16 @@ export function HeroBanner() {
     async function loadBanners() {
       try {
         const res = await api.get("/banners");
-        if (res.data?.success && res.data.banners?.length > 0 && isMounted) {
-          setBanners(res.data.banners);
+        if (res.data?.success && Array.isArray(res.data.banners) && isMounted) {
+          // Filter out any legacy banners referencing old branding
+          const activeCleanBanners = res.data.banners.filter(
+            (b: BannerItem) => !b.imageUrl?.toLowerCase().includes("khojobangla")
+          );
+          if (activeCleanBanners.length > 0) {
+            setBanners([DEFAULT_BANNER, ...activeCleanBanners]);
+          } else {
+            setBanners([DEFAULT_BANNER]);
+          }
         }
       } catch (err) {
         // Fallback to default banner on error
