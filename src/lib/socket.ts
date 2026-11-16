@@ -1,9 +1,15 @@
 import { io, Socket } from "socket.io-client";
 
-const SOCKET_URL =
-  process.env.NEXT_PUBLIC_SOCKET_URL ||
-  process.env.NEXT_PUBLIC_API_URL?.replace("/api", "") ||
-  "http://localhost:5000";
+// Strictly read Socket URL from environment variable or derive from NEXT_PUBLIC_API_URL
+const getSocketUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_SOCKET_URL) {
+    return process.env.NEXT_PUBLIC_SOCKET_URL.replace(/\/+$/, "");
+  }
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.serabondhu.net/api";
+  return apiUrl.replace(/\/api\/?$/, "").replace(/\/+$/, "");
+};
+
+export const SOCKET_URL = getSocketUrl();
 
 let socketInstance: Socket | null = null;
 
@@ -80,4 +86,3 @@ export const disconnectSocket = () => {
 };
 
 export default getSocket;
-

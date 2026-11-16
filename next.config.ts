@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api.serabondhu.net",
+      },
+      {
+        protocol: "https",
+        hostname: "serabondhu.net",
+      },
+      {
+        protocol: "https",
         hostname: "images.unsplash.com",
       },
       {

@@ -217,7 +217,7 @@ export function LocationMapPicker({
       try {
         // Query OpenStreetMap Nominatim
         const addressParts = [area, city, state, pincode].filter(Boolean);
-        const query = addressParts.join(", ") + ", Nepal";
+        const query = addressParts.join(", ") + ", Bangladesh";
 
         const res = await fetch(
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(

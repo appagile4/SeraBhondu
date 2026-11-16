@@ -1,7 +1,8 @@
 import axios from "axios";
 
-export const API_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+// Strictly read API URL from environment variable NEXT_PUBLIC_API_URL
+const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.serabondhu.net/api";
+export const API_URL = rawApiUrl.replace(/\/+$/, "");
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -40,4 +41,3 @@ api.interceptors.response.use(
 );
 
 export default api;
-
