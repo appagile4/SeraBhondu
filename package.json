@@ -39,6 +39,8 @@
     "socket.io-client": "^4.8.4"
   },
   "devDependencies": {
+    "@react-native/babel-preset": "^0.88.1",
+    "@react-native/metro-config": "^0.88.1",
     "@types/react": "~19.3.0",
     "typescript": "~6.0.3"
   },
