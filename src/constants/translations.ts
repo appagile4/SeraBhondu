@@ -166,7 +166,7 @@ export const TRANSLATIONS = {
   },
   currency: {
     bn: "৳",
-    en: "Tk",
+    en: "₹",
   },
 
   // Chat Screen
@@ -530,11 +530,11 @@ export const TRANSLATIONS = {
   },
   minPricePlaceholder: {
     bn: "সর্বনিম্ন (৳)",
-    en: "Min (Tk)",
+    en: "Min (₹)",
   },
   maxPricePlaceholder: {
     bn: "সর্বোচ্চ (৳)",
-    en: "Max (Tk)",
+    en: "Max (₹)",
   },
   verifiedOnly: {
     bn: "শুধুমাত্র ভেরিফাইড বিক্রেতা",

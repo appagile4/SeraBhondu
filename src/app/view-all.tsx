@@ -46,7 +46,7 @@ export default function ViewAllScreen() {
     condition?: string;
   }>();
   const { t, isBn, isEn, currencySymbol } = useLanguage();
-  const sym = currencySymbol || (isEn ? "Tk" : "৳");
+  const sym = currencySymbol || (isEn ? "₹" : "৳");
   const pricePresets = getPricePresets(sym);
   const defaultCity = useAppSelector((state) => state.location.selectedCity);
 

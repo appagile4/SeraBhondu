@@ -103,7 +103,12 @@ export default function PostAdScreen() {
 
     const numPrice = Number(price.replace(/[^0-9.]/g, ""));
     if (isNaN(numPrice) || numPrice < 0) {
-      Alert.alert("সঠিক মূল্য", "অনুগ্রহ করে বিজ্ঞাপনের সঠিক মূল্য (৳) দিন।");
+      Alert.alert(
+        isEn ? "Valid Price" : "সঠিক মূল্য",
+        isEn
+          ? "Please enter a valid price (₹)."
+          : "অনুগ্রহ করে বিজ্ঞাপনের সঠিক মূল্য (৳) দিন।"
+      );
       return;
     }
 
@@ -344,12 +349,12 @@ export default function PostAdScreen() {
         {/* Step 5: Price and Condition */}
         <View style={styles.twoColRow}>
           <View style={{ flex: 1, marginRight: 8 }}>
-            <Text style={styles.label}>৫. মূল্য (৳ BDT) *</Text>
+            <Text style={styles.label}>{isEn ? "5. Price (₹) *" : "৫. মূল্য (৳ BDT) *"}</Text>
             <View style={styles.priceInputWrap}>
-              <Text style={styles.currencySymbol}>{currencySymbol || (isEn ? "Tk" : "৳")}</Text>
+              <Text style={styles.currencySymbol}>{currencySymbol || (isEn ? "₹" : "৳")}</Text>
               <TextInput
                 style={styles.priceInput}
-                placeholder="যেমন: 25000"
+                placeholder={isEn ? "e.g. 25000" : "যেমন: 25000"}
                 placeholderTextColor={THEME.colors.textMuted}
                 keyboardType="numeric"
                 value={price}

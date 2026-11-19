@@ -37,8 +37,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ item, width }) => {
     item.images?.[0]?.url ||
     "https://images.unsplash.com/photo-1581291518655-9523c932edcf?auto=format&fit=crop&w=600&q=80";
 
-  // Format price with active currency symbol (Tk in English, ৳ in Bengali)
-  const sym = currencySymbol || (isEn ? "Tk" : "৳");
+  // Format price with active currency symbol (₹ in English, ৳ in Bengali)
+  const sym = currencySymbol || (isEn ? "₹" : "৳");
   const formattedPrice = `${sym} ${Number(item.price).toLocaleString("en-BD")}`;
 
   return (

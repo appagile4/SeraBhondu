@@ -40,7 +40,7 @@ export default function ListingDetailScreen() {
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const favouriteIds = useAppSelector((state) => state.favourites.favouriteIds);
   const { isEn, currencySymbol } = useLanguage();
-  const sym = currencySymbol || (isEn ? "Tk" : "৳");
+  const sym = currencySymbol || (isEn ? "₹" : "৳");
 
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [startingChat, setStartingChat] = useState(false);
@@ -73,7 +73,9 @@ export default function ListingDetailScreen() {
   const handleShare = async () => {
     try {
       await Share.share({
-        message: `সেরা বন্ধুতে এই বিজ্ঞাপনটি দেখুন: ${currentAd.title} - ৳ ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`,
+        message: isEn
+          ? `Check out this listing on Serabondhu: ${currentAd.title} - ₹ ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`
+          : `সেরা বন্ধুতে এই বিজ্ঞাপনটি দেখুন: ${currentAd.title} - ৳ ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`,
       });
     } catch (err) {}
   };

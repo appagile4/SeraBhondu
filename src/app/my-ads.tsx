@@ -32,7 +32,7 @@ export default function MyAdsScreen() {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { isEn, currencySymbol } = useLanguage();
-  const sym = currencySymbol || (isEn ? "Tk" : "৳");
+  const sym = currencySymbol || (isEn ? "₹" : "৳");
   const { ads, activeStatusFilter, isLoading, isRefreshing } = useAppSelector(
     (state) => state.myAds
   );
