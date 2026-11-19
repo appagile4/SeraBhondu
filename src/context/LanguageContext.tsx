@@ -801,7 +801,7 @@ export const TRANSLATIONS: Translations = {
   },
   adPriceLabel: {
     bn: "বিক্রয় মূল্য নির্ধারণ করুন (৳) *",
-    en: "Set a Price (Tk) *",
+    en: "Set a Price (₹) *",
   },
   adPricePlaceholder: {
     bn: "যেমন: ২৫০০০",
@@ -1089,7 +1089,7 @@ export const TRANSLATIONS: Translations = {
   },
   valPriceReq: {
     bn: "অনুগ্রহ করে সঠিক বিক্রয় মূল্য দিন (টাকায়)",
-    en: "Please enter a valid price in Taka (৳)",
+    en: "Please enter a valid price (₹)",
   },
   valPhotoReq: {
     bn: "বিজ্ঞাপনের জন্য অনুগ্রহ করে অন্তত একটি ছবি যোগ করুন",
@@ -1360,7 +1360,7 @@ export const TRANSLATIONS: Translations = {
   },
   priceRangeBDT: {
     bn: "মূল্য সীমা (৳)",
-    en: "Price Range (৳)",
+    en: "Price Range (₹)",
   },
   minLabel: {
     bn: "সর্বনিম্ন",
@@ -1372,27 +1372,27 @@ export const TRANSLATIONS: Translations = {
   },
   minPricePlaceholder: {
     bn: "সর্বনিম্ন ৳",
-    en: "Min ৳",
+    en: "Min ₹",
   },
   maxPricePlaceholder: {
     bn: "সর্বোচ্চ ৳",
-    en: "Max ৳",
+    en: "Max ₹",
   },
   budgetUnder5k: {
     bn: "< ৳ ৫ হাজার",
-    en: "< ৳ 5k",
+    en: "< ₹ 5k",
   },
   budgetUnder25k: {
     bn: "< ৳ ২৫ হাজার",
-    en: "< ৳ 25k",
+    en: "< ₹ 25k",
   },
   budgetUnder1L: {
     bn: "< ৳ ১ লাখ",
-    en: "< ৳ 1L",
+    en: "< ₹ 1L",
   },
   budgetUnder5L: {
     bn: "< ৳ ৫ লাখ",
-    en: "< ৳ 5L",
+    en: "< ₹ 5L",
   },
   conditionAll: {
     bn: "সকল",

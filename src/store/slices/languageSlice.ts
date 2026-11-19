@@ -61,7 +61,7 @@ export const { initializeLanguage, setLanguage, toggleLanguage } = languageSlice
 // Selectors
 export const selectLanguage = (state: RootState): Language => state.language.language;
 export const selectCurrencySymbol = (state: RootState): string =>
-  state.language.language === "en" ? "Tk" : "৳";
+  state.language.language === "en" ? "₹" : "৳";
 export const selectIsBangla = (state: RootState): boolean => state.language.language === "bn";
 export const selectIsEnglish = (state: RootState): boolean => state.language.language === "en";
 

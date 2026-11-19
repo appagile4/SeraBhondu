@@ -40,10 +40,10 @@ export function FilterSidebar({
   const isBn = language === "bn";
 
   const quickBudgetPills = [
-    { label: t("budgetUnder5k", "< ৳ 5k"), min: 0, max: 5000 },
-    { label: t("budgetUnder25k", "< ৳ 25k"), min: 0, max: 25000 },
-    { label: t("budgetUnder1L", "< ৳ 1L"), min: 0, max: 100000 },
-    { label: t("budgetUnder5L", "< ৳ 5L"), min: 0, max: 500000 },
+    { label: t("budgetUnder5k", isBn ? "< ৳ 5k" : "< ₹ 5k"), min: 0, max: 5000 },
+    { label: t("budgetUnder25k", isBn ? "< ৳ 25k" : "< ₹ 25k"), min: 0, max: 25000 },
+    { label: t("budgetUnder1L", isBn ? "< ৳ 1L" : "< ₹ 1L"), min: 0, max: 100000 },
+    { label: t("budgetUnder5L", isBn ? "< ৳ 5L" : "< ₹ 5L"), min: 0, max: 500000 },
   ];
 
   return (
@@ -125,7 +125,7 @@ export function FilterSidebar({
       {/* Price Range */}
       <div className="space-y-2.5">
         <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block">
-          {t("priceRangeBDT", "Price Range (৳)")}
+          {t("priceRangeBDT", isBn ? "মূল্য সীমা (৳)" : "Price Range (₹)")}
         </label>
         <div className="grid grid-cols-2 gap-2">
           <div>
@@ -134,7 +134,7 @@ export function FilterSidebar({
             </span>
             <input
               type="number"
-              placeholder={t("minPricePlaceholder", "Min ৳")}
+              placeholder={t("minPricePlaceholder", isBn ? "সর্বনিম্ন ৳" : "Min ₹")}
               value={filters.minPrice ?? ""}
               onChange={(e) => handlePriceChange("minPrice", e.target.value)}
               className="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-xs focus:border-[#014923] focus:ring-1 focus:ring-[#014923]"
@@ -146,7 +146,7 @@ export function FilterSidebar({
             </span>
             <input
               type="number"
-              placeholder={t("maxPricePlaceholder", "Max ৳")}
+              placeholder={t("maxPricePlaceholder", isBn ? "সর্বোচ্চ ৳" : "Max ₹")}
               value={filters.maxPrice ?? ""}
               onChange={(e) => handlePriceChange("maxPrice", e.target.value)}
               className="w-full rounded-xl border border-slate-300 px-3 py-1.5 text-xs focus:border-[#014923] focus:ring-1 focus:ring-[#014923]"

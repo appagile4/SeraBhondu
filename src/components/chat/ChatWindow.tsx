@@ -861,7 +861,7 @@ export function ChatWindow({
                 {adInfo.title}
               </p>
               <div className="flex items-center gap-2 mt-0.5">
-                <span className="text-xs font-extrabold text-[#014923]">{formatPrice(adInfo.price)}</span>
+                <span className="text-xs font-extrabold text-[#014923]">{formatPrice(adInfo.price, language)}</span>
                 <span className="text-[10px] text-slate-400">• {adInfo.location}</span>
               </div>
             </div>

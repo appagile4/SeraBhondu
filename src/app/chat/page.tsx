@@ -378,7 +378,7 @@ function ChatContent() {
                                 🏷️ {conv.productTitle}
                               </span>
                               <span className="text-[10px] font-bold text-slate-700">
-                                {formatPrice(conv.productPrice)}
+                                {formatPrice(conv.productPrice, language)}
                               </span>
                             </div>
                           )}

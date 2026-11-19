@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Format a number as marketplace currency
- * Returns 'Tk 1,000' in English and '৳ 1,000' in Bangla
+ * Returns '₹ 1,000' in English and '৳ 1,000' in Bangla
  */
 export function formatPrice(price: number, language?: "bn" | "en"): string {
   let lang = language;
@@ -25,7 +25,7 @@ export function formatPrice(price: number, language?: "bn" | "en"): string {
     maximumFractionDigits: 0,
   }).format(price);
 
-  const symbol = lang === "en" ? "Tk" : "৳";
+  const symbol = lang === "en" ? "₹" : "৳";
   return `${symbol} ${formattedNumber}`;
 }
 
