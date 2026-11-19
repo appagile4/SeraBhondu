@@ -41,7 +41,34 @@ export const LegalModal: React.FC<LegalModalProps> = ({
   const renderContent = () => {
     switch (type) {
       case "terms":
-        return (
+        return isBn ? (
+          <View style={styles.textContent}>
+            <Text style={styles.sectionHeader}>১. সাধারণ নিয়মাবলী</Text>
+            <Text style={styles.paragraph}>
+              সেরা বন্ধু (Serabondhu) মোবাইল অ্যাপ ব্যবহারের মাধ্যমে আপনি আমাদের সকল নিয়ম ও বাংলাদেশের প্রচলিত আইন মেনে চলতে অঙ্গীকারবদ্ধ।
+            </Text>
+
+            <Text style={styles.sectionHeader}>২. বিজ্ঞাপনের সত্যতা ও নিয়ম</Text>
+            <Text style={styles.paragraph}>
+              বিজ্ঞাপনদাতার পণ্যের বিবরণ এবং ছবি বাস্তব ও সত্য হতে হবে। বিভ্রান্তিকর, নকল বা অবৈধ পণ্যের বিজ্ঞাপন দেওয়া সম্পূর্ণ নিষিদ্ধ।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৩. ব্যবহারকারীর অ্যাকাউন্ট ও ওটিপি</Text>
+            <Text style={styles.paragraph}>
+              আপনার অ্যাকাউন্ট তথ্য ও ওটিপি কোডের গোপনীয়তা রক্ষা করা আপনার দায়িত্ব। অননুমোদিত ব্যবহারের ক্ষেত্রে অবিলম্বে সেরা বন্ধু কর্তৃপক্ষকে অবহিত করুন।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৪. বিজ্ঞাপনের কনটেন্ট ও স্বত্ব</Text>
+            <Text style={styles.paragraph}>
+              আপনার পোস্ট করা ছবি ও বিবরণের মালিকানা আপনারই থাকবে। তবে প্ল্যাটফর্মে তা প্রদর্শন ও প্রচারের জন্য সেরা বন্ধুকে অ-একচেটিয়া অধিকার প্রদান করেন।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৫. দায়বদ্ধতার সীমাবদ্ধতা</Text>
+            <Text style={styles.paragraph}>
+              সেরা বন্ধু ক্রেতা ও বিক্রেতার মাঝে যোগাযোগের মাধ্যম হিসেবে কাজ করে। আমরা পণ্যের গুণগত মান সরাসরি যাচাই করি না, তাই পণ্য কেনার পূর্বে ভালো করে যাচাই করে নিন।
+            </Text>
+          </View>
+        ) : (
           <View style={styles.textContent}>
             <Text style={styles.sectionHeader}>1. Acceptance of Terms</Text>
             <Text style={styles.paragraph}>
@@ -71,7 +98,29 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         );
 
       case "privacy":
-        return (
+        return isBn ? (
+          <View style={styles.textContent}>
+            <Text style={styles.sectionHeader}>১. সংগৃহীত তথ্যাবলী</Text>
+            <Text style={styles.paragraph}>
+              সেরা বন্ধু অ্যাপ ব্যবহার করার সময় আপনার নাম, মোবাইল নম্বর, ইমেইল এড্রেস এবং বিজ্ঞাপনের ছবি ও বিবরণ সংগ্রহ করা হয়।
+            </Text>
+
+            <Text style={styles.sectionHeader}>২. তথ্যের ব্যবহার</Text>
+            <Text style={styles.paragraph}>
+              সংগৃহীত তথ্য ব্যবহারকারীর পরিচয় নিশ্চিত করতে, ইন-অ্যাপ মেসেঞ্জার পরিচালনা করতে এবং বিজ্ঞাপনের সঠিক উপস্থাপনায় ব্যবহৃত হয়।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৩. চ্যাট ও ডেটা নিরাপত্তা</Text>
+            <Text style={styles.paragraph}>
+              ক্রেতা এবং বিক্রেতার মধ্যকার সমস্ত ইন-অ্যাপ বার্তা এনক্রিপ্ট করে আদান-প্রদান করা হয়। আমরা কখনো কোনো অননুমোদিত তৃতীয় পক্ষের কাছে আপনার ব্যক্তিগত তথ্য বিক্রি করি না।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৪. তথ্য মুছে ফেলা ও অধিকার</Text>
+            <Text style={styles.paragraph}>
+              যেকোনো সময় অ্যাপের অ্যাকাউন্ট সেটিংস থেকে সরাসরি আপনার অ্যাকাউন্ট ও সংশ্লিষ্ট সমস্ত তথ্য চিরতরে মুছে ফেলতে পারেন অথবা support@serabondhu.net এ যোগাযোগ করতে পারেন।
+            </Text>
+          </View>
+        ) : (
           <View style={styles.textContent}>
             <Text style={styles.sectionHeader}>1. Information We Collect</Text>
             <Text style={styles.paragraph}>
@@ -96,7 +145,36 @@ export const LegalModal: React.FC<LegalModalProps> = ({
         );
 
       case "safety":
-        return (
+        return isBn ? (
+          <View style={styles.textContent}>
+            <View style={styles.safetyBox}>
+              <Ionicons name="shield-checkmark" size={24} color={THEME.colors.primary} />
+              <Text style={styles.safetyBoxText}>
+                সেরা বন্ধুতে কেনাবেচার সময় নিরাপদ থাকুন।
+              </Text>
+            </View>
+
+            <Text style={styles.sectionHeader}>১. জনবহুল স্থানে দেখা করুন</Text>
+            <Text style={styles.paragraph}>
+              সরাসরি লেনদেনের জন্য শপিং মল, বাস টার্মিনাল, মেট্রোরেল স্টেশন বা পরিচিত পাবলিক প্লেসে দেখা করুন। কোনো নির্জন স্থানে যাবেন না।
+            </Text>
+
+            <Text style={styles.sectionHeader}>২. পণ্য যাচাই করে টাকা দিন</Text>
+            <Text style={styles.paragraph}>
+              মোবাইল ফোনের IMEI, ইলেকট্রনিক পণ্যের ওয়ারেন্টি ও ফাংশন, গাড়ির কাগজপত্র ভালো করে যাচাই করার পর পেমেন্ট করুন।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৩. কোনো অগ্রিম টাকা পাঠাবেন না</Text>
+            <Text style={styles.paragraph}>
+              ডেলিভারি চার্জ বা বুকিং মানির নামে বিকাশ/নগদ/রকেটে কোনো অগ্রিম টাকা চাওয়া হলে তা পাঠাবেন না।
+            </Text>
+
+            <Text style={styles.sectionHeader}>৪. ওটিপি বা পিন গোপন রাখুন</Text>
+            <Text style={styles.paragraph}>
+              সেরা বন্ধু কর্তৃপক্ষ কখনোই আপনার ওটিপি (OTP), পাসওয়ার্ড বা বিকাশ/নগদ পিন চাইবে না। এগুলো কারো সাথে শেয়ার করবেন না।
+            </Text>
+          </View>
+        ) : (
           <View style={styles.textContent}>
             <View style={styles.safetyBox}>
               <Ionicons name="shield-checkmark" size={24} color={THEME.colors.primary} />
@@ -105,22 +183,22 @@ export const LegalModal: React.FC<LegalModalProps> = ({
               </Text>
             </View>
 
-            <Text style={styles.sectionHeader}>১. নিরাপদ স্থানে সাক্ষাৎ করুন (Meet in Public)</Text>
+            <Text style={styles.sectionHeader}>1. Meet in Busy Public Places</Text>
             <Text style={styles.paragraph}>
               Always meet in a well-lit, busy public place such as shopping malls, metro stations, or popular markets. Never invite strangers to private residences alone.
             </Text>
 
-            <Text style={styles.sectionHeader}>২. পণ্য যাচাই করে টাকা দিন (Inspect First)</Text>
+            <Text style={styles.sectionHeader}>2. Inspect Goods Before Payment</Text>
             <Text style={styles.paragraph}>
               Carefully inspect the item, check IMEI numbers for smartphones, test electronics, and verify vehicle registration documents before making any cash or mobile banking payments.
             </Text>
 
-            <Text style={styles.sectionHeader}>৩. অগ্রিম টাকা পাঠানো থেকে বিরত থাকুন (No Advance Payment)</Text>
+            <Text style={styles.sectionHeader}>3. Never Send Advance Payments</Text>
             <Text style={styles.paragraph}>
               Never send advance bKash, Nagad, Rocket, or bank payments to unknown sellers before seeing and verifying the product in person.
             </Text>
 
-            <Text style={styles.sectionHeader}>৪. ওটিপি বা পাসওয়ার্ড শেয়ার করবেন না (Keep OTP Secret)</Text>
+            <Text style={styles.sectionHeader}>4. Keep Your OTP and PIN Secret</Text>
             <Text style={styles.paragraph}>
               Serabondhu representatives will NEVER call or message you asking for your login OTP or password. Never share verification codes with anyone.
             </Text>
