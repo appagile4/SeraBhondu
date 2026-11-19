@@ -79,7 +79,7 @@ function TiktokIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
 
 export function MainFooter() {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="relative bg-[#013819] border-t border-emerald-950 overflow-hidden text-white">
@@ -265,7 +265,7 @@ export function MainFooter() {
                 { name: t("footerHelpCenter"), href: "/help" },
                 { name: t("footerTermsOfUse"), href: "/terms" },
                 { name: t("footerPrivacyPolicy"), href: "/privacy" },
-                { name: t("footerDeleteAccount", "অ্যাকাউন্ট মুছুন"), href: "/delete-account" },
+                { name: t("footerDeleteAccount", language === "bn" ? "অ্যাকাউন্ট মুছুন" : "Delete Account"), href: "/delete-account" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link

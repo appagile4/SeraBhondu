@@ -1458,6 +1458,28 @@ export const TRANSLATIONS: Translations = {
     bn: "বিজ্ঞাপন",
     en: "Advertisement",
   },
+
+  // Account Deletion
+  deleteAccount: {
+    bn: "অ্যাকাউন্ট মুছুন",
+    en: "Delete Account",
+  },
+  deleteAccountTitle: {
+    bn: "অ্যাকাউন্ট মুছে ফেলুন",
+    en: "Delete Account",
+  },
+  deleteAccountDesc: {
+    bn: "স্থায়ীভাবে আপনার সেরাবন্ধু অ্যাকাউন্ট ও সংশ্লিষ্ট সমস্ত বিজ্ঞাপন এবং ডেটা অপসারিত করুন।",
+    en: "Permanently delete your Serabondhu account and all associated advertisements and data.",
+  },
+  deleteAccountBtn: {
+    bn: "অ্যাকাউন্ট মুছুন",
+    en: "Delete Account",
+  },
+  footerDeleteAccount: {
+    bn: "অ্যাকাউন্ট মুছুন",
+    en: "Delete Account",
+  },
 };
 
 interface LanguageContextType {

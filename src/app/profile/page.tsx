@@ -499,12 +499,14 @@ export default function ProfilePage() {
         <div className="bg-red-50/70 border border-red-200/90 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h4 className="text-sm font-bold text-red-900">
-              {t("deleteAccountTitle", "অ্যাকাউন্ট মুছে ফেলুন")}
+              {t("deleteAccountTitle", language === "bn" ? "অ্যাকাউন্ট মুছে ফেলুন" : "Delete Account")}
             </h4>
             <p className="text-xs text-red-700/90 mt-0.5">
               {t(
                 "deleteAccountDesc",
-                "স্থায়ীভাবে আপনার সেরাবন্ধু অ্যাকাউন্ট ও সংশ্লিষ্ট সমস্ত বিজ্ঞাপন এবং ডেটা অপসারিত করুন।"
+                language === "bn"
+                  ? "স্থায়ীভাবে আপনার সেরাবন্ধু অ্যাকাউন্ট ও সংশ্লিষ্ট সমস্ত বিজ্ঞাপন এবং ডেটা অপসারিত করুন।"
+                  : "Permanently delete your Serabondhu account and all associated advertisements and data."
               )}
             </p>
           </div>
@@ -513,7 +515,7 @@ export default function ProfilePage() {
             className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition-colors shrink-0 shadow-xs"
           >
             <Trash2 className="w-4 h-4" />
-            <span>{t("deleteAccountBtn", "অ্যাকাউন্ট মুছুন")}</span>
+            <span>{t("deleteAccountBtn", language === "bn" ? "অ্যাকাউন্ট মুছুন" : "Delete Account")}</span>
           </Link>
         </div>
       </div>
