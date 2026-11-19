@@ -274,3 +274,30 @@ export async function uploadAdImages(
 
   return res.data.images || [];
 }
+
+export interface BannerItem {
+  _id?: string;
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  imageUrl: string;
+  linkUrl?: string;
+  order?: number;
+  isActive?: boolean;
+}
+
+/**
+ * Fetch active promotional banners from backend
+ */
+export async function getBanners(): Promise<BannerItem[]> {
+  try {
+    const res = await api.get("/banners");
+    if (res.data?.success && Array.isArray(res.data.banners)) {
+      return res.data.banners.filter((b: BannerItem) => b.isActive !== false && Boolean(b.imageUrl));
+    }
+    return [];
+  } catch (error) {
+    console.warn("Failed to fetch banners from backend:", error);
+    return [];
+  }
+}

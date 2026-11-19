@@ -17,9 +17,13 @@ export interface BannerItem {
   isActive?: boolean;
 }
 
-export function HeroBanner() {
-  const [banners, setBanners] = useState<BannerItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+interface HeroBannerProps {
+  initialBanners?: BannerItem[];
+}
+
+export function HeroBanner({ initialBanners = [] }: HeroBannerProps) {
+  const [banners, setBanners] = useState<BannerItem[]>(initialBanners);
+  const [isLoading, setIsLoading] = useState(initialBanners.length === 0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -27,20 +31,19 @@ export function HeroBanner() {
   useEffect(() => {
     let isMounted = true;
     async function loadBanners() {
-      setIsLoading(true);
       try {
+        if (initialBanners.length === 0) setIsLoading(true);
         const res = await api.get("/banners");
         if (res.data?.success && Array.isArray(res.data.banners) && isMounted) {
           const activeBanners = res.data.banners.filter(
-            (b: BannerItem) => b.isActive !== false && b.imageUrl
+            (b: BannerItem) => b.isActive !== false && Boolean(b.imageUrl)
           );
-          setBanners(activeBanners);
-        } else if (isMounted) {
-          setBanners([]);
+          if (activeBanners.length > 0) {
+            setBanners(activeBanners);
+          }
         }
       } catch (err) {
         console.warn("Could not load backend banners:", err);
-        if (isMounted) setBanners([]);
       } finally {
         if (isMounted) setIsLoading(false);
       }
@@ -49,7 +52,7 @@ export function HeroBanner() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [initialBanners.length]);
 
   // 2. Auto-scroll loop every 2 seconds
   useEffect(() => {

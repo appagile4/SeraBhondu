@@ -5,12 +5,20 @@ import { FreshRecommendations } from "@/components/home/FreshRecommendations";
 import { FeaturedListings } from "@/components/home/FeaturedListings";
 import { LocationExplorer } from "@/components/home/LocationExplorer";
 import { SellCTA } from "@/components/home/SellCTA";
-import { getFeaturedAds, getApprovedAds } from "@/lib/advertisementApi";
+import { getFeaturedAds, getApprovedAds, getBanners, BannerItem } from "@/lib/advertisementApi";
 import { Product } from "@/types/product";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
+  // Fetch live banners directly from backend API
+  let banners: BannerItem[] = [];
+  try {
+    banners = await getBanners();
+  } catch (err) {
+    console.warn("Failed to fetch banners on server:", err);
+  }
+
   // Fetch live featured and approved ads directly from backend API
   let featured: Product[] = [];
   try {
@@ -30,7 +38,7 @@ export default async function HomePage() {
   return (
     <div className="space-y-6">
       {/* Section 3: Hero Promotional Banner */}
-      <HeroBanner />
+      <HeroBanner initialBanners={banners} />
 
       {/* Section 4: Popular Categories Grid */}
       <PopularCategories />
