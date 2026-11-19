@@ -39,7 +39,7 @@ export default function ListingDetailScreen() {
   );
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const favouriteIds = useAppSelector((state) => state.favourites.favouriteIds);
-  const { isEn, currencySymbol } = useLanguage();
+  const { isEn, currencySymbol, t } = useLanguage();
   const sym = currencySymbol || (isEn ? "₹" : "৳");
 
   const [activeImageIdx, setActiveImageIdx] = useState(0);
@@ -74,8 +74,8 @@ export default function ListingDetailScreen() {
     try {
       await Share.share({
         message: isEn
-          ? `Check out this listing on Serabondhu: ${currentAd.title} - ₹ ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`
-          : `সেরা বন্ধুতে এই বিজ্ঞাপনটি দেখুন: ${currentAd.title} - ৳ ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`,
+          ? `Check out this listing on Serabondhu: ${currentAd.title} - ${sym} ${Number(currentAd.price).toLocaleString("en-IN")} | https://serabondhu.net/listing/${currentAd.slug}`
+          : `সেরা বন্ধুতে এই বিজ্ঞাপনটি দেখুন: ${currentAd.title} - ${sym} ${Number(currentAd.price).toLocaleString("en-BD")} | https://serabondhu.net/listing/${currentAd.slug}`,
       });
     } catch (err) {}
   };
@@ -86,8 +86,10 @@ export default function ListingDetailScreen() {
       Linking.openURL(`tel:${phone}`);
     } else {
       Alert.alert(
-        "ফোন নম্বর পাওয়া যায়নি",
-        "বিক্রেতার সাথে ইন-অ্যাপ চ্যাট বার্তার মাধ্যমে যোগাযোগ করুন।"
+        isEn ? "Phone number unavailable" : "ফোন নম্বর পাওয়া যায়নি",
+        isEn
+          ? "Please contact the seller via in-app chat."
+          : "বিক্রেতার সাথে ইন-অ্যাপ চ্যাট বার্তার মাধ্যমে যোগাযোগ করুন।"
       );
     }
   };
@@ -100,8 +102,10 @@ export default function ListingDetailScreen() {
 
     if (isOwner) {
       Alert.alert(
-        "নিজের বিজ্ঞাপন",
-        "আপনি নিজের বিজ্ঞাপনে চ্যাট শুরু করতে পারবেন না।"
+        isEn ? "Your Own Ad" : "নিজের বিজ্ঞাপন",
+        isEn
+          ? "You cannot start a chat on your own listing."
+          : "আপনি নিজের বিজ্ঞাপনে চ্যাট শুরু করতে পারবেন না।"
       );
       return;
     }
@@ -117,8 +121,8 @@ export default function ListingDetailScreen() {
       }
     } catch (err: any) {
       Alert.alert(
-        "চ্যাট শুরু করা যায়নি",
-        err.response?.data?.message || "অনুগ্রহ করে আবার চেষ্টা করুন।"
+        isEn ? "Could not start chat" : "চ্যাট শুরু করা যায়নি",
+        err.response?.data?.message || (isEn ? "Please try again." : "অনুগ্রহ করে আবার চেষ্টা করুন।")
       );
     } finally {
       setStartingChat(false);
@@ -187,7 +191,9 @@ export default function ListingDetailScreen() {
           {currentAd.isFeatured && (
             <View style={styles.featuredBadge}>
               <Ionicons name="sparkles" size={12} color="#FFFFFF" />
-              <Text style={styles.featuredText}>ফিচার্ড বিজ্ঞাপন</Text>
+              <Text style={styles.featuredText}>
+                {t("featuredBadge", isEn ? "Featured Ad" : "ফিচার্ড বিজ্ঞাপন")}
+              </Text>
             </View>
           )}
         </View>
@@ -195,7 +201,7 @@ export default function ListingDetailScreen() {
         {/* Pricing & Key Meta Section */}
         <View style={styles.mainInfoCard}>
           <Text style={styles.priceText}>
-            {sym} {Number(currentAd.price).toLocaleString("en-BD")}
+            {sym} {Number(currentAd.price).toLocaleString(isEn ? "en-IN" : "en-BD")}
           </Text>
           <Text style={styles.titleText}>{currentAd.title}</Text>
 
@@ -210,14 +216,16 @@ export default function ListingDetailScreen() {
 
             <View style={styles.conditionTag}>
               <Text style={styles.conditionTagText}>
-                {currentAd.condition === "Used" ? "ব্যবহৃত (Used)" : "নতুন (New)"}
+                {currentAd.condition === "Used"
+                  ? t("usedCondition", isEn ? "Used" : "ব্যবহৃত")
+                  : t("newCondition", isEn ? "New" : "নতুন")}
               </Text>
             </View>
           </View>
 
           <Text style={styles.dateText}>
-            পোস্ট করা হয়েছে:{" "}
-            {new Date(currentAd.createdAt).toLocaleDateString("bn-BD", {
+            {t("postedOn", isEn ? "Posted on: " : "পোস্ট করা হয়েছে: ")}
+            {new Date(currentAd.createdAt).toLocaleDateString(isEn ? "en-US" : "bn-BD", {
               day: "numeric",
               month: "short",
               year: "numeric",
@@ -227,13 +235,17 @@ export default function ListingDetailScreen() {
 
         {/* Description Section */}
         <View style={styles.sectionCard}>
-          <Text style={styles.sectionHeader}>বিজ্ঞাপনের বিবরণ (Description)</Text>
+          <Text style={styles.sectionHeader}>
+            {t("adDescription", isEn ? "Description" : "বিজ্ঞাপনের বিবরণ")}
+          </Text>
           <Text style={styles.descriptionText}>{currentAd.description}</Text>
         </View>
 
         {/* Seller Info Card */}
         <View style={styles.sectionCard}>
-          <Text style={styles.sectionHeader}>বিক্রেতার তথ্য (Seller Info)</Text>
+          <Text style={styles.sectionHeader}>
+            {t("sellerInfo", isEn ? "Seller Information" : "বিক্রেতার তথ্য")}
+          </Text>
           <View style={styles.sellerRow}>
             <Image
               source={{
@@ -246,7 +258,7 @@ export default function ListingDetailScreen() {
             <View style={styles.sellerDetails}>
               <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
                 <Text style={styles.sellerName}>
-                  {currentAd.sellerContact?.name || currentAd.seller?.name || "Serabondhu Seller"}
+                  {currentAd.sellerContact?.name || currentAd.seller?.name || (isEn ? "Serabondhu Seller" : "সেরা বন্ধু বিক্রেতা")}
                 </Text>
                 {currentAd.seller?.isVerified && (
                   <Ionicons name="checkmark-circle" size={16} color={THEME.colors.primary} />
@@ -263,17 +275,27 @@ export default function ListingDetailScreen() {
         <View style={styles.safetyCard}>
           <View style={styles.safetyHeader}>
             <Ionicons name="shield-checkmark" size={18} color={THEME.colors.primary} />
-            <Text style={styles.safetyTitle}>নিরাপদ কেনাবেচার টিপস</Text>
+            <Text style={styles.safetyTitle}>
+              {t("safetyTipsTitle", isEn ? "Safe Trading Tips" : "নিরাপদ কেনাবেচার টিপস")}
+            </Text>
           </View>
-          <Text style={styles.safetyBullet}>• সরাসরি দেখা করে পণ্য যাচাই করার আগে টাকা পাঠাবেন না।</Text>
-          <Text style={styles.safetyBullet}>• কোনো বিকাশ, নগদ বা অগ্রিম পেমেন্ট করবেন না।</Text>
-          <Text style={styles.safetyBullet}>• সবসময় জনবহুল বা পরিচিত জায়গায় দেখা করুন।</Text>
+          <Text style={styles.safetyBullet}>
+            • {t("safetyTip1", isEn ? "Inspect the item and meet in person before making any payment." : "সরাসরি দেখা করে পণ্য যাচাই করার আগে টাকা পাঠাবেন না।")}
+          </Text>
+          <Text style={styles.safetyBullet}>
+            • {t("safetyTip2", isEn ? "Never make advance payments via bKash, Nagad, or bank transfer." : "কোনো বিকাশ, নগদ বা অগ্রিম পেমেন্ট করবেন না।")}
+          </Text>
+          <Text style={styles.safetyBullet}>
+            • {t("safetyTip3", isEn ? "Always meet in a busy, well-lit public place." : "সবসময় জনবহুল বা পরিচিত জায়গায় দেখা করুন।")}
+          </Text>
         </View>
 
         {/* Related Listings */}
         {relatedAds.length > 0 && (
           <View style={styles.relatedSection}>
-            <Text style={styles.relatedHeader}>সম্পর্কিত বিজ্ঞাপন (Related Ads)</Text>
+            <Text style={styles.relatedHeader}>
+              {t("relatedAds", isEn ? "Related Ads" : "সম্পর্কিত বিজ্ঞাপন")}
+            </Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               {relatedAds.map((ad) => (
                 <View key={ad._id} style={{ width: 170, marginRight: 12 }}>
@@ -293,7 +315,9 @@ export default function ListingDetailScreen() {
           activeOpacity={0.8}
         >
           <Ionicons name="call" size={18} color={THEME.colors.primary} />
-          <Text style={styles.callButtonText}>কল করুন (Call)</Text>
+          <Text style={styles.callButtonText}>
+            {t("callSeller", isEn ? "Call" : "কল করুন")}
+          </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -307,7 +331,9 @@ export default function ListingDetailScreen() {
           ) : (
             <>
               <Ionicons name="chatbubbles" size={18} color="#FFFFFF" />
-              <Text style={styles.chatButtonText}>চ্যাট করুন (Chat)</Text>
+              <Text style={styles.chatButtonText}>
+                {t("chatWithSeller", isEn ? "Chat" : "চ্যাট করুন")}
+              </Text>
             </>
           )}
         </TouchableOpacity>

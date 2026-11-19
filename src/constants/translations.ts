@@ -202,6 +202,70 @@ export const TRANSLATIONS = {
     bn: "পাঠান",
     en: "Send",
   },
+  callSeller: {
+    bn: "কল করুন",
+    en: "Call",
+  },
+  chatWithSeller: {
+    bn: "চ্যাট করুন",
+    en: "Chat",
+  },
+  postedOn: {
+    bn: "পোস্ট করা হয়েছে: ",
+    en: "Posted on: ",
+  },
+  adDescription: {
+    bn: "বিজ্ঞাপনের বিবরণ",
+    en: "Description",
+  },
+  sellerInfo: {
+    bn: "বিক্রেতার তথ্য",
+    en: "Seller Information",
+  },
+  relatedAds: {
+    bn: "সম্পর্কিত বিজ্ঞাপন",
+    en: "Related Ads",
+  },
+  safetyTipsTitle: {
+    bn: "নিরাপদ কেনাবেচার টিপস",
+    en: "Safe Trading Tips",
+  },
+  safetyTip1: {
+    bn: "সরাসরি দেখা করে পণ্য যাচাই করার আগে টাকা পাঠাবেন না।",
+    en: "Inspect the item and meet in person before making any payment.",
+  },
+  safetyTip2: {
+    bn: "কোনো বিকাশ, নগদ বা অগ্রিম পেমেন্ট করবেন না।",
+    en: "Never make advance payments via bKash, Nagad, or bank transfer.",
+  },
+  safetyTip3: {
+    bn: "সবসময় জনবহুল বা পরিচিত জায়গায় দেখা করুন।",
+    en: "Always meet in a busy, well-lit public place.",
+  },
+  browseAds: {
+    bn: "বিজ্ঞাপন দেখুন",
+    en: "Browse Classifieds",
+  },
+  chatPlaceholder: {
+    bn: "বার্তা লিখুন...",
+    en: "Write a message...",
+  },
+  noMessagesTitle: {
+    bn: "কোনো পূর্ববর্তী বার্তা নেই",
+    en: "No previous messages",
+  },
+  noMessagesSub: {
+    bn: "নিচে লিখে সরাসরি বিক্রেতাকে বার্তা পাঠান",
+    en: "Send a message below to start chatting with the seller",
+  },
+  attachmentSent: {
+    bn: "ছবি বা এটাচমেন্ট পাঠানো হয়েছে",
+    en: "Photo or attachment sent",
+  },
+  secureChat: {
+    bn: "সেরা বন্ধু নিরাপদ বার্তা",
+    en: "Serabondhu Secure Chat",
+  },
 
   // Post Ad Screen
   postAdTitle: {
@@ -275,8 +339,8 @@ export const TRANSLATIONS = {
     en: "New",
   },
   featuredBadge: {
-    bn: "ফিচার্ড",
-    en: "Featured",
+    bn: "ফিচার্ড বিজ্ঞাপন",
+    en: "Featured Ad",
   },
 
   // Auth Modal - Complete Translations

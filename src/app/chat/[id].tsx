@@ -27,11 +27,13 @@ import {
 import { chatApi } from "../../services/api";
 import { initSocket } from "../../services/socket";
 import { THEME } from "../../constants/theme";
+import { useLanguage } from "../../hooks/useLanguage";
 
 export default function ChatRoomScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const { isEn, t } = useLanguage();
 
   const user = useAppSelector((state) => state.auth.user);
   const conversation = useAppSelector((state) =>
@@ -89,7 +91,10 @@ export default function ChatRoomScreen() {
     try {
       await dispatch(sendMessageThunk({ conversationId: id, text })).unwrap();
     } catch (err: any) {
-      Alert.alert("ব্যর্থ হয়েছে", err || "বার্তা পাঠানো যায়নি।");
+      Alert.alert(
+        isEn ? "Failed" : "ব্যর্থ হয়েছে",
+        err || (isEn ? "Could not send message." : "বার্তা পাঠানো যায়নি।")
+      );
     } finally {
       setSending(false);
     }
@@ -99,7 +104,12 @@ export default function ChatRoomScreen() {
     try {
       const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!permission.granted) {
-        Alert.alert("অনুমতি প্রয়োজন", "ছবি পাঠাতে ফটো লাইব্রেরির অনুমতি দিন।");
+        Alert.alert(
+          isEn ? "Permission Required" : "অনুমতি প্রয়োজন",
+          isEn
+            ? "Please grant photo library permission to attach images."
+            : "ছবি পাঠাতে ফটো লাইব্রেরির অনুমতি দিন।"
+        );
         return;
       }
 
@@ -128,7 +138,7 @@ export default function ChatRoomScreen() {
           await dispatch(
             sendMessageThunk({
               conversationId: id,
-              text: "ছবি পাঠানো হয়েছে",
+              text: isEn ? "Photo sent" : "ছবি পাঠানো হয়েছে",
               attachment: uploadRes.data.attachment,
             })
           ).unwrap();
@@ -162,9 +172,11 @@ export default function ChatRoomScreen() {
 
         <View style={styles.headerInfo}>
           <Text style={styles.headerName} numberOfLines={1}>
-            {otherUser?.name || "Serabondhu User"}
+            {otherUser?.name || (isEn ? "Serabondhu User" : "সেরা বন্ধু ব্যবহারকারী")}
           </Text>
-          <Text style={styles.headerStatus}>সেরা বন্ধু নিরাপদ বার্তা</Text>
+          <Text style={styles.headerStatus}>
+            {t("secureChat", isEn ? "Serabondhu Secure Chat" : "সেরা বন্ধু নিরাপদ বার্তা")}
+          </Text>
         </View>
 
         {conversation?.advertisement && (
@@ -241,7 +253,7 @@ export default function ChatRoomScreen() {
                       isMe ? styles.msgTimeMe : styles.msgTimeOther,
                     ]}
                   >
-                    {new Date(item.createdAt).toLocaleTimeString("bn-BD", {
+                    {new Date(item.createdAt).toLocaleTimeString(isEn ? "en-US" : "bn-BD", {
                       hour: "2-digit",
                       minute: "2-digit",
                     })}
@@ -254,8 +266,12 @@ export default function ChatRoomScreen() {
             !isLoading ? (
               <View style={styles.emptyWrap}>
                 <Ionicons name="chatbubbles-outline" size={40} color={THEME.colors.textMuted} />
-                <Text style={styles.emptyText}>কোনো পূর্ববর্তী বার্তা নেই</Text>
-                <Text style={styles.emptySubtext}>নিচে লিখে সরাসরি বিক্রেতাকে বার্তা পাঠান</Text>
+                <Text style={styles.emptyText}>
+                  {t("noMessagesTitle", isEn ? "No previous messages" : "কোনো পূর্ববর্তী বার্তা নেই")}
+                </Text>
+                <Text style={styles.emptySubtext}>
+                  {t("noMessagesSub", isEn ? "Send a message below to start chatting with the seller" : "নিচে লিখে সরাসরি বিক্রেতাকে বার্তা পাঠান")}
+                </Text>
               </View>
             ) : (
               <ActivityIndicator style={{ marginTop: 40 }} color={THEME.colors.primary} />
@@ -275,7 +291,7 @@ export default function ChatRoomScreen() {
 
           <TextInput
             style={styles.input}
-            placeholder="বার্তা লিখুন..."
+            placeholder={t("chatPlaceholder", isEn ? "Write a message..." : "বার্তা লিখুন...")}
             placeholderTextColor={THEME.colors.textMuted}
             value={inputText}
             onChangeText={setInputText}

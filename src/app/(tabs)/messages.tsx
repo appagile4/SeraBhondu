@@ -23,7 +23,7 @@ export default function MessagesScreen() {
   const dispatch = useAppDispatch();
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const { conversations, isLoadingConversations } = useAppSelector((state) => state.chat);
-  const { t } = useLanguage();
+  const { t, isEn } = useLanguage();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -127,11 +127,11 @@ export default function MessagesScreen() {
               <View style={styles.contentWrap}>
                 <View style={styles.topRow}>
                   <Text style={[styles.userName, hasUnread && styles.userNameBold]} numberOfLines={1}>
-                    {otherUser?.name || "Serabondhu User"}
+                    {otherUser?.name || (isEn ? "Serabondhu User" : "সেরা বন্ধু ব্যবহারকারী")}
                   </Text>
                   <Text style={styles.timeText}>
                     {item.lastMessage?.createdAt
-                      ? new Date(item.lastMessage.createdAt).toLocaleDateString("bn-BD", {
+                      ? new Date(item.lastMessage.createdAt).toLocaleDateString(isEn ? "en-US" : "bn-BD", {
                           hour: "2-digit",
                           minute: "2-digit",
                         })
@@ -150,7 +150,7 @@ export default function MessagesScreen() {
                     style={[styles.lastMsg, hasUnread && styles.lastMsgUnread]}
                     numberOfLines={1}
                   >
-                    {item.lastMessage?.text || "ছবি বা এটাচমেন্ট পাঠানো হয়েছে"}
+                    {item.lastMessage?.text || t("attachmentSent", isEn ? "Photo or attachment sent" : "ছবি বা এটাচমেন্ট পাঠানো হয়েছে")}
                   </Text>
 
                   {hasUnread && (
@@ -186,7 +186,7 @@ export default function MessagesScreen() {
                 style={styles.browseBtn}
                 onPress={() => router.push("/(tabs)" as any)}
               >
-                <Text style={styles.browseBtnText}>বিজ্ঞাপন দেখুন (Browse Classifieds)</Text>
+                <Text style={styles.browseBtnText}>{t("browseAds", isEn ? "Browse Classifieds" : "বিজ্ঞাপন দেখুন")}</Text>
               </TouchableOpacity>
             </View>
           ) : undefined
