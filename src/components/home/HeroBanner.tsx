@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import api from "@/lib/api";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 
 export interface BannerItem {
   _id?: string;
@@ -17,38 +17,32 @@ export interface BannerItem {
   isActive?: boolean;
 }
 
-const DEFAULT_BANNER: BannerItem = {
-  _id: "default-1",
-  title: "serabondhu.net — কিনুন • বিক্রি করুন • খুঁজে নিন বাংলায়",
-  imageUrl: "/serabondhu-hero-banner-v2.jpg",
-  linkUrl: "/search",
-};
-
 export function HeroBanner() {
-  const [banners, setBanners] = useState<BannerItem[]>([DEFAULT_BANNER]);
+  const [banners, setBanners] = useState<BannerItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // 1. Fetch active banners from backend
+  // 1. Fetch active banners from backend API
   useEffect(() => {
     let isMounted = true;
     async function loadBanners() {
+      setIsLoading(true);
       try {
         const res = await api.get("/banners");
         if (res.data?.success && Array.isArray(res.data.banners) && isMounted) {
-          // Filter out any legacy banners referencing old branding
-          const activeCleanBanners = res.data.banners.filter(
-            (b: BannerItem) => !b.imageUrl?.toLowerCase().includes("khojobangla")
+          const activeBanners = res.data.banners.filter(
+            (b: BannerItem) => b.isActive !== false && b.imageUrl
           );
-          if (activeCleanBanners.length > 0) {
-            setBanners([DEFAULT_BANNER, ...activeCleanBanners]);
-          } else {
-            setBanners([DEFAULT_BANNER]);
-          }
+          setBanners(activeBanners);
+        } else if (isMounted) {
+          setBanners([]);
         }
       } catch (err) {
-        // Fallback to default banner on error
-        console.warn("Could not load backend banners, using default.", err);
+        console.warn("Could not load backend banners:", err);
+        if (isMounted) setBanners([]);
+      } finally {
+        if (isMounted) setIsLoading(false);
       }
     }
     loadBanners();
@@ -57,13 +51,13 @@ export function HeroBanner() {
     };
   }, []);
 
-  // 2. Auto-scroll loop every 2 seconds (Side scroll loop as requested)
+  // 2. Auto-scroll loop every 2 seconds
   useEffect(() => {
     if (banners.length <= 1 || isHovered) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
-    }, 2000); // 2 seconds auto-scroll interval
+    }, 2000);
 
     return () => clearInterval(timer);
   }, [banners.length, isHovered]);
@@ -79,6 +73,23 @@ export function HeroBanner() {
     e.stopPropagation();
     setCurrentIndex((prev) => (prev + 1) % banners.length);
   };
+
+  // 3. Skeleton Loading / Activity Indicator (no fallback banner)
+  if (isLoading) {
+    return (
+      <div className="my-4 sm:my-6 relative w-full aspect-[1024/384] overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 animate-pulse flex flex-col items-center justify-center gap-2">
+        <div className="p-3 rounded-2xl bg-white/80 backdrop-blur-xs shadow-xs flex items-center gap-2.5">
+          <Loader2 className="w-5 h-5 text-[#014923] animate-spin" />
+          <span className="text-xs font-bold text-slate-700">ব্যানার লোড হচ্ছে...</span>
+        </div>
+      </div>
+    );
+  }
+
+  // 4. If no banners returned from backend, do not display any fallback banner
+  if (banners.length === 0) {
+    return null;
+  }
 
   return (
     <div
@@ -121,7 +132,7 @@ export function HeroBanner() {
           ))}
         </div>
 
-        {/* Navigation Arrows (visible on hover or always accessible) */}
+        {/* Navigation Arrows */}
         {banners.length > 1 && (
           <>
             <button

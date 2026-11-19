@@ -107,7 +107,14 @@ export function FreshRecommendations({ initialProducts }: FreshRecommendationsPr
         </div>
       </div>
 
-      <ProductGrid products={visibleProducts} />
+      {isLoading && visibleProducts.length === 0 ? (
+        <ProductGrid products={[]} loading={true} />
+      ) : (
+        <ProductGrid
+          products={visibleProducts}
+          emptyMessage={t("noAdsFoundInLocation", "এই লোকেশনে কোনো বিজ্ঞাপন পাওয়া যায়নি।")}
+        />
+      )}
 
       {hasMore && (
         <div className="flex justify-center pt-4">

@@ -33,10 +33,12 @@ export function CategoryListingView({
   const [searchKeyword, setSearchKeyword] = useState("");
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [liveAds, setLiveAds] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(initialProducts.length === 0);
 
   useEffect(() => {
     let mounted = true;
     async function loadCategoryApprovedAds() {
+      if (initialProducts.length === 0) setIsLoading(true);
       try {
         const res = await getApprovedAds({ category: category.slug, limit: 30 });
         if (mounted && res.products.length > 0) {
@@ -44,13 +46,15 @@ export function CategoryListingView({
         }
       } catch {
         // ignore
+      } finally {
+        if (mounted) setIsLoading(false);
       }
     }
     loadCategoryApprovedAds();
     return () => {
       mounted = false;
     };
-  }, [category.slug]);
+  }, [category.slug, initialProducts.length]);
 
   // Prefer live approved ads from MongoDB backend, fall back to initial products
   const combinedProducts = useMemo(() => {
@@ -206,7 +210,9 @@ export function CategoryListingView({
           </div>
 
           {/* Product Grid or Empty State */}
-          {filteredProducts.length > 0 ? (
+          {isLoading ? (
+            <ProductGrid products={[]} loading={true} columns={3} />
+          ) : filteredProducts.length > 0 ? (
             <ProductGrid products={filteredProducts} columns={3} />
           ) : (
             <EmptyState

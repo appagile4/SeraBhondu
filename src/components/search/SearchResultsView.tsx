@@ -35,10 +35,12 @@ export function SearchResultsView({
   });
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [liveSearchResults, setLiveSearchResults] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(initialProducts.length === 0);
 
   useEffect(() => {
     let mounted = true;
     async function performLiveSearch() {
+      if (initialProducts.length === 0) setIsLoading(true);
       try {
         const res = await searchAds(query, filters.city, filters.category);
         if (mounted && res.products.length > 0) {
@@ -46,13 +48,15 @@ export function SearchResultsView({
         }
       } catch {
         // ignore
+      } finally {
+        if (mounted) setIsLoading(false);
       }
     }
     performLiveSearch();
     return () => {
       mounted = false;
     };
-  }, [query, filters.city, filters.category]);
+  }, [query, filters.city, filters.category, initialProducts.length]);
 
   // Dynamically filter products by search query and filters
   const searchResults = useMemo(() => {
@@ -185,7 +189,9 @@ export function SearchResultsView({
           </div>
 
           {/* Grid or Empty */}
-          {searchResults.length > 0 ? (
+          {isLoading ? (
+            <ProductGrid products={[]} loading={true} columns={3} />
+          ) : searchResults.length > 0 ? (
             <ProductGrid products={searchResults} columns={3} />
           ) : (
             <EmptyState

@@ -1,4 +1,3 @@
-import { getAllProducts } from "@/lib/mock-api";
 import { searchAds } from "@/lib/advertisementApi";
 import { SearchResultsView } from "@/components/search/SearchResultsView";
 import { Product } from "@/types/product";
@@ -25,11 +24,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     initialProducts = liveSearch.products;
   } catch (err) {
     console.warn("Backend live search failed:", err);
-  }
-
-  // Fallback to mock products only if backend returns nothing and no query was typed
-  if (initialProducts.length === 0 && !query) {
-    initialProducts = getAllProducts();
   }
 
   return (

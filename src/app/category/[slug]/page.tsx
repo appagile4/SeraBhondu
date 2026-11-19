@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getCategoryBySlug, getAllProducts, getAllCategories } from "@/lib/mock-api";
+import { getCategoryBySlug, getAllCategories } from "@/lib/mock-api";
 import { getApprovedAds } from "@/lib/advertisementApi";
 import { CategoryListingView } from "@/components/category/CategoryListingView";
 import { Product } from "@/types/product";
@@ -36,17 +36,10 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
     console.warn(`Failed to fetch ads for category ${slug}:`, err);
   }
 
-  // Fallback to mock products only if backend returns 0 products
-  const fallbackProducts = getAllProducts().filter(
-    (p) => p.category.toLowerCase() === slug.toLowerCase()
-  );
-
-  const initialProducts = liveProducts.length > 0 ? liveProducts : fallbackProducts;
-
   return (
     <CategoryListingView
       category={category}
-      initialProducts={initialProducts}
+      initialProducts={liveProducts}
       initialSubCategory={sub}
     />
   );
