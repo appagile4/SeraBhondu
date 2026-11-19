@@ -2,7 +2,12 @@ import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import User from "../models/User.js";
 import Otp from "../models/Otp.js";
-import { sendOtpEmail } from "../config/nodemailer.js";
+import Advertisement from "../models/Advertisement.js";
+import Message from "../models/Message.js";
+import Conversation from "../models/Conversation.js";
+import Notification from "../models/Notification.js";
+import AuditLog from "../models/AuditLog.js";
+import { sendOtpEmail, sendAccountDeletionEmail } from "../config/nodemailer.js";
 import { sendOtpSms } from "../config/sms.js";
 import { uploadToCloudinary } from "../config/cloudinary.js";
 
@@ -175,7 +180,7 @@ export const googleAuth = async (req, res) => {
         user.isVerified = true;
         needsSave = true;
       }
-      if (googleProfile.picture && (!user.avatar || user.avatar.includes("unsplash"))) {
+      if (googleProfile.picture && (!user.avatar || user.avatar.includes("unsplash") || user.avatar.includes("ui-avatars") || user.avatar.includes("googleusercontent.com"))) {
         user.avatar = googleProfile.picture;
         needsSave = true;
       }
@@ -1025,7 +1030,7 @@ export const updateProfile = async (req, res) => {
   try {
     const { name, about, phone, city, avatar, isGoogleLinked } = req.body;
 
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id || req.user._id);
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -1042,8 +1047,11 @@ export const updateProfile = async (req, res) => {
 
     if (name) user.name = name.trim();
     if (about !== undefined) user.about = about.trim();
-    if (phone) user.phone = phone.trim();
-    if (city) user.city = city.trim();
+    if (phone !== undefined) {
+      const cleanPhone = phone.trim();
+      user.phone = cleanPhone.length > 0 ? cleanPhone : undefined;
+    }
+    if (city !== undefined && city.trim()) user.city = city.trim();
     if (avatar) user.avatar = avatar;
     if (isGoogleLinked !== undefined) user.isGoogleLinked = isGoogleLinked;
 
@@ -1052,10 +1060,29 @@ export const updateProfile = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Profile updated successfully!",
-      user,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        avatar: user.avatar,
+        city: user.city,
+        about: user.about,
+        isVerified: user.isVerified,
+        isGoogleLinked: user.isGoogleLinked,
+        role: user.role,
+        authProvider: user.authProvider,
+        createdAt: user.createdAt,
+      },
     });
   } catch (error) {
     console.error("Update Profile Error:", error);
+    if (error.code === 11000) {
+      return res.status(400).json({
+        success: false,
+        message: "This phone number is already registered to another account.",
+      });
+    }
     res.status(500).json({
       success: false,
       message: error.message || "Failed to update profile.",
@@ -1078,7 +1105,7 @@ export const uploadAvatar = async (req, res) => {
 
     const result = await uploadToCloudinary(req.file.buffer, "Serabondhu_avatars");
 
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id || req.user._id);
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -1093,6 +1120,7 @@ export const uploadAvatar = async (req, res) => {
       success: true,
       message: "Profile image successfully uploaded to Cloudinary and saved to MongoDB!",
       url: result.secure_url,
+      avatar: result.secure_url,
       user: {
         _id: user._id,
         name: user.name,
@@ -1110,6 +1138,267 @@ export const uploadAvatar = async (req, res) => {
     res.status(500).json({
       success: false,
       message: error.message || "Failed to upload profile image to Cloudinary.",
+    });
+  }
+};
+
+// ============================================================================
+// ACCOUNT DELETION (Apple App Store Guideline 5.1.1 & GDPR Compliant)
+// ============================================================================
+
+/**
+ * Helper to perform full cascade deletion of a user's data
+ */
+const executeAccountCascadeDelete = async (user, reason = "Not specified", reasonDetails = "", req = {}) => {
+  const userId = user._id;
+
+  // 1. Cascade Delete: Advertisements posted by user
+  const deletedAds = await Advertisement.deleteMany({ seller: userId });
+
+  // 2. Cascade Delete: Messages sent or received
+  const deletedMessages = await Message.deleteMany({
+    $or: [{ sender: userId }, { receiver: userId }],
+  });
+
+  // 3. Cascade Delete: Conversations involving user
+  const deletedConversations = await Conversation.deleteMany({
+    $or: [{ participants: userId }, { buyer: userId }, { seller: userId }],
+  });
+
+  // 4. Cascade Delete: Notifications
+  const deletedNotifications = await Notification.deleteMany({ recipient: userId });
+
+  // 5. Cascade Delete: OTP records
+  const identifiers = [];
+  if (user.email) identifiers.push(user.email.toLowerCase().trim());
+  if (user.phone) identifiers.push(user.phone);
+  if (identifiers.length > 0) {
+    await Otp.deleteMany({ identifier: { $in: identifiers } });
+  }
+
+  // 6. Record Audit Trail
+  try {
+    await AuditLog.create({
+      action: "user_deleted",
+      targetType: "user",
+      targetId: userId,
+      metadata: {
+        userName: user.name,
+        userEmail: user.email,
+        userPhone: user.phone,
+        authProvider: user.authProvider,
+        reason,
+        reasonDetails,
+        deletedAdsCount: deletedAds.deletedCount || 0,
+        deletedMessagesCount: deletedMessages.deletedCount || 0,
+        deletedConversationsCount: deletedConversations.deletedCount || 0,
+        deletedNotificationsCount: deletedNotifications.deletedCount || 0,
+        deletedAt: new Date().toISOString(),
+        ip: req.ip || req.headers?.["x-forwarded-for"] || "unknown",
+        userAgent: req.headers?.["user-agent"] || "unknown",
+      },
+    });
+  } catch (auditErr) {
+    console.warn("AuditLog warning during account deletion:", auditErr.message);
+  }
+
+  // 7. Permanently Delete User document
+  await User.findByIdAndDelete(userId);
+
+  return {
+    adsDeleted: deletedAds.deletedCount || 0,
+    messagesDeleted: deletedMessages.deletedCount || 0,
+    conversationsDeleted: deletedConversations.deletedCount || 0,
+  };
+};
+
+/**
+ * @desc    Request 6-digit OTP code to verify and authorize account deletion
+ * @route   POST /api/auth/delete-account/send-otp
+ * @access  Public / Protected
+ */
+export const requestDeleteAccountOtp = async (req, res) => {
+  try {
+    const rawEmail = req.body?.email || req.user?.email || "";
+    const cleanEmail = rawEmail.trim().toLowerCase();
+
+    if (!cleanEmail) {
+      return res.status(400).json({
+        success: false,
+        message: "Registered email address is required.",
+      });
+    }
+
+    const user = await User.findOne({ email: cleanEmail });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "No Serabondhu account found with this email address.",
+      });
+    }
+
+    // Rate-limit: Check if an OTP was sent in the last 60 seconds
+    const recentOtp = await Otp.findOne({
+      identifier: cleanEmail,
+      type: "account_deletion",
+      createdAt: { $gt: new Date(Date.now() - 60 * 1000) },
+    });
+
+    if (recentOtp) {
+      return res.status(429).json({
+        success: false,
+        message: "Please wait 60 seconds before requesting another verification code.",
+      });
+    }
+
+    // Clear previous unverified deletion OTPs for this email
+    await Otp.deleteMany({
+      identifier: cleanEmail,
+      type: "account_deletion",
+    });
+
+    // Generate 6-digit cryptographic OTP code
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes
+
+    await Otp.create({
+      identifier: cleanEmail,
+      otp,
+      type: "account_deletion",
+      expiresAt,
+    });
+
+    // Send email with deletion warning
+    try {
+      await sendAccountDeletionEmail(cleanEmail, otp, user.name || "Serabondhu Member");
+    } catch (mailErr) {
+      console.warn("sendAccountDeletionEmail warning:", mailErr.message);
+    }
+
+    res.status(200).json({
+      success: true,
+      message: `Verification code sent to ${cleanEmail}. Valid for 5 minutes.`,
+    });
+  } catch (error) {
+    console.error("Account Deletion Send OTP Error:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "Failed to process account deletion request.",
+    });
+  }
+};
+
+/**
+ * @desc    Confirm OTP, record deletion reason, and permanently delete account
+ * @route   POST /api/auth/delete-account/confirm
+ * @access  Public / Protected
+ */
+export const confirmDeleteAccount = async (req, res) => {
+  try {
+    const rawEmail = req.body?.email || req.user?.email || "";
+    const cleanEmail = rawEmail.trim().toLowerCase();
+    const cleanOtp = (req.body?.otp || "").toString().trim();
+    const reason = (req.body?.reason || "Not specified").trim();
+    const reasonDetails = (req.body?.reasonDetails || "").trim();
+
+    if (!cleanEmail) {
+      return res.status(400).json({
+        success: false,
+        message: "Registered email address is required.",
+      });
+    }
+
+    if (!cleanOtp || cleanOtp.length !== 6) {
+      return res.status(400).json({
+        success: false,
+        message: "A valid 6-digit verification code is required.",
+      });
+    }
+
+    const user = await User.findOne({ email: cleanEmail });
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Account not found or already deleted.",
+      });
+    }
+
+    // Validate OTP
+    const otpDoc = await Otp.findOne({
+      identifier: cleanEmail,
+      otp: cleanOtp,
+      type: "account_deletion",
+      expiresAt: { $gt: new Date() },
+      isVerified: false,
+    });
+
+    if (!otpDoc) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid or expired verification code. Please request a new one.",
+      });
+    }
+
+    // Execute cascade delete
+    const details = await executeAccountCascadeDelete(user, reason, reasonDetails, req);
+
+    // Clear Authentication Cookie
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Your Serabondhu account and all associated data have been permanently deleted.",
+      details,
+    });
+  } catch (error) {
+    console.error("Account Deletion Confirmation Error:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "Failed to confirm account deletion.",
+    });
+  }
+};
+
+/**
+ * @desc    Direct authenticated account deletion (for in-app mobile/web authenticated users)
+ * @route   DELETE /api/auth/delete-account
+ * @access  Private
+ */
+export const deleteMyAccount = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "Account not found or already deleted.",
+      });
+    }
+
+    const reason = (req.body?.reason || "In-app request").trim();
+    const reasonDetails = (req.body?.reasonDetails || "").trim();
+
+    const details = await executeAccountCascadeDelete(user, reason, reasonDetails, req);
+
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Your Serabondhu account has been permanently deleted.",
+      details,
+    });
+  } catch (error) {
+    console.error("Delete My Account Error:", error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "Failed to delete account.",
     });
   }
 };

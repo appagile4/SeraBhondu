@@ -5,7 +5,6 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { connectDB } from "./config/db.js";
 import { initSocket } from "./config/socket.js";
-import { ensureAdminExists } from "./scripts/seedAdmin.js";
 
 // Routes
 import authRoutes from "./routes/authRoutes.js";
@@ -19,10 +18,7 @@ import bannerRoutes from "./routes/bannerRoutes.js";
 dotenv.config();
 
 // Connect to MongoDB Atlas & ensure admin existence
-connectDB().then(() => {
-  ensureAdminExists();
-});
-
+connectDB();
 const app = express();
 const httpServer = http.createServer(app);
 
@@ -31,6 +27,8 @@ initSocket(httpServer);
 
 // Allowed origins for CORS (Serabondhu Frontend)
 const allowedOrigins = [
+  "https://www.serabondhu.net",
+  "https://serabondhu.net",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://127.0.0.1:3000",
@@ -47,7 +45,7 @@ app.use(
       return callback(null, true); // Allow all in development for convenience
     },
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json({ limit: "15mb" }));
@@ -59,7 +57,8 @@ app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
     status: "online",
-    message: "Serabondhu API Backend & Real-time Socket.IO Server running smoothly 🚀",
+    message:
+      "Serabondhu API Backend & Real-time Socket.IO Server running smoothly 🚀",
     timestamp: new Date().toISOString(),
   });
 });

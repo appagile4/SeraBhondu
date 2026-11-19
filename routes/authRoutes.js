@@ -14,6 +14,9 @@ import {
   getMe,
   updateProfile,
   uploadAvatar,
+  requestDeleteAccountOtp,
+  confirmDeleteAccount,
+  deleteMyAccount,
 } from "../controllers/authController.js";
 import { protect } from "../middleware/authMiddleware.js";
 import { uploadSingleImage } from "../middleware/uploadMiddleware.js";
@@ -35,6 +38,13 @@ router.post("/email/set-password", setEmailPassword);
 // Phone OTP Flow (Passwordless)
 router.post("/phone/send-otp", sendPhoneOtp);
 router.post("/phone/verify-otp", verifyPhoneOtp);
+
+// ============================================================================
+// Account Deletion Endpoints (Apple Guideline 5.1.1 & GDPR Compliant)
+// ============================================================================
+router.post("/delete-account/send-otp", requestDeleteAccountOtp);
+router.post("/delete-account/confirm", confirmDeleteAccount);
+router.delete("/delete-account", protect, deleteMyAccount);
 
 // ============================================================================
 // Legacy Backward-Compatible Endpoints
