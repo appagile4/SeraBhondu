@@ -10,6 +10,7 @@ import {
   Linking,
   Share,
   Alert,
+  StatusBar,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image } from "expo-image";
@@ -57,8 +58,11 @@ export default function ListingDetailScreen() {
 
   if (isLoading || !currentAd) {
     return (
-      <SafeAreaView style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color={THEME.colors.primary} />
+      <SafeAreaView style={styles.safeArea} edges={["top"]}>
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color={THEME.colors.primary} />
+        </View>
       </SafeAreaView>
     );
   }
@@ -132,18 +136,24 @@ export default function ListingDetailScreen() {
   const images = currentAd.images?.length > 0 ? currentAd.images : [{ url: "https://images.unsplash.com/photo-1581291518655-9523c932edcf?auto=format&fit=crop&w=600&q=80" }];
 
   return (
-    <SafeAreaView style={styles.container} edges={["top"]}>
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
+      <StatusBar barStyle="dark-content" />
+
       {/* Top Navigation Bar */}
-      <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navBtn} onPress={() => router.back()}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backBtn} onPress={() => router.back()} activeOpacity={0.7}>
           <Ionicons name="arrow-back" size={22} color={THEME.colors.text} />
         </TouchableOpacity>
 
-        <View style={styles.navRight}>
-          <TouchableOpacity style={styles.navBtn} onPress={handleShare}>
+        <Text style={styles.headerTitle} numberOfLines={1}>
+          {currentAd.title}
+        </Text>
+
+        <View style={styles.headerRight}>
+          <TouchableOpacity style={styles.headerActionBtn} onPress={handleShare} activeOpacity={0.7}>
             <Ionicons name="share-social-outline" size={22} color={THEME.colors.text} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.navBtn} onPress={handleToggleFav}>
+          <TouchableOpacity style={styles.headerActionBtn} onPress={handleToggleFav} activeOpacity={0.7}>
             <Ionicons
               name={isFav ? "heart" : "heart-outline"}
               size={22}
@@ -153,10 +163,11 @@ export default function ListingDetailScreen() {
         </View>
       </View>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-      >
+      <View style={styles.body}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContent}
+        >
         {/* Photo Gallery Carousel */}
         <View style={styles.galleryContainer}>
           <ScrollView
@@ -306,6 +317,7 @@ export default function ListingDetailScreen() {
           </View>
         )}
       </ScrollView>
+      </View>
 
       {/* Sticky Bottom Action Buttons */}
       <View style={styles.bottomBar}>
@@ -343,7 +355,11 @@ export default function ListingDetailScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
+    flex: 1,
+    backgroundColor: THEME.colors.surface,
+  },
+  body: {
     flex: 1,
     backgroundColor: THEME.colors.background,
   },
@@ -353,27 +369,35 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: THEME.colors.background,
   },
-  navBar: {
+  header: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    paddingVertical: 10,
+    paddingVertical: 12,
     backgroundColor: THEME.colors.surface,
     borderBottomWidth: 1,
     borderBottomColor: THEME.colors.border,
   },
-  navBtn: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    backgroundColor: THEME.colors.background,
+  backBtn: {
+    padding: 4,
+    marginRight: 8,
+  },
+  headerTitle: {
+    flex: 1,
+    fontSize: 16,
+    fontWeight: "700",
+    color: THEME.colors.text,
+  },
+  headerRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  headerActionBtn: {
+    padding: 4,
     alignItems: "center",
     justifyContent: "center",
-  },
-  navRight: {
-    flexDirection: "row",
-    gap: 8,
   },
   scrollContent: {
     paddingBottom: 90,
