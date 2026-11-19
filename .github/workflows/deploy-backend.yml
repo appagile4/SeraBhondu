@@ -1,0 +1,45 @@
+name: Deploy Serabondhu Backend
+
+on:
+  push:
+    branches:
+      - backend
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Backend to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy Backend to VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            set -e
+
+            cd /var/www/projects/Serabondhu/Backend
+
+            echo "Fetching latest backend code..."
+            git fetch origin backend
+
+            echo "Updating backend..."
+            git reset --hard origin/backend
+
+            echo "Installing dependencies..."
+            npm ci
+
+            echo "Restarting Serabondhu backend..."
+            pm2 restart serabondhu-backend
+
+            echo "Waiting for backend startup..."
+            sleep 5
+
+            echo "Checking backend health..."
+            curl -f http://127.0.0.1:5003/api/health
+
+            echo "Deployment completed successfully!"
