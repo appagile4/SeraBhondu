@@ -463,16 +463,21 @@ export const setEmailPassword = async (req, res) => {
     }
 
     // Create verified new user
-    const newUser = await User.create({
+    const userData = {
       name: name?.trim() || cleanEmail.split("@")[0],
       email: cleanEmail,
       password,
-      phone: phone?.trim() || "+880 1712 345678",
-      city: city || "Kathmandu",
+      city: city || "Dhaka",
       isVerified: true,
       authProvider: "email_otp",
       role: "user",
-    });
+    };
+
+    if (phone && phone.trim()) {
+      userData.phone = phone.trim();
+    }
+
+    const newUser = await User.create(userData);
 
     return sendTokenResponse(
       newUser,
@@ -719,19 +724,22 @@ export const signup = async (req, res) => {
     if (existingUser && !existingUser.isVerified) {
       existingUser.name = name;
       existingUser.password = password;
-      if (phone) existingUser.phone = phone;
+      if (phone && phone.trim()) existingUser.phone = phone.trim();
       if (city) existingUser.city = city;
       await existingUser.save();
     } else {
-      existingUser = await User.create({
+      const newUserData = {
         name,
         email: cleanEmail,
         password,
-        phone: phone || "+880 1712 345678",
-        city: city || "Kathmandu",
+        city: city || "Dhaka",
         isVerified: false,
         authProvider: "local",
-      });
+      };
+      if (phone && phone.trim()) {
+        newUserData.phone = phone.trim();
+      }
+      existingUser = await User.create(newUserData);
     }
 
     const rawOtp = Math.floor(100000 + Math.random() * 900000).toString();
