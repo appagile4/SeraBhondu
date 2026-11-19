@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { useMarketplace } from "@/context/MarketplaceContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { useAppDispatch, useAppSelector } from "@/store";
@@ -179,16 +180,13 @@ export function ChatNotificationToast() {
         <div className="flex items-start gap-3">
           {/* Sender Avatar with Online Dot */}
           <div className="relative shrink-0">
-            <div className="w-11 h-11 rounded-full overflow-hidden border border-slate-200 bg-slate-100">
-              <Image
-                src={activeToast.senderAvatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"}
-                alt={activeToast.senderName}
-                width={44}
-                height={44}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <span className="absolute bottom-0 right-0 w-3 h-3 bg-[#25D366] border-2 border-white rounded-full" />
+            <UserAvatar
+              src={activeToast.senderAvatar}
+              name={activeToast.senderName}
+              size={44}
+              borderClassName="border border-slate-200"
+            />
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-[#25D366] border-2 border-white rounded-full z-10" />
           </div>
 
           {/* Toast Body */}

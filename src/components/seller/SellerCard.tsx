@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Seller } from "@/types/seller";
 import { Product } from "@/types/product";
 import { Button } from "@/components/common/Button";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { useMarketplace } from "@/context/MarketplaceContext";
 import { BadgeCheck, MessageSquare, Phone, ChevronRight, Shield, Star, CheckCircle } from "lucide-react";
 
@@ -67,15 +68,12 @@ export function SellerCard({ seller, product }: SellerCardProps) {
     <div className="bg-white rounded-2xl border border-slate-200 p-5 space-y-5 shadow-xs">
       {/* Seller Header */}
       <div className="flex items-center gap-3.5">
-        <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 shrink-0">
-          <Image
-            src={seller.avatar}
-            alt={seller.name}
-            width={56}
-            height={56}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <UserAvatar
+          src={seller.avatar}
+          name={seller.name}
+          size={56}
+          borderClassName="border-2 border-slate-200"
+        />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5">
             <h4 className="text-base font-bold text-slate-900 truncate">{seller.name}</h4>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ChatWindow } from "@/components/chat/ChatWindow";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { formatPrice } from "@/lib/utils";
 import api from "@/lib/api";
 import { getSocket } from "@/lib/socket";
@@ -231,16 +232,12 @@ function ChatContent() {
               {/* WhatsApp Left Top Header */}
               <div className="bg-[#F0F2F5] px-4 py-3 border-b border-slate-200 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-9 h-9 rounded-full overflow-hidden border border-slate-300 bg-white">
-                    <Image
-                      src={user.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"}
-                      alt={user.name}
-                      fill
-                      unoptimized
-                      sizes="36px"
-                      className="object-cover"
-                    />
-                  </div>
+                  <UserAvatar
+                    src={user.avatar}
+                    name={user.name}
+                    size={36}
+                    borderClassName="border border-slate-300 shadow-2xs"
+                  />
                   <div>
                     <h2 className="text-sm font-bold text-slate-900">{t("chatTitle")}</h2>
                     <span className="text-[11px] text-slate-500">
@@ -342,16 +339,15 @@ function ChatContent() {
                         }`}
                       >
                         {/* Partner Avatar with Online Dot */}
-                        <div className="relative w-12 h-12 rounded-full overflow-hidden bg-slate-100 shrink-0 border border-slate-200">
-                          <Image
-                            src={conv.sellerAvatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"}
-                            alt={conv.sellerName}
-                            fill
-                            sizes="48px"
-                            className="object-cover"
+                        <div className="relative shrink-0">
+                          <UserAvatar
+                            src={conv.sellerAvatar}
+                            name={conv.sellerName}
+                            size={48}
+                            borderClassName="border border-slate-200 shadow-2xs"
                           />
                           {partnerOnline && (
-                            <span className="absolute bottom-0 right-0 w-3 h-3 bg-[#25D366] border-2 border-white rounded-full" />
+                            <span className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-[#25D366] border-2 border-white rounded-full z-10" />
                           )}
                         </div>
 

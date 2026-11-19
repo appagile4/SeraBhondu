@@ -7,6 +7,7 @@ import { Seller } from "@/types/seller";
 import { Product } from "@/types/product";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { Button } from "@/components/common/Button";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { useMarketplace } from "@/context/MarketplaceContext";
 import { BadgeCheck, MapPin, Calendar, Star, Phone, ShieldCheck, UserCheck } from "lucide-react";
 
@@ -37,15 +38,12 @@ export function SellerProfile({ seller, products }: SellerProfileProps) {
       <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-slate-100 shadow-md shrink-0">
-              <Image
-                src={seller.avatar}
-                alt={seller.name}
-                width={96}
-                height={96}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <UserAvatar
+              src={seller.avatar}
+              name={seller.name}
+              size="xl"
+              borderClassName="border-4 border-slate-100 shadow-md"
+            />
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <h1 className="text-xl sm:text-2xl font-black text-slate-900">{seller.name}</h1>

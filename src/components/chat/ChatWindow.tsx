@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Product } from "@/types/product";
 import { ChatMessage, MessageAttachment } from "@/types/chat";
 import { MessageBubble } from "./MessageBubble";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { formatPrice } from "@/lib/utils";
 import api from "@/lib/api";
 import { getSocket } from "@/lib/socket";
@@ -773,18 +774,15 @@ export function ChatWindow({
 
           {/* Partner Avatar with Online Dot */}
           <div className="relative shrink-0">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-slate-200 bg-white">
-              <Image
-                src={partner.avatar}
-                alt={partner.name}
-                width={44}
-                height={44}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <UserAvatar
+              src={partner.avatar}
+              name={partner.name}
+              size={44}
+              borderClassName="border border-slate-200"
+            />
             {isPartnerOnline && (
               <span
-                className="absolute bottom-0 right-0 w-3 h-3 bg-[#25D366] border-2 border-white rounded-full"
+                className="absolute bottom-0 right-0 w-3 h-3 bg-[#25D366] border-2 border-white rounded-full z-10"
                 title="Online now"
               />
             )}

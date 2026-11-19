@@ -7,6 +7,7 @@ import { useMarketplace } from "@/context/MarketplaceContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { Button } from "@/components/common/Button";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import {
   Lightbulb,
   ChevronRight,
@@ -464,15 +465,12 @@ export default function EditProfilePage() {
               <div className="px-6 sm:px-8 py-6 space-y-6">
                 {/* Current Avatar Display */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                  <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-slate-100 shadow-md shrink-0">
-                    <Image
-                      src={avatar}
-                      alt={name}
-                      fill
-                      sizes="128px"
-                      className="object-cover"
-                    />
-                  </div>
+                  <UserAvatar
+                    src={avatar}
+                    name={name}
+                    size={112}
+                    borderClassName="border-4 border-slate-100 shadow-md"
+                  />
 
                   <div className="space-y-3 text-center sm:text-left flex-1">
                     <div>

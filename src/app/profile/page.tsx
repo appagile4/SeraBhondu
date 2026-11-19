@@ -9,6 +9,7 @@ import { ProductGrid } from "@/components/products/ProductGrid";
 import { Button } from "@/components/common/Button";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { EmptyState } from "@/components/common/EmptyState";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { MOCK_PRODUCTS } from "@/data/products";
 import { formatPrice } from "@/lib/utils";
 import {
@@ -165,16 +166,12 @@ export default function ProfilePage() {
       <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-xs">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-4 border-slate-100 shadow-sm shrink-0">
-              <Image
-                src={user.avatar}
-                alt={user.name}
-                width={96}
-                height={96}
-                unoptimized
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <UserAvatar
+              src={user.avatar}
+              name={user.name}
+              size="xl"
+              borderClassName="border-4 border-slate-100 shadow-sm"
+            />
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <h1 className="text-xl sm:text-2xl font-black text-slate-900">{user.name}</h1>
@@ -496,6 +493,30 @@ export default function ProfilePage() {
           )}
         </div>
       )}
+
+      {/* Danger Zone: Account Deletion */}
+      <div className="mt-12 pt-6 border-t border-slate-200">
+        <div className="bg-red-50/70 border border-red-200/90 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h4 className="text-sm font-bold text-red-900">
+              {t("deleteAccountTitle", "অ্যাকাউন্ট মুছে ফেলুন")}
+            </h4>
+            <p className="text-xs text-red-700/90 mt-0.5">
+              {t(
+                "deleteAccountDesc",
+                "স্থায়ীভাবে আপনার সেরাবন্ধু অ্যাকাউন্ট ও সংশ্লিষ্ট সমস্ত বিজ্ঞাপন এবং ডেটা অপসারিত করুন।"
+              )}
+            </p>
+          </div>
+          <Link
+            href="/delete-account"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition-colors shrink-0 shadow-xs"
+          >
+            <Trash2 className="w-4 h-4" />
+            <span>{t("deleteAccountBtn", "অ্যাকাউন্ট মুছুন")}</span>
+          </Link>
+        </div>
+      </div>
 
       {/* Edit / Resubmit Modal */}
       {editingAd && (

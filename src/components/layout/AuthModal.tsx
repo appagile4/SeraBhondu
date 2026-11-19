@@ -71,10 +71,8 @@ export function AuthModal() {
     setView("success");
     const timer = setTimeout(() => {
       closeAuthModal();
-      if (pathname === "/login" || pathname === "/register") {
-        router.push("/profile");
-      }
-    }, 1200);
+      router.push("/profile");
+    }, 1000);
     return () => clearTimeout(timer);
   };
 
@@ -98,6 +96,7 @@ export function AuthModal() {
             setTargetEmail(email);
             setView("email-otp");
           }}
+          onSuccess={handleAuthSuccess}
         />
       )}
 

@@ -153,7 +153,7 @@ export const EmailPasswordForm: React.FC<EmailPasswordFormProps> = ({
                 setName(e.target.value);
                 if (error) setError(null);
               }}
-              placeholder="e.g. Ramesh Shrestha"
+              placeholder="e.g. Mohammad Rafiq"
               className="w-full pl-11 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#014923] focus:border-transparent transition-all shadow-sm"
             />
           </div>

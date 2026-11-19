@@ -52,23 +52,23 @@ export const AuthMethodSelector: React.FC<AuthMethodSelectorProps> = ({
           <span className="text-sm sm:text-base">{t("continueWithEmail")}</span>
         </button>
 
-        {/* OR Divider */}
-        <div className="relative flex py-1.5 items-center">
+        {/* Divider: ----- or ----- */}
+        <div className="relative flex py-2 items-center">
           <div className="flex-grow border-t border-slate-200"></div>
-          <span className="flex-shrink mx-4 text-[11px] font-bold uppercase tracking-wider text-slate-400">
-            {language === "bn" ? "অথবা" : "OR"}
+          <span className="flex-shrink mx-3 text-xs font-semibold text-slate-400 lowercase tracking-wider">
+            {language === "bn" ? "অথবা" : "or"}
           </span>
           <div className="flex-grow border-t border-slate-200"></div>
         </div>
 
-        {/* 3. Continue with Phone Number - Small & without box */}
+        {/* 3. Continue with Phone Number - without color, without border, reduced text size, underline */}
         <div className="flex justify-center">
           <button
             type="button"
             onClick={onSelectPhone}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-slate-600 hover:text-[#014923] transition-colors py-1.5 px-3 rounded-lg hover:bg-slate-50 focus:outline-none group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-[#014923] underline underline-offset-4 decoration-slate-300 hover:decoration-[#014923] transition-colors py-1 px-1 bg-transparent border-0 shadow-none focus:outline-none cursor-pointer"
           >
-            <Phone className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#014923] transition-colors" />
+            <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
             <span>{t("continueWithPhone")}</span>
           </button>
         </div>

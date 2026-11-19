@@ -265,6 +265,7 @@ export function MainFooter() {
                 { name: t("footerHelpCenter"), href: "/help" },
                 { name: t("footerTermsOfUse"), href: "/terms" },
                 { name: t("footerPrivacyPolicy"), href: "/privacy" },
+                { name: t("footerDeleteAccount", "অ্যাকাউন্ট মুছুন"), href: "/delete-account" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link

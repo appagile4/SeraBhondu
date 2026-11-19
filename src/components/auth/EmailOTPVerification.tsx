@@ -113,10 +113,15 @@ export const EmailOTPVerification: React.FC<EmailOTPVerificationProps> = ({
       );
 
       if (verifyEmailOtpUnified.fulfilled.match(action)) {
-        if (action.payload.isNewUser && action.payload.registrationToken) {
+        const payload = action.payload;
+        const isNew =
+          (payload?.isNewUser === true || payload?.isNewUser === "true") &&
+          Boolean(payload?.registrationToken);
+
+        if (isNew) {
           onNewUser({
             email,
-            registrationToken: action.payload.registrationToken,
+            registrationToken: payload.registrationToken,
           });
         } else {
           onSuccess();

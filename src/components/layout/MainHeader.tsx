@@ -8,6 +8,7 @@ import api from "@/lib/api";
 import { getSocket } from "@/lib/socket";
 import { Logo } from "@/components/common/Logo";
 import { Button } from "@/components/common/Button";
+import { UserAvatar } from "@/components/common/UserAvatar";
 import { NotificationBell } from "@/components/layout/NotificationBell";
 import { useMarketplace } from "@/context/MarketplaceContext";
 import { useAppSelector } from "@/store";
@@ -389,16 +390,12 @@ export function MainHeader() {
                 href="/profile"
                 className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-2 rounded-xl hover:bg-slate-100 transition-colors"
               >
-                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-slate-300">
-                  <Image
-                    src={user.avatar}
-                    alt={user.name}
-                    width={32}
-                    height={32}
-                    unoptimized
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <UserAvatar
+                  src={user.avatar}
+                  name={user.name}
+                  size="sm"
+                  borderClassName="border border-slate-300"
+                />
                 <span className="hidden lg:inline text-xs font-bold text-slate-800 truncate max-w-[90px]">
                   {user.name.split(" ")[0]}
                 </span>
@@ -435,16 +432,12 @@ export function MainHeader() {
               aria-label="Toggle Quick Navigation Menu"
             >
               {user ? (
-                <div className="relative w-6 h-6 rounded-full overflow-hidden border border-slate-300">
-                  <Image
-                    src={user.avatar}
-                    alt={user.name}
-                    width={24}
-                    height={24}
-                    unoptimized
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <UserAvatar
+                  src={user.avatar}
+                  name={user.name}
+                  size={24}
+                  borderClassName="border border-slate-300"
+                />
               ) : (
                 <Menu className="w-5 h-5 text-slate-700" />
               )}
@@ -478,16 +471,12 @@ export function MainHeader() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center gap-3 flex-1 min-w-0"
                 >
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-xs shrink-0">
-                    <Image
-                      src={user.avatar}
-                      alt={user.name}
-                      width={40}
-                      height={40}
-                      unoptimized
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <UserAvatar
+                    src={user.avatar}
+                    name={user.name}
+                    size="md"
+                    borderClassName="border-2 border-white shadow-xs"
+                  />
                   <div className="truncate">
                     <div className="flex items-center gap-1.5">
                       <p className="text-xs font-black text-slate-900 truncate">{user.name}</p>
