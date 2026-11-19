@@ -52,23 +52,12 @@ export function CategoryListingView({
     };
   }, [category.slug]);
 
-  // Combine live approved ads with initial products (deduped)
+  // Prefer live approved ads from MongoDB backend, fall back to initial products
   const combinedProducts = useMemo(() => {
-    const ids = new Set<string>();
-    const list: Product[] = [];
-    for (const p of liveAds) {
-      if (!ids.has(p.id)) {
-        ids.add(p.id);
-        list.push(p);
-      }
+    if (liveAds.length > 0) {
+      return liveAds;
     }
-    for (const p of initialProducts) {
-      if (!ids.has(p.id)) {
-        ids.add(p.id);
-        list.push(p);
-      }
-    }
-    return list;
+    return initialProducts;
   }, [liveAds, initialProducts]);
 
   // Filter products dynamically

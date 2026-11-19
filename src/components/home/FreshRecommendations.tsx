@@ -20,15 +20,20 @@ export function FreshRecommendations({ initialProducts }: FreshRecommendationsPr
   const [liveApprovedAds, setLiveApprovedAds] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  const isAllLocation =
+    !selectedLocation ||
+    selectedLocation === "All Bangladesh" ||
+    selectedLocation.toLowerCase() === "all bangladesh" ||
+    selectedLocation === "all-bangladesh" ||
+    selectedLocation === "All Nepal" ||
+    selectedLocation === "All India";
+
   useEffect(() => {
     let isMounted = true;
     async function loadLiveApprovedAds() {
       setIsLoading(true);
       try {
-        const cityParam =
-          selectedLocation && selectedLocation !== "All Bangladesh" && selectedLocation !== "All Nepal" && selectedLocation !== "All India"
-            ? selectedLocation
-            : undefined;
+        const cityParam = !isAllLocation ? selectedLocation : undefined;
 
         const res = await getApprovedAds({ city: cityParam, limit: 24 });
         if (isMounted && res.products.length > 0) {
@@ -46,31 +51,20 @@ export function FreshRecommendations({ initialProducts }: FreshRecommendationsPr
     return () => {
       isMounted = false;
     };
-  }, [selectedLocation]);
+  }, [selectedLocation, isAllLocation]);
 
-  // Combine live approved ads from MongoDB with initial products (avoiding ID duplicates)
-  const combinedIds = new Set<string>();
-  const combined: Product[] = [];
-
-  for (const ad of liveApprovedAds) {
-    if (!combinedIds.has(ad.id)) {
-      combinedIds.add(ad.id);
-      combined.push(ad);
+  // Prefer live approved ads from MongoDB backend, fall back to initial products
+  const combined = React.useMemo(() => {
+    if (liveApprovedAds.length > 0) {
+      return liveApprovedAds;
     }
-  }
+    return initialProducts;
+  }, [liveApprovedAds, initialProducts]);
 
-  for (const ad of initialProducts) {
-    if (!combinedIds.has(ad.id)) {
-      combinedIds.add(ad.id);
-      combined.push(ad);
-    }
-  }
-
-  // Filter by location if selected
-  const filtered =
-    selectedLocation && selectedLocation !== "All Nepal" && selectedLocation !== "All India"
-      ? combined.filter((p) => p.location.city.toLowerCase() === selectedLocation.toLowerCase())
-      : combined;
+  // Filter by location if a specific district/city is selected
+  const filtered = !isAllLocation
+    ? combined.filter((p) => p.location.city.toLowerCase() === selectedLocation.toLowerCase())
+    : combined;
 
   const visibleProducts = filtered.slice(0, displayCount);
   const hasMore = displayCount < filtered.length;
@@ -94,7 +88,7 @@ export function FreshRecommendations({ initialProducts }: FreshRecommendationsPr
               )}
             </div>
             <p className="text-xs text-slate-500">
-              {selectedLocation !== "All Bangladesh" && selectedLocation !== "All Nepal" && selectedLocation !== "All India"
+              {!isAllLocation
                 ? `${selectedLocation} ${t("freshInCity")}`
                 : t("freshRecommendationsSub")}
             </p>

@@ -1,20 +1,42 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Product } from "@/types/product";
 import { ProductCard } from "@/components/products/ProductCard";
 import { useLanguage } from "@/context/LanguageContext";
+import { getFeaturedAds } from "@/lib/advertisementApi";
 import { Flame, ArrowRight } from "lucide-react";
 
 interface FeaturedListingsProps {
   products: Product[];
 }
 
-export function FeaturedListings({ products }: FeaturedListingsProps) {
+export function FeaturedListings({ products: initialProducts }: FeaturedListingsProps) {
   const { t } = useLanguage();
+  const [liveFeatured, setLiveFeatured] = useState<Product[]>([]);
 
-  if (products.length === 0) return null;
+  useEffect(() => {
+    let mounted = true;
+    async function fetchFeatured() {
+      try {
+        const ads = await getFeaturedAds(8);
+        if (mounted && ads.length > 0) {
+          setLiveFeatured(ads);
+        }
+      } catch {
+        // ignore
+      }
+    }
+    fetchFeatured();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  const displayProducts = liveFeatured.length > 0 ? liveFeatured : initialProducts;
+
+  if (displayProducts.length === 0) return null;
 
   return (
     <section className="my-10 p-6 sm:p-8 bg-gradient-to-b from-red-500/10 via-red-500/5 to-transparent rounded-3xl border border-red-200/60 space-y-6">
@@ -43,7 +65,7 @@ export function FeaturedListings({ products }: FeaturedListingsProps) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-        {products.slice(0, 4).map((product) => (
+        {displayProducts.slice(0, 4).map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>

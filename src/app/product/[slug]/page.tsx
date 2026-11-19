@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getProductBySlug, getRelatedProducts, getAllProducts } from "@/lib/mock-api";
-import { getAdBySlug } from "@/lib/advertisementApi";
+import { getProductBySlug, getRelatedProducts } from "@/lib/mock-api";
+import { getAdBySlug, getRelatedAds } from "@/lib/advertisementApi";
 import { ProductDetailView } from "@/components/products/ProductDetailView";
 import { Product } from "@/types/product";
 
@@ -32,7 +32,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  const related = getRelatedProducts(product.id, product.category, 4);
+  let related: Product[] = [];
+  try {
+    related = await getRelatedAds(product.id);
+  } catch {}
+
+  if (!related || related.length === 0) {
+    related = getRelatedProducts(product.id, product.category, 4);
+  }
 
   return <ProductDetailView product={product} relatedProducts={related} />;
 }

@@ -70,7 +70,15 @@ export function filterAndSortProducts(
   }
 
   // City filter
-  if (filters.city && filters.city !== "All Bangladesh" && filters.city !== "all-bangladesh") {
+  const isAllCity =
+    !filters.city ||
+    filters.city.toLowerCase() === "all bangladesh" ||
+    filters.city === "all-bangladesh" ||
+    filters.city === "All Nepal" ||
+    filters.city === "All India" ||
+    filters.city.toLowerCase() === "all";
+
+  if (!isAllCity) {
     result = result.filter(
       (p) => p.location.city.toLowerCase() === filters.city?.toLowerCase()
     );
@@ -86,7 +94,7 @@ export function filterAndSortProducts(
 
   // Condition
   if (filters.condition && filters.condition !== "All") {
-    result = result.filter((p) => p.condition === filters.condition);
+    result = result.filter((p) => p.condition?.toLowerCase() === filters.condition?.toLowerCase());
   }
 
   // Brand
@@ -94,7 +102,7 @@ export function filterAndSortProducts(
     const brandLower = filters.brand.toLowerCase();
     result = result.filter((p) => {
       const b = p.attributes?.Brand?.toString().toLowerCase();
-      return b ? b.includes(brandLower) : false;
+      return (b ? b.includes(brandLower) : false) || p.title.toLowerCase().includes(brandLower);
     });
   }
 

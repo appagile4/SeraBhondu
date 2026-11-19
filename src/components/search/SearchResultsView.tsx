@@ -54,25 +54,10 @@ export function SearchResultsView({
     };
   }, [query, filters.city, filters.category]);
 
-  // Dynamically filter mock products by search query and filters
+  // Dynamically filter products by search query and filters
   const searchResults = useMemo(() => {
-    // Merge live MongoDB search results with fallback initial products
-    const ids = new Set<string>();
-    const list: Product[] = [];
-
-    for (const p of liveSearchResults) {
-      if (!ids.has(p.id)) {
-        ids.add(p.id);
-        list.push(p);
-      }
-    }
-
-    for (const p of initialProducts) {
-      if (!ids.has(p.id)) {
-        ids.add(p.id);
-        list.push(p);
-      }
-    }
+    // Prefer live backend search results, fallback to initial products
+    const list = liveSearchResults.length > 0 ? liveSearchResults : initialProducts;
 
     // Query text match
     const q = query.trim().toLowerCase();
